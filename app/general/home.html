@@ -5,21 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/logo.png">
     <title>MathUP</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
+   
 </head>
 <body class="body">
     <header class="header">
         <a class="logo" href="home.html"><img src="assets/logo.png" alt="logo"></a>
-        <div>
+        <div class="social-icons">
             <ul>
-                <li class="home.html"><a href="home.html">Instagram</a></li>
-                <li class="#"><a href="sport.html">Facebook</a></li>
-                <li class="#"><a href="international.html">Internacionales</a></li>
-                <li class="#"><a href="source.html">Recursos</a></li>
+                <li><a href="https://www.instagram.com/math_up0/"><img src="Instagram.png" alt="Instagram" class="social-icon"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61561506939201"><img src="Facebook.png" alt="Facebook" class="social-icon"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61561506939201"><img src="Facebook.png" alt="Facebook" class="social-icon"></a></li>
             </ul>
-        </div>
-        <div>
-
         </div>
     </header>
 
@@ -33,7 +30,29 @@
     </nav>
 
     <div id="main-home" class="main">
-        
+        <div class="login-container">
+            <form class="login-form">
+                <h2>Inicio de Sesión</h2>
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <div class="radio-group">
+                    <input type="radio" id="student" name="role" value="student" required>
+                    <label for="student">Estudiante</label>
+                    
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+                    
+                    <input type="radio" id="teacher" name="role" value="teacher">
+                    <label for="teacher">Profesor</label>
+                </div>
+                
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
     </div>
 
     <footer class="footer">
