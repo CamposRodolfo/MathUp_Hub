@@ -1,26 +1,26 @@
 /* Importa la fuente 'Montserrat' desde Google Fonts con distintos pesos y estilos */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap'); */
 
 /* General */
-* {
+/* * {
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
     list-style: none; 
-}
+} */
 
 /* Header General */
-body {
-    font-family: 'Montserrat', sans-serif; /* Cambio de fuente */
+/*body {
+    font-family: 'Montserrat', sans-serif;  Cambio de fuente
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f9f9f9; /* Nuevo color de fondo */
-}
+    background-color: #f9f9f9;}  Nuevo color de fondo */
 
-.header {
+
+/* .header {
     background-color: #333;
     padding: 5px;
     display: flex;
@@ -57,10 +57,10 @@ body {
 .header .social-icons ul li a {
     display: flex;
     align-items: center;
-}
+} */
 
 /* Estilo de los iconos de redes sociales */
-.social-icon {
+/* .social-icon {
     height: 30px; 
 }
 
@@ -74,12 +74,12 @@ body {
 
 .social-icon a:hover {
     text-decoration: underline;
-}
+} */
 
 /*--------------------------------------------------------------------*/
 
 /* Nav bar general---------------------------------------------------------- */
-.navbar {
+/* .navbar {
     background-color: #444;
     color: white;
     padding: 15px;
@@ -98,7 +98,7 @@ body {
 .navbar ul li a {
     color: white;
     text-decoration: none;
-}
+} */
 
 /* FIN DE NAV BAR---------------------------------------------*/
 
@@ -169,7 +169,7 @@ output {
 }
 
 /* Footer...................................................................... */
-.footer {
+/* .footer {
     background-color: #333;
     color: white;
     padding: 20px;
@@ -193,7 +193,7 @@ output {
 .footer_columna ul li a {
     color: white;
     text-decoration: none;
-}
+} */
 
 /*---------------------------------------------------------------------------------*/
 
