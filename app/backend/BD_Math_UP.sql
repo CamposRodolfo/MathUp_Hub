@@ -8,7 +8,8 @@ CREATE TABLE Admins (
     edad_adm NUMBER(2) NOT NULL,
     nombreDept_adm VARCHAR2(50) NOT NULL,
     correo_adm VARCHAR2(50) NOT NULL,
-    contrasena_adm VARCHAR2(50) NOT NULL
+    contrasena_adm VARCHAR2(50) NOT NULL,
+    celular_adm NUMBER(8) NOT NULL
 );
 
 CREATE TABLE Usuarios (
@@ -37,6 +38,7 @@ CREATE TABLE Profesores (
     contrasena_pr VARCHAR2(50) NOT NULL,
     id_esp_fk_pr NUMBER(8) NOT NULL,
     id_admin_fk_pr NUMBER(8) NOT NULL,
+    celular_pr NUMBER(8) NOT NULL,
     CONSTRAINT fk_especialidad FOREIGN KEY (id_esp_fk_pr) REFERENCES Especialidades(id_esp),
     CONSTRAINT fk_administrador FOREIGN KEY (id_admin_fk_pr) REFERENCES Admins(id_admin)
 );
@@ -180,7 +182,7 @@ CREATE OR REPLACE PROCEDURE insertar_profesores(
     p_contrasena_pr VARCHAR2,
     p_id_esp_pr NUMBER,
     p_id_admin NUMBER,
-    p_id_curso NUMBER
+    p_celular_pr NUMBER
 ) AS
     v_edad NUMBER;
     v_id_prof NUMBER;
@@ -198,8 +200,8 @@ BEGIN
             v_id_prof := seq_profesores.NEXTVAL; -- Asignar un nuevo valor para el siguiente profesor
 
             -- Insertar el nuevo profesor
-            INSERT INTO Profesores(id_profesor, nombre_pr, apellido_pr, fecha_de_nacimiento_pr, edad_pr, correo_pr, contrasena_pr, id_esp_fk_pr, id_admin_fk_pr) 
-            VALUES (v_id_prof, p_nombre_pr, p_apellido_pr, p_fecha_nacimiento, v_edad, p_correo_pr, p_contrasena_pr, p_id_esp_pr, p_id_admin);
+            INSERT INTO Profesores(id_profesor, nombre_pr, apellido_pr, fecha_de_nacimiento_pr, edad_pr, correo_pr, contrasena_pr, id_esp_fk_pr, id_admin_fk_pr, celular_pr) 
+            VALUES (v_id_prof, p_nombre_pr, p_apellido_pr, p_fecha_nacimiento, v_edad, p_correo_pr, p_contrasena_pr, p_id_esp_pr, p_id_admin, p_celular_pr);
 
             -- Confirmar la transacción
             INSERT INTO Lecciones_profesores(id_cursos_fk_lp, id_profesor_fk_lp)
@@ -229,14 +231,15 @@ CREATE OR REPLACE PROCEDURE insertar_admins(
     p_fecha_nacimiento DATE,
     p_nombreDept_adm VARCHAR2,
     p_correo_adm VARCHAR2,
-    p_contrasena_adm VARCHAR2
+    p_contrasena_adm VARCHAR2,
+    p_celular_adm NUMBER
 ) AS
     v_edad NUMBER;
 BEGIN
     v_edad := calcular_edad(p_fecha_nacimiento);
 
-    INSERT INTO Admins(id_admin, nombre_adm, apellido_adm, fecha_de_nacimiento_adm, edad_adm, nombreDept_adm, correo_adm, contrasena_adm) 
-    VALUES (seq_admins.NEXTVAL, p_nombre_adm, p_apellido_adm, p_fecha_nacimiento, v_edad, p_nombreDept_adm, p_correo_adm, p_contrasena_adm);
+    INSERT INTO Admins(id_admin, nombre_adm, apellido_adm, fecha_de_nacimiento_adm, edad_adm, nombreDept_adm, correo_adm, contrasena_adm, celular_adm) 
+    VALUES (seq_admins.NEXTVAL, p_nombre_adm, p_apellido_adm, p_fecha_nacimiento, v_edad, p_nombreDept_adm, p_correo_adm, p_contrasena_adm, p_celular_adm);
 
     COMMIT;
 EXCEPTION

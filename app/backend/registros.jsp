@@ -23,7 +23,7 @@
             if(n==1){
                     
                 //Llamar al procedimiento almacenado
-                String sql = "{call insertar_profesores(?, ?, ?, ?, ?, ?, ?)}";
+                String sql = "{call insertar_profesores(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 callableStatement = connection.prepareCall(sql);
 
                 //Establecer los parámetros del procedimiento almacenado
@@ -35,6 +35,7 @@
                 int idEsp = request.getParameter("especialidad");
                 int idAdmin = request.getParameter("id_admin");
                 int idCurso = request.getParameter("id_curso");
+                int celular = request.getParameter("Celular");
 
                 //nota de backend: sirve para ingresar los valores a cada una de las varables del procedimiento almacenado
                 callableStatement.setString(1, nombre);
@@ -45,6 +46,7 @@
                 callableStatement.setInt(6, idEsp);
                 callableStatement.setInt(7, idAdmin);
                 callableStatement.setInt(8, idCurso);
+                callableStatement.setString(9, celular);
 
                 //nota de backend: Con esto ejecutamos el procecimiento almacenado en la base de datos
                 callableStatement.execute();
@@ -52,7 +54,7 @@
 
             else if(n==2){
                 // Llamar al procedimiento almacenado
-                String sql = "{call insertar_admins(?, ?, ?, ?, ?, ?)}";
+                String sql = "{call insertar_admins(?, ?, ?, ?, ?, ?, ?)}";
                 callableStatement = connection.prepareCall(sql);
 
                 // Establecer los parámetros del procedimiento almacenado
@@ -62,6 +64,7 @@
                 int numDeptAdm = request.getParameter("numDeptAdm");
                 String correoAdm = request.getParameter("Correo");
                 String contraseñaAdm = request.getParameter("Contraseña");
+                int celular = request.getParameter("Celular");
 
                 //nota de backend: sirve para ingresar los valores a cada una de las varables del procedimiento almacenado
                 callableStatement.setString(1, nombreAdm);
@@ -70,6 +73,7 @@
                 callableStatement.setString(4, numDeptAdm);
                 callableStatement.setString(5, correoAdm);
                 callableStatement.setString(6, contraseñaAdm);
+                callableStatement.setString(7, celular);
 
                 //nota de backend: Con esto ejecutamos el procecimiento almacenado en la base de datos
                 callableStatement.execute();     
