@@ -1,5 +1,5 @@
+/* Header */
 .header {
-    /* Estilo del encabezado */
     background-color: #333;
     padding: 5px;
     display: flex;
@@ -9,24 +9,20 @@
 }
 
 .header .logo {
-    /* Alineación del logo */
     display: flex;
     align-items: center;
 }
 
 .header .logo img {
-    /* Estilo del logo en el encabezado */
-    height: 100px;
+    height: 60px;
 }
 
 .header .social-icons {
-    /* Contenedor de los iconos de redes sociales */
     display: flex;
     align-items: center;
 }
 
 .header .social-icons ul {
-    /* Lista de iconos de redes sociales */
     list-style: none;
     display: flex;
     margin: 0;
@@ -42,128 +38,110 @@
     align-items: center;
 }
 
-/* Estilo de los iconos de redes sociales */
 .social-icon {
     height: 30px; 
 }
 
 .social-icon a {
-    /* Estilo específico para el enlace "Iniciar Sesión" */
     color: white;
     text-decoration: none;
     font-weight: normal;
     font-size: 15px;
-    margin-top: 15px;
 }
 
 .social-icon a:hover {
-    /* Estilo de hover para el enlace "Iniciar Sesión" */
-    text-decoration: underline; /* Cambia aquí si deseas que tenga subrayado al hacer hover */
+    text-decoration: underline;
 }
 
-/*--------------------------------------------------------------------*/
-
-/* Nav bar general---------------------------------------------------------- */
+/* Navbar */
 .navbar {
-    /* Estilo de la barra de navegación */
     background-color: #444;
     color: white;
     padding: 20px;
 }
 
 .navbar ul {
-    /* Estilo de la lista en la barra de navegación */
     list-style: none;
     display: flex;
     justify-content: center;
 }
 
 .navbar ul li {
-    /* Estilo de los elementos de la lista en la barra de navegación */
     margin: 0 10px;
 }
 
 .navbar ul li a {
-    /* Estilo de los enlaces en la barra de navegación */
     color: white;
     text-decoration: none;
 }
 
-/* FIN DE NAV BAR---------------------------------------------*/
-
-
-/* Log in */
-.main {
-    /* Estilo del contenedor principal */
-    flex: 1;
+/* Main login --------------------------------ESTO------------------------------------------*/
+.main-login-general {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
-.login-container {
-    /* Estilo del contenedor del formulario de inicio de sesión */
+.contenedor-login {
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 30px;
+    width: 300px; /* Más ancho para el contenedor del login */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
-.login-form h2 {
-    /* Estilo del título del formulario de inicio de sesión */
+.clase-form h2 {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.login-form label {
-    /* Estilo de las etiquetas en el formulario de inicio de sesión */
+.clase-form label {
     display: block;
     margin-bottom: 5px;
 }
 
-.login-form input {
-    /* Estilo de los campos de entrada en el formulario de inicio de sesión */
-    width: 100%;
+.clase-form input {
+    width: calc(100% - 20px); /* Consistente con el padding del contenedor */
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.radio-group {
-    /* Estilo del grupo de botones de opción en el formulario de inicio de sesión */
+.icono-seleccion {
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
 }
 
-.radio-group input {
-    /* Estilo de los botones de opción en el formulario de inicio de sesión */
+.icono-seleccion input {
     margin-right: 5px;
 }
 
-.radio-group label {
-    /* Estilo de las etiquetas de los botones de opción en el formulario de inicio de sesión */
+.icono-seleccion label {
     margin-right: 10px;
 }
 
-.login-form button {
-    /* Estilo del botón de envío en el formulario de inicio de sesión */
-    width: 100%;
+.clase-form button {
+    width: calc(100% - 20px); /* Consistente con el padding del contenedor */
     padding: 10px;
     background-color: #333;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.login-form button:hover {
-    /* Estilo del botón de envío en el formulario de inicio de sesión cuando se pasa el cursor por encima */
+.clase-form button:hover {
     background-color: #555;
 }
 
 /* Footer */
 .footer {
-    /* Estilo del pie de página */
     background-color: #333;
     color: white;
     padding: 20px;
@@ -171,26 +149,25 @@
     justify-content: space-between;
 }
 
+.footer_columna {
+    flex: 1;
+    margin-right: 20px;
+}
+
 .footer_columna h4 {
-    /* Estilo de los títulos de las columnas del pie de página */
     margin-bottom: 10px;
 }
 
 .footer_columna ul {
-    /* Estilo de las listas en las columnas del pie de página */
     list-style: none;
     padding: 0;
 }
 
 .footer_columna ul li {
-    /* Estilo de los elementos de las listas en las columnas del pie de página */
     margin-bottom: 5px;
 }
 
 .footer_columna ul li a {
-    /* Estilo de los enlaces en las columnas del pie de página */
     color: white;
     text-decoration: none;
 }
-
-
