@@ -17,8 +17,10 @@
     grid-template:
     "header" 200px
     "navbar" 75px
-    "main" auto
-    "footer" 200px
+    "main"
+    "main"
+    "main"
+    "footer"
     ;
     
     .header {
@@ -42,7 +44,7 @@
     }
 }
 
-.header, .social-nav, .social-nav  {
+.header, .social-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,6 +52,9 @@
 
 
 .social-nav, .social-nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-right: 20px;
 }
 
@@ -191,3 +196,195 @@ body {
     }
 }
 
+
+.noticias {
+    margin-top: 20px;
+    text-align: center; /* Alinear el texto al centro */
+}
+
+.noticias h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.noticias-list {
+    display: flex;
+    flex-wrap: nowrap; /* Evitar que las noticias se envuelvan */
+    justify-content: space-between; /* Espacio entre las noticias */
+    align-items: flex-start; /* Alinear las noticias hacia arriba */
+}
+
+
+.noticias-list {
+    display: flex;
+    flex-wrap: nowrap; /* Evitar que las noticias se envuelvan */
+    justify-content: flex-start; /* Justificar contenido al inicio (izquierda) */
+    align-items: flex-start; /* Alinear las noticias hacia arriba */
+    overflow-x: auto; /* Permitir desplazamiento horizontal si las noticias no caben */
+    gap: 20px; /* Espacio entre las noticias */
+}
+
+.noticia {
+    flex: 0 0 calc(33.33% - 20px); /* Ajustar el ancho de cada noticia (33.33% para tres noticias en una fila) */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px; /* Aumentar el padding para más espacio */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alinear texto a la izquierda */
+    margin-bottom: 20px; /* Espacio entre noticias */
+    flex-shrink: 0; /* Evitar que las noticias se reduzcan más allá de su ancho */
+    max-width: 33.33%; /* Establecer el ancho máximo para evitar superposiciones en pantallas pequeñas */
+}
+
+.noticia h4 {
+    font-size: 18px;
+    color: #4A4A4A;
+    margin-top: 0; /* Eliminar el margen superior */
+}
+
+.noticia p {
+    font-size: 14px;
+    color: #7A7A7A;
+    margin: 10px 0; /* Ajustar el margen */
+}
+
+.noticia a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #FFE699;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.noticia a:hover {
+    background-color: #FFA500;
+}
+
+@media (max-width: 1200px) {
+    .noticias-list {
+        flex-wrap: wrap; /* Envolver noticias cuando no haya suficiente espacio */
+        justify-content: space-between; /* Espacio entre noticias */
+        gap: 20px; /* Espacio entre las noticias */
+        overflow-x: hidden; /* Ocultar desplazamiento horizontal en pantallas más pequeñas */
+    }
+
+    .noticia {
+        flex-basis: calc(50% - 20px); /* Dos noticias por fila en pantallas más pequeñas */
+        max-width: calc(50% - 20px); /* Ancho máximo para evitar superposiciones */
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .noticia {
+        flex-basis: calc(100% - 20px); /* Una noticia por fila en dispositivos móviles */
+        max-width: calc(100% - 20px); /* Ancho máximo para evitar superposiciones */
+    }
+}
+
+.noticia a:hover {
+    background-color: #FFA500;
+}
+
+
+
+.imagen-profesores figcaption,
+.imagen-calendario figcaption,
+.imagen-estudiantes figcaption {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.imagen-profesores figcaption a,
+.imagen-calendario figcaption a,
+.imagen-estudiantes figcaption a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFD700;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.imagen-profesores figcaption a:hover,
+.imagen-calendario figcaption a:hover,
+.imagen-estudiantes figcaption a:hover {
+    background-color: #FFA500;
+}
+
+
+.soporte_div {
+    flex: 0 0 calc(33.33% - 20px); /* Ajustar el ancho de cada noticia (33.33% para tres noticias en una fila) */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px; /* Aumentar el padding para más espacio */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alinear texto a la izquierda */
+    margin-bottom: 20px; /* Espacio entre noticias */
+    flex-shrink: 0; /* Evitar que las noticias se reduzcan más allá de su ancho */
+    /* max-width: 33.33%; */
+     /* Establecer el ancho máximo para evitar superposiciones en pantallas pequeñas */
+}
+
+.soporte_div h4 {
+    font-size: 18px;
+    color: #4A4A4A;
+    margin-top: 0; /* Eliminar el margen superior */
+}
+
+.soporte_div p {
+    font-size: 14px;
+    color: #7A7A7A;
+    margin: 10px 0; /* Ajustar el margen */
+}
+
+.soporte_div a, #soy_profesor {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #FFE699;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.soporte_div a:hover {
+    background-color: #FFA500;
+}
+
+@media (max-width: 1200px) {
+    .noticias-list {
+        flex-wrap: wrap; /* Envolver noticias cuando no haya suficiente espacio */
+        justify-content: space-between; /* Espacio entre noticias */
+        gap: 20px; /* Espacio entre las noticias */
+        overflow-x: hidden; /* Ocultar desplazamiento horizontal en pantallas más pequeñas */
+    }
+
+    .soporte_div {
+        flex-basis: calc(50% - 20px); /* Dos noticias por fila en pantallas más pequeñas */
+        max-width: calc(50% - 20px); /* Ancho máximo para evitar superposiciones */
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .soporte_div {
+        flex-basis: calc(100% - 20px); /* Una noticia por fila en dispositivos móviles */
+        max-width: calc(100% - 20px); /* Ancho máximo para evitar superposiciones */
+    }
+}
+
+.soporte_div a:hover {
+    background-color: #FFA500;
+}
+
+.soporte_div img {
+    height: 350px;
+}

@@ -60,37 +60,3 @@
     font-size: 18px; /* Ajusta el tamaño del texto */
     font-weight: bold; /* Ajusta el peso del texto */
 }
-
-/* HASTA AQUI-------------------------------- */
-
-/* Footer */
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer_columna {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.footer_columna h4 {
-    margin-bottom: 10px;
-}
-
-.footer_columna ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer_columna ul li {
-    margin-bottom: 5px;
-}
-
-.footer_columna ul li a {
-    color: white;
-    text-decoration: none;
-}
