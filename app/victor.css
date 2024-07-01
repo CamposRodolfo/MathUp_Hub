@@ -1,15 +1,93 @@
-/* nombre de la pagina*/
-
-stilo
-
-/* nombre de la pagina*/
-
-stilo
-
-/* nombre de la pagina*/
-
-stilo
 
 
+/* Registro de curso */
+.main-login-general {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-login {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.clase-form h2 {
+    margin-bottom: 20px;
+}
+
+.clase-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.clase-form input, .clase-form select, .clase-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.clase-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clase-form button:hover {
+    background-color: #555;
+}
+
+/* Estilo para el input de rango (scroll bar) */
+input[type="range"] {
+    width: 250px; /* Hacer el scroll bar más corto */
+    margin-right: 10px; /* Espacio entre el scroll bar y el output */
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Estilo para la salida del valor del rango */
+output {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bold;
+    margin-left: 5px;
+}
 
 
+/* Contenedor de vistas */
+.main-vistas {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.contenedor-vistas {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Ancho del contenedor del 80% del espacio disponible */
+    max-width: 1200px; /* Máximo ancho del contenedor */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.contenedor-vistas iframe {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ocupa todo el alto del contenedor */
+    border: none; /* Sin borde en el iframe */
+}

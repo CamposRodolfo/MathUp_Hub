@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="assets/logo.png">
     <title>MathUP</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../victor.css">
    
 </head>
 <body class="body">
@@ -21,7 +22,7 @@
             <a class="button" href="login.html"><button>Iniciar Sesión</button></a>
         </div>
     </header>
-    
+
     <nav class="navbar">
         <ul>
             <li class="home"><a href="home.html">Inicio</a></li>
@@ -32,9 +33,49 @@
         </ul>
     </nav>
 
-    <div id="main-home-general" class="main">
-        
-    </div>
+    <main class="main-login-general">
+        <div class="contenedor-login">  <!--CAMBIAR PHP-->
+            <form class="clase-form" action="registro_usuario.php" method="post">
+                <h2>Registro de Usuario</h2>
+                
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" placeholder="0-0000-0000" pattern="\d{1}-\d{4}-\d{4}" required>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el primer nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ingrese el primer apellido"required>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd-mm-aaaa" pattern="\d{2}-\d{2}-\d{4}" required>
+
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+
+                <label for="celular">Celular:</label>
+                <input type="text" id="celular" name="celular" placeholder="0000-0000" pattern="\d{4}-\d{4}" required>
+
+                <label>Rol:</label>
+                <div class="icono-seleccion">
+
+                    <input type="radio" id="student" name="role" value="student" required>
+                    <label for="student">Estudiante</label>
+                    
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+                    
+                    <input type="radio" id="teacher" name="role" value="teacher">
+                    <label for="teacher">Profesor</label>
+                </div>
+
+                <label for="especialidad">Especialidad:</label>
+                <input type="text" id="especialidad" name="especialidad" placeholder="Ingresar Especialidad"required>
+                
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="footer_columna">

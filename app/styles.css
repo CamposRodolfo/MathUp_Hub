@@ -49,6 +49,11 @@
 }
 
 
+.social-nav, .social-nav ul {
+    padding-right: 20px;
+}
+
+
 .social-nav img {
     background-color: #FFFFFF;
     padding: 2%;
