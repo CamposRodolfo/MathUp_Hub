@@ -25,28 +25,20 @@
     <nav class="navbar">
         <ul>
             <li class="home"><a href="home.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="ver_cursos.html">Cursos</a></li>
+            <li><a href="ver-profesores.html">Profesores</a></li>
+            <li><a href="ver-estudiantes.html">Estudiantes</a></li>
+
             <li><a href="about.html">About Us</a></li>
         </ul>
     </nav>
 
-    <main class="main-login-general">
-        <div class="contenedor-login">      <!--CAMBIAR CARGO DE DATOS-->
-            <form class="clase-form" action="subir_leccion.php" method="post">
-                <h2>Crear Leccion</h2>
-                
-                <label for="nom_leccion">Nombre de la Leccion:</label>
-                <input type="text" id="nom_leccion" name="nom_leccion" required>
-
-                <label for="duracion">Duración (horas):</label>
-                <input type="range" id="duracion" name="duracion" min="1" max="64" value="1" oninput="this.nextElementSibling.value = this.value">
-                <output>1</output> horas
-
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-
-                <button type="submit">Registrar Leccion</button>
-            </form>
+    <main class="main-vistas">
+        <div class="contenedor-vistas">  
+            <h1>Lista de Estudiantes Registrados:</h1><br><br>
+            <div id="main-home" class="main">
+                <iframe src="vista_est.jsp" width="100%" height="600px"></iframe>
+            </div>
         </div>
     </main>
 
