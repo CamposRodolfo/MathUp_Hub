@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="MathUP.png">
     <title>MathUP</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../victor.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="victor.css">
 </head>
 <body class="body">
     <header class="header">
@@ -34,26 +34,26 @@
 
     <main class="main-login-general">
         <div class="contenedor-login">
-            <form class="clase-form">
+            <form action="/app/backend/login.jsp" class="clase-form">
                 <h2>Inicio de Sesión</h2>
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="Correo">Correo:</label>
+                <input type="text" id="Correo" name="Correo" required><br/><br/>
                 
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="Contraseña">Contraseña:</label>
+                <input type="text" id="Contraseña" name="Contraseña" required>
                 
                 <div class="icono-seleccion">
-                    <input type="radio" id="student" name="role" value="student" required>
-                    <label for="student">Estudiante</label>
+                    <input type="radio" id="Profesor" name="op_login" value="1" required>
+                    <label for="Profesor">Profesor</label>
                     
-                    <input type="radio" id="admin" name="role" value="admin">
-                    <label for="admin">Admin</label>
-                    
-                    <input type="radio" id="teacher" name="role" value="teacher">
-                    <label for="teacher">Profesor</label>
+                    <input type="radio" id="Administrador" name="op_login" value="2" required>
+                    <label for="Administrador">Administrador</label>
+
+                    <input type="radio" id="Estudiante" name="op_login" value="3" required>
+                    <label for="Estudiante">Estudiante</label>
                 </div>
                 
-                <button type="submit">Ingresar</button><br>
+                <input type="submit" value="Login">Ingresar</input><br>
                 <p>¿Olvidaste tu contraseña?</p><br>
                 <p>Registrarse</p>
 

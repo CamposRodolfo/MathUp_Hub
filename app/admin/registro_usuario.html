@@ -37,45 +37,73 @@
     </nav>
 
     <main class="main-login-general">
-        <div class="contenedor-login">  <!--CAMBIAR PHP-->
-            <form class="clase-form" action="registro_usuario.php" method="post">
-                <h2>Registro de Usuario</h2>
-                
-                <label for="cedula">Cédula:</label>
-                <input type="text" id="cedula" name="cedula" placeholder="0-0000-0000" pattern="\d{1}-\d{4}-\d{4}" required>
+        <div>
+            <form action="registros.jsp" method="post">
+            	<div class="" >
 
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el primer nombre" required>
+	                <div class="">
+	                    <label for="fname">Nombre:</label>
+	                    <input type="text" id="fname" name="fname" required><br/><br/>
+                        
+                        <label for="lname">Apellido:</label>
+	                    <input type="text" id="lname" name="lname" required> 
+                        
+                        <label for="usernameUs">Nombre de usuario:</label>
+	                    <input type="text" id="usernameUs" name="usernameUs" required> 
+                        
+	                </div>
+                    <div class="">
+	                    <label for="Correo">Correo:</label>
+	                    <input type="text" id="Correo" name="Correo" required><br/><br/>
+                        
+                        <label for="Contraseña">Contraseña:</label>
+	                    <input type="text" id="Contraseña" name="Contraseña" required> 
 
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Ingrese el primer apellido"required>
+                        <label for="Celular">Celular:</label>
+	                    <input type="text" id="Celular" name="Celular" required><br/><br/>
+	                </div>
+                    <div class="">
+	                    <label for="id_admin">Administrador:</label>
+	                    <input type="text" id="id_admin" name="id_admin" required><br/><br/>
+                        
+                        <label for="id_curso">Curso:</label>
+	                    <input type="text" id="id_curso" name="id_curso" required> 
+	                </div>
 
-                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd-mm-aaaa" pattern="\d{2}-\d{2}-\d{4}" required>
+                    <div>
+                        <label for="fecha_de_nacimiento">Fecha de nacimiento:</label>
+	                	<input type="date" value="2024-03-01" min="1924-03-01" max="2004-07-07" id="fecha_de_nacimiento" name="fecha_de_nacimiento" required>
+                    </div>
 
-                <label for="correo">Correo:</label>
-                <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                    <div class="">
+	                    <label for="numDeptAdm">Departamento:</label>
+	                    <input type="text" id="numDeptAdm" name="numDeptAdm" required><br/><br/>
+	                </div>
 
-                <label for="celular">Celular:</label>
-                <input type="text" id="celular" name="celular" placeholder="0000-0000" pattern="\d{4}-\d{4}" required>
+                    <div class="">
+                        <select name="centro_rg_es" required>
+	                        <option value="1">Matematicas</option>
+	                        <option value="2">Fisica</option>
+	                        <option value="3">Programacion</option>
+	                    </select>
+                    </div>
 
-                <label>Rol:</label>
-                <div class="icono-seleccion">
+                    <div class="">
+                        <input type="radio" id="Profesor" name="op_login" value="1" required>
+                        <label for="Profesor">Profesor</label>
+                        
+                        <input type="radio" id="Administrador" name="op_login" value="2" required>
+                        <label for="Administrador">Administrador</label>
 
-                    <input type="radio" id="student" name="role" value="student" required>
-                    <label for="student">Estudiante</label>
-                    
-                    <input type="radio" id="admin" name="role" value="admin">
-                    <label for="admin">Admin</label>
-                    
-                    <input type="radio" id="teacher" name="role" value="teacher">
-                    <label for="teacher">Profesor</label>
-                </div>
+                        <input type="radio" id="Estudiante" name="op_login" value="3" required>
+                        <label for="Estudiante">Estudiante</label>
+                    </div>
 
-                <label for="especialidad">Especialidad:</label>
-                <input type="text" id="especialidad" name="especialidad" placeholder="Ingresar Especialidad"required>
-                
-                <button type="submit">Registrar</button>
+            	</div>
+
+                <div class="button-container">
+            		<input type="submit" value="Login">
+        		</div>
             </form>
         </div>
     </main>
