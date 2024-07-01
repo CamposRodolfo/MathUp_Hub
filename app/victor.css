@@ -1,15 +1,224 @@
-/* nombre de la pagina*/
+/* Importa la fuente 'Montserrat' desde Google Fonts con distintos pesos y estilos */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
 
-stilo
+/* General */
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    list-style: none; 
+}
 
-/* nombre de la pagina*/
+/* Header General */
+body {
+    font-family: 'Montserrat', sans-serif; /* Cambio de fuente */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9; /* Nuevo color de fondo */
+}
 
-stilo
+.header {
+    background-color: #333;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
 
-/* nombre de la pagina*/
+.header .logo {
+    display: flex;
+    align-items: center;
+}
 
-stilo
+.header .logo img {
+    height: 100px;
+}
+
+.header .social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.header .social-icons ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.header .social-icons ul li {
+    margin: 0 10px;
+}
+
+.header .social-icons ul li a {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo de los iconos de redes sociales */
+.social-icon {
+    height: 30px; 
+}
+
+.social-icon a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.social-icon a:hover {
+    text-decoration: underline;
+}
+
+/*--------------------------------------------------------------------*/
+
+/* Nav bar general---------------------------------------------------------- */
+.navbar {
+    background-color: #444;
+    color: white;
+    padding: 15px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* FIN DE NAV BAR---------------------------------------------*/
 
 
+/* Registro de curso */
+.main-login-general {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.contenedor-login {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
+.clase-form h2 {
+    margin-bottom: 20px;
+}
+
+.clase-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.clase-form input, .clase-form select, .clase-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.clase-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clase-form button:hover {
+    background-color: #555;
+}
+
+/* Estilo para el input de rango (scroll bar) */
+input[type="range"] {
+    width: 250px; /* Hacer el scroll bar más corto */
+    margin-right: 10px; /* Espacio entre el scroll bar y el output */
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Estilo para la salida del valor del rango */
+output {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Footer...................................................................... */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_columna h4 {
+    margin-bottom: 10px;
+}
+
+.footer_columna ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer_columna ul li {
+    margin-bottom: 5px;
+}
+
+.footer_columna ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/*---------------------------------------------------------------------------------*/
+
+/* Contenedor de vistas */
+.main-vistas {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.contenedor-vistas {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Ancho del contenedor del 80% del espacio disponible */
+    max-width: 1200px; /* Máximo ancho del contenedor */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.contenedor-vistas iframe {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ocupa todo el alto del contenedor */
+    border: none; /* Sin borde en el iframe */
+}

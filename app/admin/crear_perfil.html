@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="MathUP.png">
+    <title>Registro de Usuario MathUP</title>
+    <link rel="stylesheet" href="../victor.css">
+</head>
+<body class="body">
+    <header class="header">
+        <a class="logo" href="home.html"><img src="MathUP.png" alt="logo"></a>
+        <div class="social-icons">
+            <ul>
+                <li><a href="https://www.google.com/"><img src="Busqueda.png" alt="Busqueda" class="social-icon"></a></li>
+                <li><a href="https://www.instagram.com/math_up0/"><img src="Instagram.png" alt="Instagram" class="social-icon"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61561506939201"><img src="Facebook.png" alt="Facebook" class="social-icon"></a></li>
+                <li><a href="https://x.com/MathUP0"><img src="Twitter.png" alt="Twitter" class="social-icon"></a></li>
+                <li><a href="login.html"><img src="Login.png" alt="Login" class="social-icon"></a></li>
+                <li class="social-icon"><a href="login.html">Iniciar Sesión</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li class="home"><a href="home.html">Inicio</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="verDocentes.html">Docentes</a></li>
+            <li><a href="verEstudiantes.html">Estudiantes</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-login-general">
+        <div class="contenedor-login">  <!--CAMBIAR PHP-->
+            <form class="clase-form" action="registro_usuario.php" method="post">
+                <h2>Registro de Usuario</h2>
+                
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" placeholder="0-0000-0000" pattern="\d{1}-\d{4}-\d{4}" required>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el primer nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ingrese el primer apellido"required>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd-mm-aaaa" pattern="\d{2}-\d{2}-\d{4}" required>
+
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+
+                <label for="celular">Celular:</label>
+                <input type="text" id="celular" name="celular" placeholder="0000-0000" pattern="\d{4}-\d{4}" required>
+
+                <label>Rol:</label>
+                <div class="icono-seleccion">
+
+                    <input type="radio" id="student" name="role" value="student" required>
+                    <label for="student">Estudiante</label>
+                    
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+                    
+                    <input type="radio" id="teacher" name="role" value="teacher">
+                    <label for="teacher">Profesor</label>
+                </div>
+
+                <label for="especialidad">Especialidad:</label>
+                <input type="text" id="especialidad" name="especialidad" placeholder="Ingresar Especialidad"required>
+                
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer_columna">
+            <h4>MathUP</h4>
+            <ul>
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+            </ul>
+        </div>
+        <div class="footer_columna">
+            <h4>Derechos Reservados</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse magnam quis mollitia temporibus blanditiis, quia aliquid rerum sint exercitationem reiciendis nisi placeat itaque fuga dignissimos ipsam accusantium quasi officiis.</p>
+        </div>
+        <div class="footer_columna">
+            <h4>Perfil</h4>
+            <ul>
+                <li><a href="#">Gestionar Perfil</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
