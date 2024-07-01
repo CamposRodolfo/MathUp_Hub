@@ -1,0 +1,7 @@
+BEGIN
+    insertar_curso('Calculus I', 'Introduction to differential and integral calculus', 14, 2);
+    insertar_curso('Programming in Python', 'Learn programming with Python from scratch', 10, 1);
+    insertar_curso('Physics for Engineers', 'Fundamental concepts of physics for engineering students', 12, 3);
+END;
+/
+

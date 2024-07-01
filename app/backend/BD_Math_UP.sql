@@ -291,8 +291,8 @@ CREATE OR REPLACE PROCEDURE insertar_curso(
 )AS
     v_id_curso NUMBER;
 BEGIN
-    v_id_curso := seq_cursos.NEXTVAL;
-    INSERT INTO Cursos(id_curso, nombre_cr, descripcion_cr, duracion_cur, dificultad_cur) 
+    v_id_curso := sep_cursos.NEXTVAL;
+    INSERT INTO Cursos(id_curso, nombre_cur, descripcion_cur, duracion_cur, dificultad_cur) 
     VALUES(v_id_curso, p_nombre_cr, p_descripcion_cr, p_duracion_cr, p_dificultad_cr);
 
     COMMIT;
