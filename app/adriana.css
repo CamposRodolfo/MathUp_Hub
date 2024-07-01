@@ -1,143 +1,74 @@
-/* Header */
-.header {
-    background-color: #333;
-    padding: 5px;
+
+/* Main table */
+.main-lista-profesores {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
+    justify-content: center;
+    align-items: flex-start; /* Ajusta para que la tabla esté más arriba */
+    height: 100vh;
+    padding-top: 50px; /* Ajusta según sea necesario */
 }
 
-.header .logo {
-    display: flex;
-    align-items: center;
-}
-
-.header .logo img {
-    height: 60px;
-}
-
-.header .social-icons {
-    display: flex;
-    align-items: center;
-}
-
-.header .social-icons ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.header .social-icons ul li {
-    margin: 0 10px;
-}
-
-.header .social-icons ul li a {
-    display: flex;
-    align-items: center;
-}
-
-.social-icon {
-    height: 30px; 
-}
-
-.social-icon a {
-    color: white;
-    text-decoration: none;
-    font-weight: normal;
-    font-size: 15px;
-}
-
-.social-icon a:hover {
-    text-decoration: underline;
-}
-
-/* Navbar */
-.navbar {
-    background-color: #444;
-    color: white;
+<<<<<<< Updated upstream
+.contenedor-tabla-prof {
+    width: 80%; /* Ancho deseado para la tabla */
     padding: 20px;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-.navbar ul li {
-    margin: 0 10px;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Main login --------------------------------ESTO------------------------------------------*/
-.main-login-general {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
+    box-sizing: border-box;
+    text-align: center; /* Centra el contenido de la tarjeta */
+=======
 .contenedor-login {
     background-color: #f9f9f9;
     padding: 30px;
-    width: 300px; /* Más ancho para el contenedor del login */
+    width: 400px; /* Más ancho para el contenedor del login */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 25px;
     margin-bottom: 25px;
+>>>>>>> Stashed changes
 }
 
-.clase-form h2 {
-    text-align: center;
+.titulo-tabla {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-.clase-form label {
-    display: block;
-    margin-bottom: 5px;
+.prof-tabla {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.clase-form input {
-    width: calc(100% - 20px); /* Consistente con el padding del contenedor */
+.prof-tabla th, 
+.prof-tabla td {
+    text-align: center;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
-.icono-seleccion {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.icono-seleccion input {
-    margin-right: 5px;
-}
-
-.icono-seleccion label {
-    margin-right: 10px;
-}
-
-.clase-form button {
-    width: calc(100% - 20px); /* Consistente con el padding del contenedor */
-    padding: 10px;
-    background-color: #333;
+.prof-tabla .titulo-fila {
+    background-color: #444;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.clase-form button:hover {
-    background-color: #555;
+.prof-tabla tbody tr:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el cursor */
+}
+
+/* Agregar Profesor */
+.agregar-profesor {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; /* Ajusta según sea necesario */
+    justify-content: start;
+}
+
+.agregar-profesor .agregar-icon {
+    height: 30px; /* Ajusta el tamaño de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.agregar-profesor .agregar-text {
+    font-size: 18px; /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Ajusta el peso del texto */
 }
 
 /* Footer */
@@ -171,3 +102,4 @@
     color: white;
     text-decoration: none;
 }
+    

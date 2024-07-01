@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <<<<<<< Updated upstream
     <link rel="shortcut icon" href="MathUP.png">
-    <title>Crear Curso MathUP</title>
+    <title>Registro de Usuario MathUP</title>
     <link rel="stylesheet" href="../victor.css">
 </head>
 <body class="body">
@@ -53,43 +53,45 @@
     </nav>
 
     <main class="main-login-general">
-        <div class="contenedor-login">
-            <form class="clase-form" action="subir_curso.php" method="post">
-                <h2>Registro de Curso</h2>
+        <div class="contenedor-login">  <!--CAMBIAR PHP-->
+            <form class="clase-form" action="registro_usuario.php" method="post">
+                <h2>Registro de Usuario</h2>
                 
-                <label for="nom_curso">Nombre del Curso:</label>
-                <input type="text" id="nom_curso" name="nom_curso" required>
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" placeholder="0-0000-0000" pattern="\d{1}-\d{4}-\d{4}" required>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el primer nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ingrese el primer apellido"required>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd-mm-aaaa" pattern="\d{2}-\d{2}-\d{4}" required>
+
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+
+                <label for="celular">Celular:</label>
+                <input type="text" id="celular" name="celular" placeholder="0000-0000" pattern="\d{4}-\d{4}" required>
+
+                <label>Rol:</label>
+                <div class="icono-seleccion">
+
+                    <input type="radio" id="student" name="role" value="student" required>
+                    <label for="student">Estudiante</label>
+                    
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+                    
+                    <input type="radio" id="teacher" name="role" value="teacher">
+                    <label for="teacher">Profesor</label>
+                </div>
+
+                <label for="especialidad">Especialidad:</label>
+                <input type="text" id="especialidad" name="especialidad" placeholder="Ingresar Especialidad"required>
                 
-                <label for="nom_Docente">Nombre del Docente:</label>
-                <input type="text" id="nom_Docente" name="nom_Docente" required>
-
-                <label for="ap_Docente">Apellido del Docente:</label>
-                <input type="text" id="ap_Docente" name="ap_Docente" required>
-
-                <label for="nivel">Nivel:</label>
-                <select id="nivel" name="nivel" required>
-                    <option value="1">1er Grado</option>
-                    <option value="2">2do Grado</option>
-                    <option value="3">3er Grado</option>
-                    <option value="4">4to Grado</option>
-                    <option value="5">5to Grado</option>
-                    <option value="6">6to Grado</option>
-                    <option value="7">7mo Grado</option>
-                    <option value="8">8vo Grado</option>
-                    <option value="9">9no Grado</option>
-                    <option value="10">10mo Grado</option>
-                    <option value="11">11vo Grado</option>
-                    <option value="12">12vo Grado</option>
-                </select>
-                                
-                <label for="duracion">Duración (horas):</label>
-                <input type="range" id="duracion" name="duracion" min="1" max="64" value="1" oninput="this.nextElementSibling.value = this.value">
-                <output>1</output> horas
-
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-                
-                <button type="submit">Registrar Curso</button>
+                <button type="submit">Registrar</button>
             </form>
         </div>
     </main>
