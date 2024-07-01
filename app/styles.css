@@ -7,7 +7,65 @@
     padding: 0; /* Establece el relleno interior en 0 */
     box-sizing: border-box; /* Hace que el tamaño total de un elemento sea su ancho y alto incluyendo el relleno y el borde, pero no el margen */
     list-style: none; /* Elimina el marcador de lista */
+    text-decoration: none; /* Elimina la decoración del texto */
 }
+
+/* Maquetado */
+
+.body {
+    display: grid;
+    grid-template:
+    "header" 200px
+    "navbar" 75px
+    "main" auto
+    "footer" 200px
+    ;
+    
+    .header {
+        grid-area: "header";
+        background-color: rgba(11,62,105,1);
+        margin: 0.5% 2% 0% 2%;
+    }
+    .navbar {
+        grid-area: "navbar";
+        background-color: rgba(51,113,172,1);
+        align-content: center;
+    }
+    .main {
+        grid-area: "main";
+        background-color: rgba(254,254,254,1);
+        margin: 0% 2%;
+    }
+    .footer {
+        grid-area: "footer";
+        background-color: rgba(51,113,172,1);
+    }
+}
+
+.header, .social-nav, .social-nav  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.social-nav img {
+    background-color: #FFFFFF;
+    padding: 2%;
+    border-radius: 25%;
+    height: 50px;
+}
+
+.navbar ul{
+    display: flex;
+    justify-content: space-around;
+    li {
+        
+        align-items: center;
+    }
+    
+}
+
 
 body {
     font-family: "Montserrat", sans-serif; /* Usa la fuente Montserrat o, si no está disponible, una fuente sans-serif */
@@ -17,44 +75,114 @@ body {
 
 }
 
-.main
-
-
-/* Maquetado */
-
-body {
-    display: grid;
-    grid-template:
-    "header" 200px
-    "navbar" 300px
-    "main" auto
-    "footer" 300px
-    ;
+/* Estilos para elementos hijos directos de '.body' */
+.body > *{
+    box-shadow: 10px 6px 37px -13px rgba(51,51,51,0.74); /* Establece una sombra en los elementos */
     
-    .header {
-        grid-area: "header";
-        background-color: aqua;
+    padding: 10px; /* Establece un relleno interno de 10px */
+    text-align: center; /* Centra el texto */
+    font-weight: 500; /* Establece el grosor de la fuente */
+}
+
+.header {
+    font-weight: 500; /* Grosor del texto */
+    font-size: 1.25rem; /* Tamaño del texto */
+    color: #edf0f1; /* Color del texto */
+    
+    /* Estilos para elementos de lista, enlaces y botones dentro del encabezado */
+    li, a, button {
+        font-weight: 500; /* Grosor del texto */
+        font-size: 1.25rem; /* Tamaño del texto */
+        color: #edf0f1; /* Color del texto */
     }
-    .navbar {
-        grid-area: "navbar";
-        background-color: green;
+}
+
+/* Estilos para el logotipo */
+.logo img {
+    height: 100px; /* Establece la altura de la imagen del logotipo en 100px */
+    cursor: pointer; /* Establece el cursor como un puntero al pasar sobre el logotipo */
+    background-color: #FFF; /* Establece el color de fondo del logotipo */
+    margin: 10px; /* Establece un margen exterior de 10px */
+    padding: 10px; /* Establece un relleno interno de 10px */
+    border-radius: 50%; /* Establece un radio de borde del 50% para que el logotipo sea circular */
+}
+
+.button button {
+    /* Establece el estilo del botón */
+    color: #edf0f1; /* Color del texto */
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: 500; /* Grosor del texto */
+    padding: 9px 25px; /* Establece un relleno interno de 9px arriba y abajo y 25px a los lados */
+    background-color: rgba(250,153,28,1); /* Establece un color de fondo con transparencia */
+    border: none; /* Elimina el borde */
+    border-radius: 50px; /* Establece un radio de borde para que el botón sea redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
+}
+
+/* Estilos para el botón al pasar el mouse sobre él */
+.button button:hover {
+    background-color: rgba(228,140,25,1); /* Cambia el color de fondo con transparencia al pasar el mouse */
+}
+
+
+/* Estilos para elementos de lista dentro de la barra de navegación */
+.navbar li, .social-nav li {
+    display: inline-block; /* Muestra los elementos en línea */
+    padding: 0px 20px; /* Establece un relleno de 20px a los lados (espaciado interno) */
+
+    a {
+        color: #FFFFFF;
+        transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
     }
-    .main {
-        grid-area: "main";
-        background-color: pink;
-    }
-    .footer {
-        grid-area: "footer";
-        background-color: blueviolet;
+
+    /* Estilos para el enlace al pasar el mouse sobre él */
+    a:hover {
+        color: rgba(250,153,28,1); /* Cambia el color del texto al pasar el mouse */
     }
 }
 
 
-
-
-.login-container {
-
+/* Estilos para el pie de página */
+.footer {
+    display: grid; /* Muestra los elementos como una fila */
+    grid-template-columns: 20% auto 20%; /* Permite que los elementos se envuelvan a la siguiente línea si no caben en la fila */
+    text-align: left; /* Alinea el texto a la izquierda */
 }
 
+/* Estilos para los enlaces del pie de página */
+.footer_columna {
+    
+    padding: 15px; /* Establece un relleno de 15px */
+    
+    h4 {
+        font-size: 1.25rem; /* Tamaño de fuente */
+        color: #edf0f1; /* Color del texto */
+        margin-bottom: 25px; /* Establece un margen inferior de 25px */
+        font-weight: 500; /* Grosor del texto */
+        border-bottom: 2px solid rgba(250,153,28,1); /* Establece un borde inferior de 2px sólido con un color específico */
+        padding-bottom: 10px; /* Establece un relleno inferior de 10px */
+        display: inline-block; /* Muestra el título en línea */
+    }
 
+    p {
+        color: #cccfcf;
+        font-size: 15px;
+    }
+
+    ul li a {
+        font-size: 18px; /* Tamaño de fuente */
+        text-decoration: none; /* Elimina la decoración del texto */
+        color: #cccfcf; /* Color del texto */
+        display: block; /* Muestra los elementos como bloques */
+        margin-bottom: 15px; /* Establece un margen inferior de 15px */
+        transition: all 0.3s ease; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
+    }
+
+    /* Estilos para el enlace al pasar el mouse sobre él */
+    ul li a:hover {
+        color: rgba(250,153,28,1); /* Cambia el color del texto al pasar el mouse */
+        padding-left: 6px; /* Añade un relleno izquierdo de 6px al pasar el mouse */
+    }
+}
 
