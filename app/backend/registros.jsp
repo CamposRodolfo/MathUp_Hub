@@ -18,8 +18,9 @@
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contraseña);
                 Statement dbstatement = dbconnect.createStatement();
+                Number n = request.getParameter("op_login");
 
-            if(){
+            if(n==1){
                     
                 //Llamar al procedimiento almacenado
                 String sql = "{call insertar_profesores(?, ?, ?, ?, ?, ?, ?)}";
@@ -49,7 +50,7 @@
                 callableStatement.execute();
             }
 
-            else if(){
+            else if(n==2){
                 // Llamar al procedimiento almacenado
                 String sql = "{call insertar_admins(?, ?, ?, ?, ?, ?)}";
                 callableStatement = connection.prepareCall(sql);
