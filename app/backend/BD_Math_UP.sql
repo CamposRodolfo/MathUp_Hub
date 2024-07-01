@@ -276,18 +276,52 @@ EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
         DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
-END;
+END insertar_usuarios;
 /
 
 
 ------------------ INSERTAR USUARIOS FIN-------------------
+
+------------------ INSERTAR CURSO -------------------
         
-        
-        v_curso_exists NUMBER;
-        v_curso_exists := buscar_curso(p_id_curso);
-        IF v_curso_exists = 1 THEN
-        INSERT INTO Usuarios_curso(id_usuario_fk_uc, id_curso_fk_uc)
-        VALUES(v_usuario, p_id_curso);
-        ELSE
-        DBMS_OUTPUT.PUT_LINE('No existe el curso');
-        END IF;
+CREATE OR REPLACE PROCEDURE insertar_curso(
+    p_nombre_cr VARCHAR2,
+    p_descripcion_cr VARCHAR2,
+    p_duracion_cr NUMBER,
+    p_dificultad_cr NUMBER
+)AS
+    v_id_curso NUMBER;
+BEGIN
+    v_id_curso := seq_cursos.NEXTVAL;
+    INSERT INTO Cursos(id_curso, nombre_cr, descripcion_cr, duracion_cur, dificultad_cur) 
+    VALUES(v_id_curso, p_nombre_cr, p_descripcion_cr, p_duracion_cr, p_dificultad_cr);
+
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
+    
+END insertar_curso;
+/
+
+------------------ INSERTAR CURSO FIN -------------------
+
+
+
+
+
+
+
+
+
+
+
+        --v_curso_exists NUMBER;
+        --v_curso_exists := buscar_curso(p_id_curso);
+        --IF v_curso_exists = 1 THEN
+        --INSERT INTO Usuarios_curso(id_usuario_fk_uc, id_curso_fk_uc)
+        --VALUES(v_usuario, p_id_curso);
+        --ELSE
+        --DBMS_OUTPUT.PUT_LINE('No existe el curso');
+        --END IF;
