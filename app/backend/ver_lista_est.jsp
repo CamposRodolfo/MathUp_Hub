@@ -37,7 +37,7 @@
                         <td><%= rs.getInt("id_usuario_usr") %></td>
                         <td><%= rs.getString("nombre_usr") %></td>
                         <td><%= rs.getString("apellido_usr") %></td>
-                        <td><a href="ver_perfil.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>">Perfil</a></td>
+                        <td><a href="ver_perfil.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>" target="_parent">Perfil</a></td>
                    	</tr>
         <% 
                 }
