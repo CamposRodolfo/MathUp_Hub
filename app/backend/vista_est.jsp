@@ -32,13 +32,13 @@
                 while (rs.next()) {
                     hayDatos = true;
 
-        %>
+        %>      
                     <tr>
                         <td><%= rs.getInt("id_usuario_usr") %></td>
                         <td><%= rs.getString("nombre_usr") %></td>
                         <td><%= rs.getString("apellido_usr") %></td>
-                        <td><a href="perfil.jsp?id=<%= rs.getInt("id_usuario_usr") %>">Perfil</a></td>
-                    </tr>
+                        <td><a href="perfil.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>">Perfil</a></td>
+                   	</tr>
         <% 
                 }
 
