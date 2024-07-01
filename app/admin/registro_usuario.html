@@ -38,8 +38,19 @@
 
     <main class="main-login-general">
         <div>
-            <form action="registros.jsp" method="post">
+            <form action="/app/backend/registros.jsp" method="post">
             	<div class="" >
+
+                    <div class="">
+                        <input type="radio" id="Profesor" name="op_login" value="1" required>
+                        <label for="Profesor">Profesor</label>
+                        
+                        <input type="radio" id="Administrador" name="op_login" value="2" required>
+                        <label for="Administrador">Administrador</label>
+
+                        <input type="radio" id="Estudiante" name="op_login" value="3" required>
+                        <label for="Estudiante">Estudiante</label>
+                    </div>
 
 	                <div class="">
 	                    <label for="fname">Nombre:</label>
@@ -52,6 +63,7 @@
 	                    <input type="text" id="usernameUs" name="usernameUs" required> 
                         
 	                </div>
+
                     <div class="">
 	                    <label for="Correo">Correo:</label>
 	                    <input type="text" id="Correo" name="Correo" required><br/><br/>
@@ -62,6 +74,7 @@
                         <label for="Celular">Celular:</label>
 	                    <input type="text" id="Celular" name="Celular" required><br/><br/>
 	                </div>
+
                     <div class="">
 	                    <label for="id_admin">Administrador:</label>
 	                    <input type="text" id="id_admin" name="id_admin" required><br/><br/>
@@ -76,27 +89,11 @@
                     </div>
 
                     <div class="">
-	                    <label for="numDeptAdm">Departamento:</label>
-	                    <input type="text" id="numDeptAdm" name="numDeptAdm" required><br/><br/>
-	                </div>
-
-                    <div class="">
                         <select name="centro_rg_es" required>
 	                        <option value="1">Matematicas</option>
 	                        <option value="2">Fisica</option>
 	                        <option value="3">Programacion</option>
 	                    </select>
-                    </div>
-
-                    <div class="">
-                        <input type="radio" id="Profesor" name="op_login" value="1" required>
-                        <label for="Profesor">Profesor</label>
-                        
-                        <input type="radio" id="Administrador" name="op_login" value="2" required>
-                        <label for="Administrador">Administrador</label>
-
-                        <input type="radio" id="Estudiante" name="op_login" value="3" required>
-                        <label for="Estudiante">Estudiante</label>
                     </div>
 
             	</div>

@@ -6,7 +6,6 @@ CREATE TABLE Admins (
     apellido_adm VARCHAR2(25) NOT NULL,
     fecha_de_nacimiento_adm DATE NOT NULL,
     edad_adm NUMBER(2) NOT NULL,
-    nombreDept_adm VARCHAR2(50) NOT NULL,
     correo_adm VARCHAR2(50) NOT NULL,
     contrasena_adm VARCHAR2(50) NOT NULL,
     celular_adm NUMBER(8) NOT NULL
@@ -238,8 +237,8 @@ CREATE OR REPLACE PROCEDURE insertar_admins(
 BEGIN
     v_edad := calcular_edad(p_fecha_nacimiento);
 
-    INSERT INTO Admins(id_admin, nombre_adm, apellido_adm, fecha_de_nacimiento_adm, edad_adm, nombreDept_adm, correo_adm, contrasena_adm, celular_adm) 
-    VALUES (seq_admins.NEXTVAL, p_nombre_adm, p_apellido_adm, p_fecha_nacimiento, v_edad, p_nombreDept_adm, p_correo_adm, p_contrasena_adm, p_celular_adm);
+    INSERT INTO Admins(id_admin, nombre_adm, apellido_adm, fecha_de_nacimiento_adm, edad_adm, correo_adm, contrasena_adm, celular_adm) 
+    VALUES (seq_admins.NEXTVAL, p_nombre_adm, p_apellido_adm, p_fecha_nacimiento, v_edad, p_correo_adm, p_contrasena_adm, p_celular_adm);
 
     COMMIT;
 EXCEPTION

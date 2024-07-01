@@ -54,14 +54,13 @@
 
             else if(n==2){
                 // Llamar al procedimiento almacenado
-                String sql = "{call insertar_admins(?, ?, ?, ?, ?, ?, ?)}";
+                String sql = "{call insertar_admins(?, ?, ?, ?, ?, ?)}";
                 callableStatement = connection.prepareCall(sql);
 
                 // Establecer los parámetros del procedimiento almacenado
                 String nombreAdm = request.getParameter("fname");
                 String apellidoAdm = request.getParameter("lname");
                 String fechaNacimientoAdm = request.getParameter("fecha_de_nacimiento"); // Fecha en formato VARCHAR2
-                int numDeptAdm = request.getParameter("numDeptAdm");
                 String correoAdm = request.getParameter("Correo");
                 String contraseñaAdm = request.getParameter("Contraseña");
                 int celular = request.getParameter("Celular");
@@ -70,10 +69,9 @@
                 callableStatement.setString(1, nombreAdm);
                 callableStatement.setString(2, apellidoAdm);
                 callableStatement.setString(3, fechaNacimientoAdm);
-                callableStatement.setString(4, numDeptAdm);
-                callableStatement.setString(5, correoAdm);
-                callableStatement.setString(6, contraseñaAdm);
-                callableStatement.setString(7, celular);
+                callableStatement.setString(4, correoAdm);
+                callableStatement.setString(5, contraseñaAdm);
+                callableStatement.setString(6, celular);
 
                 //nota de backend: Con esto ejecutamos el procecimiento almacenado en la base de datos
                 callableStatement.execute();     
