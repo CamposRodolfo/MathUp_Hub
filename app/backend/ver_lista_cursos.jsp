@@ -11,10 +11,10 @@
     <h1>Lista de Estudiantes</h1>
     <table border="1">
         <tr>
-            <th>ID Usuario</th>
+            <th>ID Curso</th>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Ver perfil</th>
+            <th>Descripcion</th>
+            <th>Ver perfil curso</th>
         </tr>
         <% 
             String usuario = "LABS_ALEX";
@@ -34,10 +34,10 @@
 
         %>      
                     <tr>
-                        <td><%= rs.getInt("id_Cursos") %></td>
+                        <td><%= rs.getInt("id_curso") %></td>
                         <td><%= rs.getString("nombre_cur") %></td>
                         <td><%= rs.getString("descripcion_cur") %></td>
-                        <td><a href="ver_perfil.jsp?id_usuario_usr=<%= rs.getInt("id_Cursos") %>" target="_parent">Perfil del curso</a></td>
+                        <td><a href="ver_perfil.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
                    	</tr>
         <% 
                 }
