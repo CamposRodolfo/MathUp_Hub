@@ -24,10 +24,16 @@ html,
 body {
     font-family: "Montserrat", sans-serif; /* Usa la fuente Montserrat o, si no está disponible, una fuente sans-serif */
     font-size: 1.2rem; /* Establece el tamaño de fuente base en 1.2 rem */
-    font-weight: 300;
+    font-weight: 500;
     min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport */
     background-color: #FFFFFF; /* Establece el color de fondo del cuerpo */
 }
+/* Estilos para elementos hijos directos de '.body' */
+.body > *{
+    box-shadow: 10px 6px 37px -13px rgba(51,51,51,0.74); /* Establece una sombra en los elementos */
+    padding: 10px; /* Establece un relleno interno de 10px */
+    text-align: center; /* Centra el texto */
+} 
 a,
 a:hover,
 a:active,
@@ -125,13 +131,13 @@ p:last-child {
     color: #333333;
 }
 .colorstext {
-    color: #f56363;
+    color: rgba(250,153,28,1);
 }
 .coloricon i {
-    color: #f56363;
+    color: rgba(250,153,28,1);
 }
 .colorsbg {
-    background: #f56363;
+    background: rgba(250,153,28,1);
     color: #ffffff;
 }
 
@@ -139,59 +145,21 @@ p:last-child {
     background-color: #f9f9f9;
 }
 .btn {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 25px;
-    font-weight: 500;
-    line-height: 1.728571;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 50px;
-    width: 200px;
-    height: 50px;
-    padding: 1em;
+     /* Establece el estilo del botón */
+     color: #edf0f1; /* Color del texto */
+     font-size: 25px; /* Tamaño del texto */
+     font-weight: 500; /* Grosor del texto */
+     padding: 9px 25px; /* Establece un relleno interno de 9px arriba y abajo y 25px a los lados */
+     background-color: rgba(250,153,28,1); /* Establece un color de fondo con transparencia */
+     border: none; /* Elimina el borde */
+     border-radius: 50px; /* Establece un radio de borde para que el botón sea redondeado */
+     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+     transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
+ 
 }
 .btn-default {
-    border-radius: 0px;
-    background: rgba(250,153,28,1);
-    color: #ededed;
-    border: none;
-    padding: 9px 25px;
-    max-width:160px;
-    margin-top: 20px;
-    transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
-}
+    }
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
-    color: #fff;
-    background-color: rgba(228,140,25,1);
-    border-color:transparent;
-}
-.button button {
-    /* Establece el estilo del botón */
-    color: #edf0f1; /* Color del texto */
-    font-size: 25px; /* Tamaño del texto */
-    font-weight: 500; /* Grosor del texto */
-    padding: 9px 25px; /* Establece un relleno interno de 9px arriba y abajo y 25px a los lados */
-    background-color: rgba(250,153,28,1); /* Establece un color de fondo con transparencia */
-    border: none; /* Elimina el borde */
-    border-radius: 50px; /* Establece un radio de borde para que el botón sea redondeado */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
-}
-
-/* Estilos para el botón al pasar el mouse sobre él */
-.button button:hover {
     background-color: rgba(228,140,25,1); /* Cambia el color de fondo con transparencia al pasar el mouse */
 }
 /* Fin Base General */
@@ -203,9 +171,7 @@ p:last-child {
     "header" 200px
     "navbar" 75px
     "main" auto
-    "main" auto
-    "main" auto
-    "footer" 100px
+    "footer" auto
     ;
     
     header {
@@ -242,12 +208,16 @@ p:last-child {
 
 /* Header */
 /* Estilos para el logotipo */
+.logo {
+    height: 150px;
+    width: 150px;
+}
 .logo img {
-    height: 100px; /* Establece la altura de la imagen del logotipo en 100px */
+    
     cursor: pointer; /* Establece el cursor como un puntero al pasar sobre el logotipo */
     background-color: #FFF; /* Establece el color de fondo del logotipo */
-    margin: 10px; /* Establece un margen exterior de 10px */
-    padding: 10px; /* Establece un relleno interno de 10px */
+    margin:  0 10px; /* Establece un margen exterior de 10px */
+    padding: 25px 0px; /* Establece un relleno interno de 10px */
     border-radius: 50%; /* Establece un radio de borde del 50% para que el logotipo sea circular */
 }
 /* Estilos para las redes sociales */
@@ -262,12 +232,10 @@ header .social-icon a:hover{
 header .social-icon a i{
     padding-right:50px;
 }
-
-
 header .btn-icon .fa{
     padding: 20px;
+    width: 90px;
     font-size: 50px;
-    height: 100%;
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
@@ -280,16 +248,67 @@ header .btn-icon .fa-user{
     background: rgba(250,153,28,1);
     color: white;
   }
-
 /* Fin Header */
 
 
 
 
 /* Navbar */
-
-
-
+/* Estilos para elementos de lista dentro de la barra de navegación */
+.navbar-opcion {
+    display: inline-block; /* Muestra los elementos en línea */
+    padding: 0px 20px; /* Establece un relleno de 20px a los lados (espaciado interno) */
+    font-size: 20px;
+    color: #FFFFFF;
+    transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
+    /* Estilos para el enlace al pasar el mouse sobre él */
+}
+.navbar-opcion:hover {
+    color: rgba(250,153,28,1); /* Cambia el color del texto al pasar el mouse */
+}
+.navbar {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar a {
+    float: left;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+ }
+.navbar button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(51,113,172,1);
+    min-width: 160px;
+    box-shadow: 10px 6px 37px -13px rgba(51,51,51,0.74);
+    z-index: 1;
+}
+.dropdown-content a {
+    float: none;
+    color: #FFFFFF;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: rgba(228,140,25,1);
+} 
+.dropdown:hover .dropdown-content {
+    display: grid;
+    grid-template-columns: auto;
+}
 /* Fin Navbar */
 
 
@@ -807,71 +826,7 @@ header .btn-icon .fa-user{
     height: 50px;
 }
 
-.navbar ul{
-    
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
-    li {
-        align-items: center;
-    }
-    
-}
 
-
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-  }
-  
-  .dropdown .dropbtn { 
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-  }
-  
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgba(51,113,172,1);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: rgba(228,140,25,1);
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: grid;
-    grid-template-columns: auto;
-  }
-  
-
-.navbar a {
-    float: left;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  } */
 
 
 /*body {
@@ -910,21 +865,7 @@ header .btn-icon .fa-user{
 
 
 
-/* Estilos para elementos de lista dentro de la barra de navegación */
-.navbar li, .social-nav li {
-    display: inline-block; /* Muestra los elementos en línea */
-    padding: 0px 20px; /* Establece un relleno de 20px a los lados (espaciado interno) */
 
-    a {
-        color: #FFFFFF;
-        transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
-    }
-
-    /* Estilos para el enlace al pasar el mouse sobre él */
-    a:hover {
-        color: rgba(250,153,28,1); /* Cambia el color del texto al pasar el mouse */
-    }
-}
 
 
 /* Estilos para el pie de página */
