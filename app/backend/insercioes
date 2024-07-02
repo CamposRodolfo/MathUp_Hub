@@ -5,3 +5,26 @@ BEGIN
 END;
 /
 
+BEGIN
+    insertar_profesores('Juan', 'Pérez', TO_DATE('1980-05-15', 'YYYY-MM-DD'), 'juan.perez@example.com', 'password123', 1, 2, 61234567, 1);
+END;
+/
+
+BEGIN
+    insertar_profesores('Pedro', 'Juarez', TO_DATE('1980-05-15', 'YYYY-MM-DD'), 'juan.perez@example.com', 'password1234', 1, 1, 61534547, 2);
+END;
+/
+
+BEGIN
+    insertar_especialidad('matematicas');
+    insertar_especialidad('programacion');
+    insertar_especialidad('fisica');
+END;
+/
+
+BEGIN 
+insertar_admins('Carlos', 'Martinez', TO_DATE('1985-07-20', 'YYYY-MM-DD'), 'carlos.martinez@example.com', 'password456', 62345678); 
+insertar_admins('Ana', 'Lopez', TO_DATE('1990-11-10', 'YYYY-MM-DD'), 'ana.lopez@example.com', 'securePass789', 63456789); 
+END;
+/
+
