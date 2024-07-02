@@ -47,7 +47,9 @@ CREATE TABLE Cursos (
     nombre_cur VARCHAR2(50) NOT NULL,
     descripcion_cur VARCHAR2(50) NOT NULL,
     duracion_cur NUMBER(2) NOT NULL,
-    dificultad_cur NUMBER(2) NOT NULL
+    dificultad_cur NUMBER(2) NOT NULL,
+    id_admin_fk_cur NUMBER(8) NOT NULL,
+    CONSTRAINT fk_administrador_cr FOREIGN KEY (id_admin_fk_cur) REFERENCES Admins(id_admin)
 );
 
 CREATE TABLE Lecciones (
@@ -56,7 +58,7 @@ CREATE TABLE Lecciones (
     contenido_lec VARCHAR2(50) NOT NULL,
     dificultad_lec NUMBER(2) NOT NULL,
     id_curso_fk_lec NUMBER(8) NOT NULL,
-    CONSTRAINT fk_curso FOREIGN KEY (id_curso_fk_lec) REFERENCES Cursos(id_curso)
+    CONSTRAINT fk_curso_lc FOREIGN KEY (id_curso_fk_lec) REFERENCES Cursos(id_curso)
 );
 
 CREATE TABLE Problemas (
@@ -66,7 +68,7 @@ CREATE TABLE Problemas (
     opcion3_pb VARCHAR2(50) NOT NULL,
     solucion_pb VARCHAR2(50) NOT NULL,
     id_leccion_fk_pb NUMBER(8) NOT NULL,
-    CONSTRAINT fk_leccion FOREIGN KEY (id_leccion_fk_pb) REFERENCES Lecciones(id_leccion)
+    CONSTRAINT fk_leccion_pb FOREIGN KEY (id_leccion_fk_pb) REFERENCES Lecciones(id_leccion)
 );
 
 ---------------TABLAS DE RELACION------------------------------------
@@ -336,13 +338,14 @@ CREATE OR REPLACE PROCEDURE insertar_curso(
     p_nombre_cr VARCHAR2,
     p_descripcion_cr VARCHAR2,
     p_duracion_cr NUMBER,
-    p_dificultad_cr NUMBER
+    p_dificultad_cr NUMBER,
+    p_id_admin NUMBER
 )AS
     v_id_curso NUMBER;
 BEGIN
     v_id_curso := sep_cursos.NEXTVAL;
-    INSERT INTO Cursos(id_curso, nombre_cur, descripcion_cur, duracion_cur, dificultad_cur) 
-    VALUES(v_id_curso, p_nombre_cr, p_descripcion_cr, p_duracion_cr, p_dificultad_cr);
+    INSERT INTO Cursos(id_curso, nombre_cur, descripcion_cur, duracion_cur, dificultad_cur, id_admin_fk_cur) 
+    VALUES(v_id_curso, p_nombre_cr, p_descripcion_cr, p_duracion_cr, p_dificultad_cr, p_id_admin);
 
     COMMIT;
 EXCEPTION
@@ -369,6 +372,8 @@ END insertar_especialidad;
 
 ------------------ INSERTAR ESPECIALIDADES FIN -------------------
 
+
+------------------ INSERTAR USUARIOS A LOS CURSOS-------------------
 
 CREATE OR REPLACE PROCEDURE insertar_usuarios_curso(
     p_id_usuario NUMBER,
@@ -401,29 +406,29 @@ EXCEPTION
 END insertar_usuarios_curso;
 /
 
+------------------ INSERTAR USUARIOS A LOS CURSOS FIN -------------------
 
 
-CREATE OR REPLACE PROCEDURE insertar_profesor_curso(
-    p_id_profesor NUMBER,
+
+------------------INSERTAR LECCIONES -------------------------
+
+CREATE OR REPLACE PROCEDURE insertar_lecciones(
+    p_nombre_lec VARCHAR2,
+    p_contenido_lec VARCHAR2,
+    p_dificultad_lec NUMBER,
     p_id_curso NUMBER
 )AS
     v_curso_exists NUMBER;
-    v_profesor_exists NUMBER;
 
 BEGIN
     v_curso_exists := buscar_curso(p_id_curso);
-    v_profesor_exists := buscar_profesor(p_id_profesor);
 
-    IF v_profesor_exists =1 THEN
-        IF v_curso_exists = 1 THEN
-            INSERT INTO Cursos_profesores(id_profesor_fk_lp, id_curso_fk_lp) 
-            VALUES(p_id_profesor, p_id_curso);
-            COMMIT;
-        ELSE
-            DBMS_OUTPUT.PUT_LINE('No existe el curso');
-        END IF;
+    IF v_curso_exists =1 THEN
+        INSERT INTO Lecciones(id_leccion, nombre_lec, contenido_lec, dificultad_lec, id_curso_fk_lec)
+        VALUES(sep_lecciones.NEXTVAL, p_nombre_lec, p_contenido_lec, p_dificultad_lec, p_id_curso);
+        COMMIT;
     ELSE
-        DBMS_OUTPUT.PUT_LINE('No existe el profesor');
+        DBMS_OUTPUT.PUT_LINE('No existe el Curso');
     END IF;
 
 EXCEPTION
@@ -431,22 +436,24 @@ EXCEPTION
         ROLLBACK;
         DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
     
-END insertar_profesor_curso;
+END insertar_lecciones;
 /
 
+------------------INSERTAR LECCIONES FIN -------------------------
 
 
-
-
-
-
-
-
-        --v_curso_exists NUMBER;
-        --v_curso_exists := buscar_curso(p_id_curso);
-        --IF v_curso_exists = 1 THEN
-        --INSERT INTO Usuarios_curso(id_usuario_fk_uc, id_curso_fk_uc)
-        --VALUES(v_usuario, p_id_curso);
-        --ELSE
-        --DBMS_OUTPUT.PUT_LINE('No existe el curso');
-        --END IF;
+------------------ INSERTAR TABLA DE AUDITORIA -------------------
+--Auditamos la tabla de cursos
+CREATE TABLE Auditoria_lecciones(
+    id_leccion_aud NUMBER(8),
+    id_curso_aud NUMBER(8) NOT NULL,
+    nombre_leccion_aud VARCHAR2(50),
+    contenido_leccion_aud VARCHAR2(50),
+    dificultad_leccion_aud NUMBER,
+    id_profesor_aud NUMBER(8),
+    id_usuario_aud NUMBER(8),
+    id_admin_aud NUMBER(8) NOT NULL,
+    fecha_de_cambio_aud TIMESTAMP NOT NULL,
+    operacion VARCHAR2(10) NOT NULL,
+    CONSTRAINT pk_Cursos_pr_lec_aud PRIMARY KEY (id_curso_aud, id_profesor_aud, id_leccion_aud)
+);
