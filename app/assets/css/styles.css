@@ -12,9 +12,7 @@
 
 
 
-/* Estilos que usan todas las páginas */
-
-/* General */
+/* Base General*/
 * {
     margin: 0; /* Establece el margen exterior en 0 */
     padding: 0; /* Establece el relleno interior en 0 */
@@ -22,10 +20,181 @@
     list-style: none; /* Elimina el marcador de lista */
     text-decoration: none; /* Elimina la decoración del texto */
 }
-/* Fin General */
+html,
+body {
+    font-family: "Montserrat", sans-serif; /* Usa la fuente Montserrat o, si no está disponible, una fuente sans-serif */
+    font-size: 1.2rem; /* Establece el tamaño de fuente base en 1.2 rem */
+    font-weight: 300;
+    min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport */
+    background-color: #FFFFFF; /* Establece el color de fondo del cuerpo */
+}
+a,
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+    outline: none;
+}
+a,
+button,
+a span {
+    -webkit-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+p {
+    margin: 0 0 15px;
+}
+ol,
+ul {
+    list-style: none;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    outline: none;
+}
+h1,
+h2,
+h3 {
+    font-family: 'Lane', sans-serif;
+    font-weight: 300;
+    margin: 0;
+}
+h4,
+h5 {
+    font-family: 'roboto', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    line-height: 2rem;
+}
+h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 300;
+}
+h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-bottom: .9rem;
+}
+h3 {
+    font-weight: 300;
+    margin-bottom: .9rem;
+    font-size: 2.1rem;
+    line-height: 2.5rem;
+}
+h4 {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    margin-bottom: 1.1rem;
+}
+h5 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+h6 {
+    font-size: 1rem;
+    margin-bottom: .9rem;
+}
+p {
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+}
+p:last-child {
+    margin-bottom: 0px;
+}
+.text {
+    color: #333333;
+}
+.colorstext {
+    color: #f56363;
+}
+.coloricon i {
+    color: #f56363;
+}
+.colorsbg {
+    background: #f56363;
+    color: #ffffff;
+}
 
+.lightbg {
+    background-color: #f9f9f9;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.728571;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    width: 200px;
+    height: 50px;
+    padding: 1em;
+}
+.btn-default {
+    border-radius: 0px;
+    background: rgba(250,153,28,1);
+    color: #ededed;
+    border: none;
+    padding: 9px 25px;
+    max-width:160px;
+    margin-top: 20px;
+    transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: #fff;
+    background-color: rgba(228,140,25,1);
+    border-color:transparent;
+}
+.button button {
+    /* Establece el estilo del botón */
+    color: #edf0f1; /* Color del texto */
+    font-size: 25px; /* Tamaño del texto */
+    font-weight: 500; /* Grosor del texto */
+    padding: 9px 25px; /* Establece un relleno interno de 9px arriba y abajo y 25px a los lados */
+    background-color: rgba(250,153,28,1); /* Establece un color de fondo con transparencia */
+    border: none; /* Elimina el borde */
+    border-radius: 50px; /* Establece un radio de borde para que el botón sea redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
+}
 
-
+/* Estilos para el botón al pasar el mouse sobre él */
+.button button:hover {
+    background-color: rgba(228,140,25,1); /* Cambia el color de fondo con transparencia al pasar el mouse */
+}
+/* Fin Base General */
 
 /* Maquetado */
 .body {
@@ -36,13 +205,18 @@
     "main" auto
     "main" auto
     "main" auto
-    "footer" auto
+    "footer" 100px
     ;
     
-    .header {
+    header {
         grid-area: "header";
         background-color: rgba(11,62,105,1);
         margin: 0.5% 2% 0% 2%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 35px 15px;
+        align-items: end;
+        border-top: 3 solid rgba(51,113,172,1);
     }
     .navbar {
         grid-area: "navbar";
@@ -54,7 +228,7 @@
         background-color: rgba(254,254,254,1);
         margin: 0% 2%;
     }
-    .footer {
+    footer {
         grid-area: "footer";
         background-color: rgba(51,113,172,1);
     }
@@ -64,9 +238,48 @@
 
 
 
+/* Estilos que usan todas las páginas */
+
 /* Header */
+/* Estilos para el logotipo */
+.logo img {
+    height: 100px; /* Establece la altura de la imagen del logotipo en 100px */
+    cursor: pointer; /* Establece el cursor como un puntero al pasar sobre el logotipo */
+    background-color: #FFF; /* Establece el color de fondo del logotipo */
+    margin: 10px; /* Establece un margen exterior de 10px */
+    padding: 10px; /* Establece un relleno interno de 10px */
+    border-radius: 50%; /* Establece un radio de borde del 50% para que el logotipo sea circular */
+}
+/* Estilos para las redes sociales */
+header .social-icon a{
+    float:left;
+    font-size:50px;
+    color:#fff;
+}
+header .social-icon a:hover{
+    color:rgba(250,153,28,1);
+}
+header .social-icon a i{
+    padding-right:50px;
+}
 
 
+header .btn-icon .fa{
+    padding: 20px;
+    font-size: 50px;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+header .btn-icon .fa:hover{
+      background-color: rgba(228,140,25,1);
+  }
+header .btn-icon .fa-user{
+    background: rgba(250,153,28,1);
+    color: white;
+  }
 
 /* Fin Header */
 
@@ -100,10 +313,45 @@
 
 
 /* Footer */
+.footer {
+    display: grid; /* Muestra los elementos como una fila */
+    grid-template-columns: 20% auto 20%; /* Permite que los elementos se envuelvan a la siguiente línea si no caben en la fila */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+.footer_columna {
+    
+    padding: 15px; /* Establece un relleno de 15px */
+    
+    h4 {
+        font-size: 1.25rem; /* Tamaño de fuente */
+        color: #edf0f1; /* Color del texto */
+        margin-bottom: 25px; /* Establece un margen inferior de 25px */
+        font-weight: 500; /* Grosor del texto */
+        border-bottom: 2px solid rgba(250,153,28,1); /* Establece un borde inferior de 2px sólido con un color específico */
+        padding-bottom: 10px; /* Establece un relleno inferior de 10px */
+        display: inline-block; /* Muestra el título en línea */
+    }
 
+    p {
+        color: #cccfcf;
+        font-size: 15px;
+    }
 
+    ul li a {
+        font-size: 18px; /* Tamaño de fuente */
+        text-decoration: none; /* Elimina la decoración del texto */
+        color: #cccfcf; /* Color del texto */
+        display: block; /* Muestra los elementos como bloques */
+        margin-bottom: 15px; /* Establece un margen inferior de 15px */
+        transition: all 0.3s ease; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
+    }
 
-
+    /* Estilos para el enlace al pasar el mouse sobre él */
+    ul li a:hover {
+        color: rgba(250,153,28,1); /* Cambia el color del texto al pasar el mouse */
+        padding-left: 6px; /* Añade un relleno izquierdo de 6px al pasar el mouse */
+    }
+}
 /* Fin Footer */
 
 /* Fin Estilos que usan todas las páginas */
@@ -541,11 +789,7 @@
 
 
 
-.header, .social-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* 
 
 
 .social-nav, .social-nav ul {
@@ -627,66 +871,43 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
+  } */
 
 
-body {
-    font-family: "Montserrat", sans-serif; /* Usa la fuente Montserrat o, si no está disponible, una fuente sans-serif */
-    font-size: 1.2rem; /* Establece el tamaño de fuente base en 1.2 rem */
-    min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport */
-    background-color: #FFFFFF; /* Establece el color de fondo del cuerpo */
+/*body {
+    font-family: "Montserrat", sans-serif; /* Usa la fuente Montserrat o, si no está disponible, una fuente sans-serif 
+    font-size: 1.2rem; /* Establece el tamaño de fuente base en 1.2 rem 
+    min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport 
+    background-color: #FFFFFF; /* Establece el color de fondo del cuerpo 
 
 }
+*/
 
 /* Estilos para elementos hijos directos de '.body' */
-.body > *{
-    box-shadow: 10px 6px 37px -13px rgba(51,51,51,0.74); /* Establece una sombra en los elementos */
+/* .body > *{
+    box-shadow: 10px 6px 37px -13px rgba(51,51,51,0.74); /* Establece una sombra en los elementos 
     
-    padding: 10px; /* Establece un relleno interno de 10px */
-    text-align: center; /* Centra el texto */
-    font-weight: 500; /* Establece el grosor de la fuente */
-}
+    padding: 10px; /* Establece un relleno interno de 10px 
+    text-align: center; /* Centra el texto 
+    font-weight: 500; /* Establece el grosor de la fuente 
+} */
 
-.header {
-    font-weight: 500; /* Grosor del texto */
-    font-size: 1.25rem; /* Tamaño del texto */
-    color: #edf0f1; /* Color del texto */
+/* .header {
+    font-weight: 500; /* Grosor del texto *
+    font-size: 1.25rem; /* Tamaño del texto *
+    color: #edf0f1; /* Color del texto *
     
-    /* Estilos para elementos de lista, enlaces y botones dentro del encabezado */
+    /* Estilos para elementos de lista, enlaces y botones dentro del encabezado *
     li, a, button {
-        font-weight: 500; /* Grosor del texto */
-        font-size: 1.25rem; /* Tamaño del texto */
-        color: #edf0f1; /* Color del texto */
+        font-weight: 500; /* Grosor del texto *
+        font-size: 1.25rem; /* Tamaño del texto *
+        color: #edf0f1; /* Color del texto *
     }
-}
+} */
 
-/* Estilos para el logotipo */
-.logo img {
-    height: 100px; /* Establece la altura de la imagen del logotipo en 100px */
-    cursor: pointer; /* Establece el cursor como un puntero al pasar sobre el logotipo */
-    background-color: #FFF; /* Establece el color de fondo del logotipo */
-    margin: 10px; /* Establece un margen exterior de 10px */
-    padding: 10px; /* Establece un relleno interno de 10px */
-    border-radius: 50%; /* Establece un radio de borde del 50% para que el logotipo sea circular */
-}
 
-.button button {
-    /* Establece el estilo del botón */
-    color: #edf0f1; /* Color del texto */
-    font-size: 25px; /* Tamaño del texto */
-    font-weight: 500; /* Grosor del texto */
-    padding: 9px 25px; /* Establece un relleno interno de 9px arriba y abajo y 25px a los lados */
-    background-color: rgba(250,153,28,1); /* Establece un color de fondo con transparencia */
-    border: none; /* Elimina el borde */
-    border-radius: 50px; /* Establece un radio de borde para que el botón sea redondeado */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
-}
 
-/* Estilos para el botón al pasar el mouse sobre él */
-.button button:hover {
-    background-color: rgba(228,140,25,1); /* Cambia el color de fondo con transparencia al pasar el mouse */
-}
+
 
 
 /* Estilos para elementos de lista dentro de la barra de navegación */
@@ -707,47 +928,9 @@ body {
 
 
 /* Estilos para el pie de página */
-.footer {
-    display: grid; /* Muestra los elementos como una fila */
-    grid-template-columns: 20% auto 20%; /* Permite que los elementos se envuelvan a la siguiente línea si no caben en la fila */
-    text-align: left; /* Alinea el texto a la izquierda */
-}
 
 /* Estilos para los enlaces del pie de página */
-.footer_columna {
-    
-    padding: 15px; /* Establece un relleno de 15px */
-    
-    h4 {
-        font-size: 1.25rem; /* Tamaño de fuente */
-        color: #edf0f1; /* Color del texto */
-        margin-bottom: 25px; /* Establece un margen inferior de 25px */
-        font-weight: 500; /* Grosor del texto */
-        border-bottom: 2px solid rgba(250,153,28,1); /* Establece un borde inferior de 2px sólido con un color específico */
-        padding-bottom: 10px; /* Establece un relleno inferior de 10px */
-        display: inline-block; /* Muestra el título en línea */
-    }
 
-    p {
-        color: #cccfcf;
-        font-size: 15px;
-    }
-
-    ul li a {
-        font-size: 18px; /* Tamaño de fuente */
-        text-decoration: none; /* Elimina la decoración del texto */
-        color: #cccfcf; /* Color del texto */
-        display: block; /* Muestra los elementos como bloques */
-        margin-bottom: 15px; /* Establece un margen inferior de 15px */
-        transition: all 0.3s ease; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
-    }
-
-    /* Estilos para el enlace al pasar el mouse sobre él */
-    ul li a:hover {
-        color: rgba(250,153,28,1); /* Cambia el color del texto al pasar el mouse */
-        padding-left: 6px; /* Añade un relleno izquierdo de 6px al pasar el mouse */
-    }
-}
 
 
 .noticias {
