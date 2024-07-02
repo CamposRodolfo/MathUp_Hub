@@ -43,6 +43,25 @@ BEGIN
 END;
 /
 
+
+BEGIN
+    insertar_usuarios_curso(1, 1);
+    insertar_usuarios_curso(2, 1);
+    insertar_usuarios_curso(3, 2);
+    insertar_usuarios_curso(4, 3);
+    insertar_usuarios_curso(5, 4);
+END;
+/
+
+BEGIN
+    insertar_profesor_curso(1, 1);
+    insertar_profesor_curso(2, 2);
+    insertar_profesor_curso(3, 3);
+    insertar_profesor_curso(4, 4);
+    insertar_profesor_curso(5, 5);
+END;
+/
+
 BEGIN
     insertar_leccion('Leccion 1', 'Introduccion a Calculo', 2, 1);
     insertar_leccion('Leccion 2', 'Limites y Continuidad', 3, 1);
@@ -62,44 +81,10 @@ END;
 /
 
 BEGIN
-    insertar_usuarios_curso(1, 1);
-    insertar_usuarios_curso(2, 1);
-    insertar_usuarios_curso(3, 2);
-    insertar_usuarios_curso(4, 3);
-    insertar_usuarios_curso(5, 4);
-END;
-/
-
-BEGIN
     insertar_usuario_problema(1, 1, TO_DATE('2024-06-01', 'YYYY-MM-DD'), 85);
     insertar_usuario_problema(2, 2, TO_DATE('2024-06-02', 'YYYY-MM-DD'), 90);
     insertar_usuario_problema(3, 3, TO_DATE('2024-06-03', 'YYYY-MM-DD'), 75);
     insertar_usuario_problema(4, 4, TO_DATE('2024-06-04', 'YYYY-MM-DD'), 80);
     insertar_usuario_problema(5, 5, TO_DATE('2024-06-05', 'YYYY-MM-DD'), 95);
-END;
-/
-
-BEGIN
-    insertar_curso_profesor(1, 1);
-    insertar_curso_profesor(2, 2);
-    insertar_curso_profesor(3, 3);
-    insertar_curso_profesor(4, 4);
-    insertar_curso_profesor(5, 5);
-END;
-/
-
-BEGIN
-    insertar_usuarios_curso(7, 1);
-    insertar_usuarios_curso(7, 2);
-    insertar_usuarios_curso(7, 4);
-    insertar_usuarios_curso(8, 1);
-    insertar_usuarios_curso(8, 4);
-END;
-/
-
-
-BEGIN
-    insertar_profesor_curso(1, 1);
-    insertar_profesor_curso(2, 2);
 END;
 /
