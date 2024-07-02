@@ -25,7 +25,7 @@
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
                 
-                String mostrarsql = "SELECT * FROM Cursos";
+                String mostrarsql = "SELECT * FROM Admins";
                 ResultSet rs = dbstatement.executeQuery(mostrarsql);
                 boolean hayDatos = false;
 
@@ -34,10 +34,10 @@
 
         %>      
                     <tr>
-                        <td><%= rs.getInt("id_curso") %></td>
-                        <td><%= rs.getString("nombre_cur") %></td>
-                        <td><%= rs.getString("descripcion_cur") %></td>
-                        <td><a href="ver_perfil.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
+                        <td><%= rs.getInt("id_admin") %></td>
+                        <td><%= rs.getString("nombre_adm") %></td>
+                        <td><%= rs.getString("apellido_adm") %></td>
+                        <td><a href="ver_perfil.jsp?id_admin=<%= rs.getInt("id_admin") %>" target="_parent">Perfil del curso</a></td>
                    	</tr>
         <% 
                 }

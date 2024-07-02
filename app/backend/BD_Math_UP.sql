@@ -181,7 +181,8 @@ CREATE OR REPLACE PROCEDURE insertar_profesores(
     p_contrasena_pr VARCHAR2,
     p_id_esp_pr NUMBER,
     p_id_admin NUMBER,
-    p_celular_pr NUMBER
+    p_celular_pr NUMBER,
+    p_id_curso NUMBER
 ) AS
     v_edad NUMBER;
     v_id_prof NUMBER;
@@ -203,7 +204,7 @@ BEGIN
             VALUES (v_id_prof, p_nombre_pr, p_apellido_pr, p_fecha_nacimiento, v_edad, p_correo_pr, p_contrasena_pr, p_id_esp_pr, p_id_admin, p_celular_pr);
 
             -- Confirmar la transacción
-            INSERT INTO Lecciones_profesores(id_cursos_fk_lp, id_profesor_fk_lp)
+            INSERT INTO Cursos_profesores(id_curso_fk_lp, id_profesor_fk_lp)
             VALUES (p_id_curso, v_id_prof);
             
             COMMIT;
@@ -228,7 +229,6 @@ CREATE OR REPLACE PROCEDURE insertar_admins(
     p_nombre_adm VARCHAR2,
     p_apellido_adm VARCHAR2,
     p_fecha_nacimiento DATE,
-    p_nombreDept_adm VARCHAR2,
     p_correo_adm VARCHAR2,
     p_contrasena_adm VARCHAR2,
     p_celular_adm NUMBER
@@ -268,7 +268,7 @@ BEGIN
     v_usuario := seq_usuarios.NEXTVAL;
 
     INSERT INTO Usuarios(id_usuario_usr, nombre_usr, apellido_usr, fecha_nacimiento_usr, edad_usr, username, correo_usr, contrasena_usr) 
-    VALUES(v_usuario, p_nombre_us, p_apellido_us, p_username_us, p_correo_us, p_contrasena_us);
+    VALUES(v_usuario, p_nombre_us, p_apellido_us, p_fecha_nacimiento, v_edad, p_username_us, p_correo_us, p_contrasena_us);
     COMMIT;
 
 EXCEPTION
@@ -291,8 +291,8 @@ CREATE OR REPLACE PROCEDURE insertar_curso(
 )AS
     v_id_curso NUMBER;
 BEGIN
-    v_id_curso := seq_cursos.NEXTVAL;
-    INSERT INTO Cursos(id_curso, nombre_cr, descripcion_cr, duracion_cur, dificultad_cur) 
+    v_id_curso := sep_cursos.NEXTVAL;
+    INSERT INTO Cursos(id_curso, nombre_cur, descripcion_cur, duracion_cur, dificultad_cur) 
     VALUES(v_id_curso, p_nombre_cr, p_descripcion_cr, p_duracion_cr, p_dificultad_cr);
 
     COMMIT;
@@ -306,9 +306,19 @@ END insertar_curso;
 
 ------------------ INSERTAR CURSO FIN -------------------
 
+------------------ INSERTAR ESPECIALIDADES -------------------
 
+CREATE OR REPLACE PROCEDURE insertar_especialidad(
+    p_especialidad VARCHAR2
+)AS
 
+BEGIN
+    INSERT INTO Especialidades(id_esp, especialidad)
+    VALUES(sep_esp.NEXTVAL, p_especialidad);
+END insertar_especialidad;
+/
 
+------------------ INSERTAR ESPECIALIDADES FIN -------------------
 
 
 
