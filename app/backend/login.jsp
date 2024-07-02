@@ -1,48 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
     <% 
         String usuario = "LABS_ALEX";
-        String contraseña = "LAB_2003";
-
-        // captura de los valores que vienen desde el formulario.
+        String contrasena = "LAB_2003";
         String correo = request.getParameter("Correo");
         String con = request.getParameter("Contraseña");
-        Number n = request.getParameter("op_login");
+        String n = request.getParameter("op_login");
         
-        //creamos la conexion        
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contraseña);
-        Statement dbstatement = dbconnect.createStatement();
-        
-        if(n == 1){
-            PreparedStatement preparado = dbconnect.prepareStatement("SELECT correo_pr, contrasena_pr FROM Profesores WHERE correo_pr=? AND contrasena_pr=?");
-        } else if(n == 2){
-            PreparedStatement preparado = dbconnect.prepareStatement("SELECT correo_adm, contrasena_adm FROM Admins WHERE correo_adm=? AND contrasena_adm=?");
-        } else {
-            PreparedStatement preparado = dbconnect.prepareStatement("SELECT correo_usr, contrasena_usr FROM Usuarios WHERE correo_usr=? AND contrasena_usr=?");
+        PreparedStatement preparado = null;
+        ResultSet resultados = null;
+        String msg = "";
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
+            Statement dbstatement = dbconnect.createStatement();
+            
+            //consultas de la base de datos distintas para cada perfil
+            //"preparador" es una varible para cargar la consulta y verificar el usuario
+            if("1".equals(n)){
+                preparado = dbconnect.prepareStatement("SELECT * FROM Profesores WHERE correo_pr=? AND contrasena_pr=?");
+            } else if("2".equals(n)){
+                preparado = dbconnect.prepareStatement("SELECT * FROM Admins WHERE correo_adm=? AND contrasena_adm=?");
+            } else {
+                preparado = dbconnect.prepareStatement("SELECT * FROM Usuarios WHERE correo_usr=? AND contrasena_usr=?");
+            }
+
+            preparado.setString(1, correo);
+            preparado.setString(2, con);
+            resultados = preparado.executeQuery();// confirma el perfil
+
+            if(resultados.next()) {
+            	//esto lleva a cada uno de los homes de cada uno de los tipos de perfiles distintos 
+            	//se usa este comando: "response.sendRedirect" para ello
+            	
+            	if("1".equals(n)){
+                    response.sendRedirect("../profesor/home.html");
+                } else if("2".equals(n)){
+                    response.sendRedirect("../admin/home.html");
+                } else {
+                    response.sendRedirect("../estudiante/home.html");
+                }
+            } else {
+                msg = "<h1 style='color: red;'>****ERROR*** <br> USUARIO INCORRECTO</h1>";
+            }
+        } catch (Exception e) {
+            msg = "<h1 style='color: red;'>Error en la conexión o consulta SQL</h1>";
+            e.printStackTrace();
         }
-        
-        //Prepared Statement para proteger de SQL injection
-        preparado.setString(1,correo);
-        preparado.setString(2,con);
-
-        //Ejecutamos consulta y obtenemos un resulSet
-        ResultSet resultados = preparado.executeQuery();
-
-        //Recorremos el ResultSet para ver si NO esta vacio.
-        String msg;
-        if(resultados.next())
-        	msg = "<h1 style='color: green;'>FELICIDADES, USUARIO CORRECTO</h1>";
-        else
-        	msg = "<h1 style='color: red;'>****ERROR*** <br> USUARIO INCORRECTO</h1>";
     %>
     
     <%= msg %>
