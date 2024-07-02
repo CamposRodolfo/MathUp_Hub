@@ -5,10 +5,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>vista_est</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h1>Lista de Estudiantes</h1>
+    <h1>Lista de Profesores</h1>
     <table border="1">
         <tr>
             <th>ID Usuario</th>
