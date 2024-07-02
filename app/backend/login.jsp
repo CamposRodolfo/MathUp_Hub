@@ -25,7 +25,7 @@
             Statement dbstatement = dbconnect.createStatement();
             
             //consultas de la base de datos distintas para cada perfil
-            //"preparador" es una varible para cargar la consulta y verificar el usuario
+            //"preparador" es una varible para cargar la consulta y v*erificar el usuario
             if("1".equals(n)){
                 preparado = dbconnect.prepareStatement("SELECT * FROM Profesores WHERE correo_pr=? AND contrasena_pr=?");
             } else if("2".equals(n)){

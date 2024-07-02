@@ -1,5 +1,18 @@
+/* Importaciones para las páginas */
+
 /* Importa la fuente 'Montserrat' desde Google Fonts con distintos pesos y estilos */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+
+/* Fin Importaciones para las páginas */
+
+
+
+
+
+
+
+
+/* Estilos que usan todas las páginas */
 
 /* General */
 * {
@@ -9,9 +22,12 @@
     list-style: none; /* Elimina el marcador de lista */
     text-decoration: none; /* Elimina la decoración del texto */
 }
+/* Fin General */
+
+
+
 
 /* Maquetado */
-
 .body {
     display: grid;
     grid-template:
@@ -43,6 +59,193 @@
         background-color: rgba(51,113,172,1);
     }
 }
+/* Fin Maquetado */
+
+
+
+
+/* Header */
+
+
+
+/* Fin Header */
+
+
+
+
+/* Navbar */
+
+
+
+/* Fin Navbar */
+
+
+
+
+/* Aside */
+
+
+
+
+/* Fin Aside */
+
+
+
+
+/* About */
+
+/* Fin About */
+
+
+
+
+/* Footer */
+
+
+
+
+/* Fin Footer */
+
+/* Fin Estilos que usan todas las páginas */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carpeta General */
+
+/* Home */
+
+/* Fin Home */
+
+
+
+
+/* Login */
+
+
+/* Fin Login */
+
+/* Fin Carpeta General */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carpeta Admin */
+
+/* Home */
+
+
+/* Fin Home */
+
+
+
+
+
+
+
+
+/* Cursos */
+
+/* Registrar Curso */
+
+
+/* Fin Registrar Curso */
+
+
+
+
+/* Lista de Cursos */
+
+/* Fin Carpeta Admin */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carpteta Profesor */
+
+
+/* Fin Carpeta Profesor */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carpeta Estudiante */
+
+
+/* Fin Carpeta Estudiante */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carpeta Backend */
+
+
+/* Fin Carpeta Backend */
+
+
+
+
+
+
 
 .header, .social-nav {
     display: flex;
