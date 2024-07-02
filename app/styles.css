@@ -17,10 +17,10 @@
     grid-template:
     "header" 200px
     "navbar" 75px
-    "main"
-    "main"
-    "main"
-    "footer"
+    "main" auto
+    "main" auto
+    "main" auto
+    "footer" auto
     ;
     
     .header {
@@ -67,14 +67,70 @@
 }
 
 .navbar ul{
+    
+    overflow: hidden;
     display: flex;
     justify-content: space-around;
     li {
-        
         align-items: center;
     }
     
 }
+
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn { 
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(51,113,172,1);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgba(228,140,25,1);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  
+
+.navbar a {
+    float: left;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
 
 
 body {
@@ -120,7 +176,7 @@ body {
 .button button {
     /* Establece el estilo del botón */
     color: #edf0f1; /* Color del texto */
-    font-size: 1rem; /* Tamaño del texto */
+    font-size: 25px; /* Tamaño del texto */
     font-weight: 500; /* Grosor del texto */
     padding: 9px 25px; /* Establece un relleno interno de 9px arriba y abajo y 25px a los lados */
     background-color: rgba(250,153,28,1); /* Establece un color de fondo con transparencia */
