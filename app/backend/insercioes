@@ -62,11 +62,11 @@ END;
 /
 
 BEGIN
-    insertar_usuario_curso(1, 1, 1);
-    insertar_usuario_curso(2, 1, 2);
-    insertar_usuario_curso(3, 2, 1);
-    insertar_usuario_curso(4, 3, 2);
-    insertar_usuario_curso(5, 4, 1);
+    insertar_usuarios_curso(1, 1);
+    insertar_usuarios_curso(2, 1);
+    insertar_usuarios_curso(3, 2);
+    insertar_usuarios_curso(4, 3);
+    insertar_usuarios_curso(5, 4);
 END;
 /
 
