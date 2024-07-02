@@ -13,17 +13,18 @@
     String usuario = "LABS_ALEX";
     String contraseña = "LAB_2003";
 
-    //Obtener parámetro op_login como string y convertirlo a entero
-    int n = Integer.parseInt(request.getParameter("op_login"));
+    Connection dbconnect = null;
+    CallableStatement callableStatement = null;
 
     try {
         Class.forName("oracle.jdbc.driver.OracleDriver");
-        Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contraseña);
+        dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contraseña);
 
-        CallableStatement callableStatement = null; //
+        // Obtener parámetro op_login como string y convertirlo a entero
+        int n = Integer.parseInt(request.getParameter("op_login"));
 
         if (n == 1) {
-            //Llamar al procedimiento almacenado para insertar profesores
+            // Llamar al procedimiento almacenado para insertar profesores
             String sql = "{call insertar_profesores(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
             callableStatement = dbconnect.prepareCall(sql);
 
@@ -35,8 +36,8 @@
             String contraseña_pr = request.getParameter("Contraseña");
             int idEsp = Integer.parseInt(request.getParameter("especialidad"));
             int idAdmin = Integer.parseInt(request.getParameter("id_admin"));
+            int celular = Integer.parseInt(request.getParameter("Celular"));
             int idCurso = Integer.parseInt(request.getParameter("id_curso"));
-            String celular = request.getParameter("Celular");
 
             callableStatement.setString(1, nombre);
             callableStatement.setString(2, apellido);
@@ -46,15 +47,15 @@
             callableStatement.setInt(6, idEsp);
             callableStatement.setInt(7, idAdmin);
             callableStatement.setInt(8, idCurso);
-            callableStatement.setString(9, celular);
+            callableStatement.setInt(9, celular);
 
             callableStatement.execute();
         } else if (n == 2) {
-            //Llamar al procedimiento almacenado para insertar admins
+            // Llamar al procedimiento almacenado para insertar admins
             String sql = "{call insertar_admins(?, ?, ?, ?, ?, ?)}";
             callableStatement = dbconnect.prepareCall(sql);
 
-            //Establecer los parámetros del procedimiento almacenado
+            // Establecer los parámetros del procedimiento almacenado
             String nombre = request.getParameter("fname");
             String apellido = request.getParameter("lname");
             String fechaNacimiento = request.getParameter("fecha_de_nacimiento"); // Debe ser String si el procedimiento espera VARCHAR2
@@ -71,11 +72,11 @@
 
             callableStatement.execute();
         } else {
-            //Llamar al procedimiento almacenado para insertar usuarios
+            // Llamar al procedimiento almacenado para insertar usuarios
             String sql = "{call insertar_usuarios(?, ?, ?, ?, ?, ?)}";
             callableStatement = dbconnect.prepareCall(sql);
 
-            //Establecer los parámetros del procedimiento almacenado
+            // Establecer los parámetros del procedimiento almacenado
             String nombre = request.getParameter("fname");
             String apellido = request.getParameter("lname");
             Date fechaNacimiento = Date.valueOf(request.getParameter("fecha_de_nacimiento")); // Convertir String a java.sql.Date
@@ -95,21 +96,19 @@
             callableStatement.execute();
         }
 
+        dbconnect.commit(); // Realizar el commit de la transacción
+
         out.println("Procedimiento almacenado ejecutado con éxito.");
     } catch (ClassNotFoundException e) {
         out.println("Error al cargar el driver JDBC: " + e.getMessage());
     } catch (SQLException e) {
         out.println("Error al ejecutar el procedimiento almacenado: " + e.getMessage());
-    } finally {
-        try {
-            if (callableStatement != null) {
-                callableStatement.close();
+        if (dbconnect != null) {
+            try {
+                dbconnect.rollback(); // Hacer rollback en caso de error
+            } catch (SQLException ex) {
+                out.println("Error al hacer rollback: " + ex.getMessage());
             }
-            if (dbconnect != null) {
-                dbconnect.close();
-            }
-        } catch (SQLException e) {
-            out.println("Error al cerrar la conexión: " + e.getMessage());
         }
     }
 %>

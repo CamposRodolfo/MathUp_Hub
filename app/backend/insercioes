@@ -87,3 +87,19 @@ BEGIN
     insertar_curso_profesor(5, 5);
 END;
 /
+
+BEGIN
+    insertar_usuarios_curso(7, 1);
+    insertar_usuarios_curso(7, 2);
+    insertar_usuarios_curso(7, 4);
+    insertar_usuarios_curso(8, 1);
+    insertar_usuarios_curso(8, 4);
+END;
+/
+
+
+BEGIN
+    insertar_profesor_curso(1, 1);
+    insertar_profesor_curso(2, 2);
+END;
+/

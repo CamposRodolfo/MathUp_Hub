@@ -12,11 +12,11 @@
     
     <% 
         //obtener los parámetros de la URL
-        String idUsuario = request.getParameter("id_usuario_usr");
+        String id_admin = request.getParameter("id_admin");
 
-        if (idUsuario != null) {
+        if (id_admin != null) {
             //convertir idUsuario a un entero para usuarlo en el select
-            int idUsuarioInt = Integer.parseInt(idUsuario);
+            int idUsuarioInt = Integer.parseInt(id_admin);
             
             
             try {
@@ -27,15 +27,15 @@
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
 
-                String sql = "SELECT * FROM Usuarios WHERE id_usuario_usr = " + idUsuarioInt;
+                String sql = "SELECT * FROM Admins WHERE id_admin = " + id_admin;
                 ResultSet rs = dbstatement.executeQuery(sql);
 
                 if (rs.next()) {
                 	%>
-                	<h1>ID Usuario: <%=rs.getString("id_usuario_usr") %><br></h1>
-                    <h1>Nombre: <%=rs.getString("nombre_usr") %><br></h1>
-                    <h1>Apellido:  <%=rs.getString("apellido_usr") %><br></h1>
-                    <h1>Correo: <%=rs.getString("correo_usr") %><br></h1>
+                	<h1>ID Administrador: <%=rs.getString("id_admin") %><br></h1>
+                    <h1>Nombre: <%=rs.getString("nombre_adm") %><br></h1>
+                    <h1>Apellido:  <%=rs.getString("apellido_adm") %><br></h1>
+                    <h1>Correo: <%=rs.getString("correo_adm") %><br></h1>
                     <%
                     
                 } else {

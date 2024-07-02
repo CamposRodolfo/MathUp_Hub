@@ -11,13 +11,12 @@
     <h1>Perfil del Usuario</h1>
     
     <% 
-        //obtener los parámetros de la URL
-        String idUsuario = request.getParameter("id_usuario_usr");
+        // Obtener el parámetro id_profesor desde la URL
+        String idprofesor = request.getParameter("id");
 
-        if (idUsuario != null) {
-            //convertir idUsuario a un entero para usuarlo en el select
-            int idUsuarioInt = Integer.parseInt(idUsuario);
-            
+        if (idprofesor != null && !idprofesor.isEmpty()) {
+            // Convertir id_profesor a un entero para usarlo en la consulta SQL
+            int id_profesor = Integer.parseInt(idprofesor);
             
             try {
                 String usuario = "LABS_ALEX";
@@ -27,19 +26,19 @@
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
 
-                String sql = "SELECT * FROM Usuarios WHERE id_usuario_usr = " + idUsuarioInt;
+                // Consulta SQL para obtener el perfil del profesor según su ID
+                String sql = "SELECT * FROM Admins WHERE id_admin = " + id_profesor;
                 ResultSet rs = dbstatement.executeQuery(sql);
 
                 if (rs.next()) {
                 	%>
-                	<h1>ID Usuario: <%=rs.getString("id_usuario_usr") %><br></h1>
-                    <h1>Nombre: <%=rs.getString("nombre_usr") %><br></h1>
-                    <h1>Apellido:  <%=rs.getString("apellido_usr") %><br></h1>
-                    <h1>Correo: <%=rs.getString("correo_usr") %><br></h1>
+                	<h1>ID Profesor: <%=rs.getString("id_admin") %><br></h1>
+                    <h1>Nombre: <%=rs.getString("nombre_adm") %><br></h1>
+                    <h1>Apellido:  <%=rs.getString("apellido_adm") %><br></h1>
+                    <h1>Correo: <%=rs.getString("correo_adm") %><br></h1>
                     <%
-                    
                 } else {
-                    out.println("No se encontró el usuario con ID: " + idUsuarioInt + "<br>");
+                    out.println("No se encontró el admin con ID: " + id_profesor + "<br>");
                 }
 
                 rs.close();
@@ -49,7 +48,7 @@
                 out.println("Error en la conexión o consulta: " + e.getMessage());
             }
         } else {
-            out.println("Parámetros no válidos.<br>");
+            out.println("Parámetro ID Profesor no válido.<br>");
         }
     %>
 </body>

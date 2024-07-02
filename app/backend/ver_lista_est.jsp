@@ -1,56 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/logo.png">
-    <title>MathUP</title>
-    <link rel="stylesheet" href="../styles.css">
-   
+    <title>vista_est</title>
 </head>
-<body class="body">
-    <header class="header">
-        <a class="logo" href="home.html"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
-        <div class="social-nav">
-            <ul>
-                <li><a href="https://www.google.com/" target="_blank"><img src="../assets/Imagenes/Busqueda.png" alt="Busqueda-icon" class="social-icon"></a></li>
-                <li><a href="#" target="_blank"><img src="../assets/Imagenes/Instagram.png" alt="Instagram" class="social-icon"></a></li>
-                <li><a href="#" target="_blank"><img src="../assets/Imagenes/Facebook.png" alt="Facebook" class="social-icon"></a></li>
-                <li><a href="#" target="_blank"><img src="../assets/Imagenes/Twitter.png" alt="Twitter" class="social-icon"></a></li>
-            </ul>
-            <a class="button" href="login.html"><button>Iniciar Sesión</button></a>
-        </div>
-    </header>
+<body>
+    <h1>Lista de Estudiantes</h1>
+    <table border="1">
+        <tr>
+            <th>ID Estudiante</th>
+            <th>Nombre del Estudiante</th>
+            <th>Apellido del Estudiante</th>
+            <th>Ver perfil del Estudiante</th>
+        </tr>
+        <% 
+            String usuario = "LABS_ALEX";
+            String contrasena = "LAB_2003";
+            
+            try {
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
+                Statement dbstatement = dbconnect.createStatement();
+                
+                String mostrarsql = "SELECT * FROM Usuarios";
+                ResultSet rs = dbstatement.executeQuery(mostrarsql);
+                boolean hayDatos = false;
 
-    <nav class="navbar">
-        <ul>
-            <li class="home"><a href="home.html">Inicio</a></li>
-            <li class="about"><a href="about.html">Sobre Nosotros</a></li>
-        </ul>
-    </nav>
+                while (rs.next()) {
+                    hayDatos = true;
 
-    <div id="main-home-general" class="main">
-        
-    </div>
+        %>      
+                    <tr>
+                        <td><%= rs.getInt("id_usuario_usr") %></td>
+                        <td><%= rs.getString("nombre_usr") %></td>
+                        <td><%= rs.getString("apellido_usr") %></td>
+                        <td><a href="ver_perfil_est.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>" target="_parent">Perfil</a></td>
+                   	</tr>
+        <% 
+                }
 
-    <footer class="footer">
-        <div class="footer_columna">
-            <h4>MathUP</h4>
-            <ul>
-                <li><a href="home.html">Inicio</a></li>
-                <li><a href="about.html">Sobre Nosotros</a></li>
-            </ul>
-        </div>
-        <div class="footer_columna">
-            <h4>Derechos Reservados</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse magnam quis mollitia temporibus blanditiis, quia aliquid rerum sint exercitationem reiciendis nisi placeat itaque fuga dignissimos ipsam accusantium quasi officiis.</p>
-        </div>
-        <div class="footer_columna">
-            <h4>Perfil</h4>
-            <ul>
-                <li><a href="#">Iniciar Sesión</a></li>
-            </ul>
-        </div>
-    </footer>
+                if (!hayDatos) {
+                    out.println("No se encontraron registros en la tabla Usuarios<br>");
+                }
+
+                rs.close();
+                dbstatement.close();
+                dbconnect.close();
+                
+            } catch (Exception e) {
+                out.println("Error en la conexión o consulta: " + e.getMessage());
+            }
+        %>
+    </table>
 </body>
 </html>
+

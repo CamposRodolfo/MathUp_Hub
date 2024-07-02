@@ -121,7 +121,7 @@ END;
 
 --------------------FUNCION CALCULAR EDAD FIN------------------------------
 
---------------------FUNCION BUSCAR CURSO------------------------------
+--------------------FUNCION BUSCAR ADMIN------------------------------
 
 CREATE OR REPLACE FUNCTION buscar_admin(p_id_admin NUMBER) RETURN NUMBER IS
     p_existir_admin NUMBER := 0; -- Inicializar la variable de existencia
@@ -143,10 +143,34 @@ BEGIN
 END;
 /
 
---------------------FUNCION BUSCAR CURSO FIN------------------------------
+--------------------FUNCION BUSCAR ADMIN FIN------------------------------
+
+--------------------FUNCION BUSCAR USUARIO------------------------------
+
+CREATE OR REPLACE FUNCTION buscar_usuario(p_id_usuario NUMBER) RETURN NUMBER IS
+    p_existir_usuario NUMBER := 0; -- Inicializar la variable de existencia
+
+    CURSOR buscar_usuario IS
+        SELECT id_usuario_usr 
+        FROM Usuarios
+        WHERE id_usuario_usr  = p_id_usuario; -- Filtrar por el cliente dado
+
+BEGIN
+    FOR buscar_usr IN buscar_usuario LOOP
+        IF buscar_usr.id_usuario_usr = p_id_usuario THEN
+            p_existir_usuario := 1; -- Establecer existencia a 1 si encontramos el préstamo
+            EXIT; -- Salir del bucle una vez que se haya encontrado el préstamo
+        END IF;
+    END LOOP;
+
+    RETURN p_existir_usuario;
+END;
+/
+
+--------------------FUNCION BUSCAR USUARIO FIN------------------------------
 
 
---------------------FUNCION BUSCAR ADMIN------------------------------
+--------------------FUNCION BUSCAR CURSO------------------------------
 
 CREATE OR REPLACE FUNCTION buscar_curso(p_id_cursos NUMBER) RETURN NUMBER IS
     p_existir_curso NUMBER := 0; -- Inicializar la variable de existencia
@@ -168,7 +192,32 @@ BEGIN
 END;
 /
 
---------------------FUNCION BUSCAR ADMIN------------------------------
+--------------------FUNCION BUSCAR CURSO------------------------------
+
+
+--------------------FUNCION BUSCAR PROFESOR------------------------------
+
+CREATE OR REPLACE FUNCTION buscar_profesor(p_id_profesor NUMBER) RETURN NUMBER IS
+    p_existir_profesor NUMBER := 0; -- Inicializar la variable de existencia
+
+    CURSOR buscar_profesor IS
+        SELECT id_profesor 
+        FROM Profesores
+        WHERE id_profesor  = p_id_profesor; -- Filtrar por el cliente dado
+
+BEGIN
+    FOR buscar_pr IN buscar_profesor LOOP
+        IF buscar_pr.id_profesor = p_id_profesor THEN
+            p_existir_profesor := 1; -- Establecer existencia a 1 si encontramos el préstamo
+            EXIT; -- Salir del bucle una vez que se haya encontrado el préstamo
+        END IF;
+    END LOOP;
+
+    RETURN p_existir_profesor;
+END;
+/
+
+--------------------FUNCION BUSCAR PROFESOR FIN------------------------------
 
 
 
@@ -319,6 +368,73 @@ END insertar_especialidad;
 /
 
 ------------------ INSERTAR ESPECIALIDADES FIN -------------------
+
+
+CREATE OR REPLACE PROCEDURE insertar_usuarios_curso(
+    p_id_usuario NUMBER,
+    p_id_curso NUMBER
+)AS
+    v_curso_exists NUMBER;
+    v_usuario_exists NUMBER;
+
+BEGIN
+    v_curso_exists := buscar_curso(p_id_curso);
+    v_usuario_exists := buscar_usuario(p_id_usuario);
+
+    IF v_usuario_exists =1 THEN
+        IF v_curso_exists = 1 THEN
+            INSERT INTO Usuarios_curso(id_usuario_fk_uc, id_curso_fk_uc) 
+            VALUES(p_id_usuario, p_id_curso);
+            COMMIT;
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('No existe el curso');
+        END IF;
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('No existe el usuario');
+    END IF;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
+    
+END insertar_usuarios_curso;
+/
+
+
+
+CREATE OR REPLACE PROCEDURE insertar_profesor_curso(
+    p_id_profesor NUMBER,
+    p_id_curso NUMBER
+)AS
+    v_curso_exists NUMBER;
+    v_profesor_exists NUMBER;
+
+BEGIN
+    v_curso_exists := buscar_curso(p_id_curso);
+    v_profesor_exists := buscar_profesor(p_id_profesor);
+
+    IF v_profesor_exists =1 THEN
+        IF v_curso_exists = 1 THEN
+            INSERT INTO Cursos_profesores(id_profesor_fk_lp, id_curso_fk_lp) 
+            VALUES(p_id_profesor, p_id_curso);
+            COMMIT;
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('No existe el curso');
+        END IF;
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('No existe el profesor');
+    END IF;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
+    
+END insertar_profesor_curso;
+/
+
+
 
 
 
