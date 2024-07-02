@@ -10,8 +10,8 @@
 <body>
 
 <%
-    String usuario = "LABS_ALEX";
-    String contraseña = "LAB_2003";
+    String usuario = "Admin";
+    String contraseña = "12345";
 
     Connection dbconnect = null;
     CallableStatement callableStatement = null;

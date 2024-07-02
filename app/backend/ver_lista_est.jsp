@@ -17,8 +17,8 @@
             <th>Ver perfil del Estudiante</th>
         </tr>
         <% 
-            String usuario = "LABS_ALEX";
-            String contrasena = "LAB_2003";
+            String usuario = "Admin";
+            String contrasena = "12345";
             
             try {
                 Class.forName("oracle.jdbc.driver.OracleDriver");

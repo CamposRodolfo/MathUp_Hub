@@ -20,8 +20,8 @@
             
             
             try {
-                String usuario = "LABS_ALEX";
-                String contrasena = "LAB_2003";
+                String usuario = "Admin";
+                String contrasena = "12345";
 
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
