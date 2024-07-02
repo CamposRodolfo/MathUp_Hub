@@ -1,0 +1,109 @@
+/* Importaciones para las páginas */
+
+/* Importa la fuente 'Montserrat' desde Google Fonts con distintos pesos y estilos */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+
+/* Fin Importaciones para las páginas */
+
+
+
+
+
+
+
+
+/* Estilos que usan todas las páginas */
+
+/* General */
+* {
+    margin: 0; /* Establece el margen exterior en 0 */
+    padding: 0; /* Establece el relleno interior en 0 */
+    box-sizing: border-box; /* Hace que el tamaño total de un elemento sea su ancho y alto incluyendo el relleno y el borde, pero no el margen */
+    list-style: none; /* Elimina el marcador de lista */
+    text-decoration: none; /* Elimina la decoración del texto */
+}
+/* Fin General */
+
+
+
+
+/* Maquetado */
+.body {
+    display: grid;
+    grid-template:
+    "header" 200px
+    "navbar" 75px
+    "main" auto
+    "main" auto
+    "main" auto
+    "footer" auto
+    ;
+    
+    .header {
+        grid-area: "header";
+        background-color: rgba(11,62,105,1);
+        margin: 0.5% 2% 0% 2%;
+    }
+    .navbar {
+        grid-area: "navbar";
+        background-color: rgba(51,113,172,1);
+        align-content: center;
+    }
+    .main {
+        grid-area: "main";
+        background-color: rgba(254,254,254,1);
+        margin: 0% 2%;
+    }
+    .footer {
+        grid-area: "footer";
+        background-color: rgba(51,113,172,1);
+    }
+}
+/* Fin Maquetado */
+
+
+
+
+/* Header */
+
+
+
+/* Fin Header */
+
+
+
+
+/* Navbar */
+
+
+
+/* Fin Navbar */
+
+
+
+
+/* Aside */
+
+
+
+
+/* Fin Aside */
+
+
+
+
+/* About */
+
+/* Fin About */
+
+
+
+
+/* Footer */
+
+
+
+
+/* Fin Footer */
+
+/* Fin Estilos que usan todas las páginas */
