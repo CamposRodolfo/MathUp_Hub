@@ -27,11 +27,11 @@
             //consultas de la base de datos distintas para cada perfil
             //"preparador" es una varible para cargar la consulta y v*erificar el usuario
             if("1".equals(n)){
-                preparado = dbconnect.prepareStatement("SELECT * FROM Profesores WHERE correo_pr=? AND contrasena_pr=?");
+                preparado = dbconnect.prepareStatement("SELECT * FROM Usuarios WHERE correo_pr=? AND contrasena_pr=?");
             } else if("2".equals(n)){
-                preparado = dbconnect.prepareStatement("SELECT * FROM Admins WHERE correo_adm=? AND contrasena_adm=?");
+                preparado = dbconnect.prepareStatement("SELECT * FROM Profesores WHERE correo_adm=? AND contrasena_adm=?");
             } else {
-                preparado = dbconnect.prepareStatement("SELECT * FROM Usuarios WHERE correo_usr=? AND contrasena_usr=?");
+                preparado = dbconnect.prepareStatement("SELECT * FROM Admins WHERE correo_usr=? AND contrasena_usr=?");
             }
 
             preparado.setString(1, correo);
@@ -43,11 +43,11 @@
             	//se usa este comando: "response.sendRedirect" para ello
             	
             	if("1".equals(n)){
-                    response.sendRedirect("../profesor/home.html");
-                } else if("2".equals(n)){
-                    response.sendRedirect("../admin/home.html");
-                } else {
                     response.sendRedirect("../estudiante/home.html");
+                } else if("2".equals(n)){
+                    response.sendRedirect("../profesor/home.html");
+                } else {
+                    response.sendRedirect("../admin/home.html");
                 }
             } else {
                 msg = "<h1 style='color: red;'>****ERROR*** <br> USUARIO INCORRECTO</h1>";
