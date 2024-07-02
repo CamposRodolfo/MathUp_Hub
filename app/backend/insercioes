@@ -2,8 +2,6 @@ BEGIN
     insertar_curso('Calculo I', 'Introduccion al calculo diferencial e integral', 14, 2);
     insertar_curso('Programacion en Python', 'Aprende programacion con Python desde cero', 10, 1);
     insertar_curso('Physics for Engineers', 'Conceptos basicos de fisica para ingenieros', 12, 3);
-    insertar_curso('Data Structures', 'Estructuras de datos y algoritmos', 11, 2);
-    insertar_curso('Web Development', 'Desarrollo web con HTML, CSS y JavaScript', 9, 1);
 END;
 /
 
@@ -20,9 +18,6 @@ BEGIN
     insertar_especialidad('matematicas');
     insertar_especialidad('programacion');
     insertar_especialidad('fisica');
-    insertar_especialidad('quimica');
-    insertar_especialidad('biologia');
-END;
 /
 
 BEGIN 
