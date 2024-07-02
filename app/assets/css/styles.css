@@ -12,7 +12,7 @@
 
 
 
-/* Base General*/
+/* Base */
 * {
     margin: 0; /* Establece el margen exterior en 0 */
     padding: 0; /* Establece el relleno interior en 0 */
@@ -160,7 +160,7 @@ p:last-child {
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
     background-color: rgba(228,140,25,1); /* Cambia el color de fondo con transparencia al pasar el mouse */
 }
-/* Fin Base General */
+/* Fin Base */
 
 /* Maquetado */
 .body {
