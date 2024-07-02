@@ -9,8 +9,8 @@
 </head>
 <body>
     <% 
-        String usuario = "King";
-        String contrasena = "1234";
+        String usuario = "Admin";
+        String contrasena = "12345";
         String correo = request.getParameter("Correo");
         String con = request.getParameter("Contraseña");
         String n = request.getParameter("op_login");
