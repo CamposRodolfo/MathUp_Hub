@@ -157,8 +157,6 @@ p:last-child {
      transition: all 0.3s ease 0s; /* Establece una transición suave para todas las propiedades que cambien durante 0.3 segundos */
  
 }
-.btn-default {
-    }
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
     background-color: rgba(228,140,25,1); /* Cambia el color de fondo con transparencia al pasar el mouse */
 }
