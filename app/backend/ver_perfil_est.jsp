@@ -8,7 +8,7 @@
     <title>Perfil del Usuario</title>
 </head>
 <body>
-    <h1>Perfil del Usuario</h1>
+    <h1>Perfil del Estudiante</h1>
     
     <% 
         //obtener los parámetros de la URL

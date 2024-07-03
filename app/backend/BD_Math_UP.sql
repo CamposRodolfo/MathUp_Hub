@@ -221,6 +221,30 @@ END;
 
 --------------------FUNCION BUSCAR PROFESOR FIN------------------------------
 
+--------------------FUNCION BUSCAR LECCION------------------------------
+
+CREATE OR REPLACE FUNCTION buscar_leccion(p_id_leccion NUMBER) RETURN NUMBER IS
+    p_existir_leccion NUMBER := 0; -- Inicializar la variable de existencia
+
+    CURSOR buscar_leccion IS
+        SELECT id_leccion
+        FROM Lecciones
+        WHERE id_leccion  = p_id_leccion; --filtrar por id
+
+BEGIN
+    FOR buscar_lc IN buscar_leccion LOOP
+        IF buscar_lc.id_leccion = p_id_leccion THEN
+            p_existir_leccion := 1; --asignar 1 a la variable para denotar que exise el id
+            EXIT;
+        END IF;
+    END LOOP;
+
+    RETURN p_existir_leccion;
+END;
+/
+
+--------------------FUNCION BUSCAR LECCION FIN------------------------------
+
 
 
 ------------------ INSERTAR PROFESORES-------------------
