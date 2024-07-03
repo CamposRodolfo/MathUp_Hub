@@ -532,3 +532,72 @@ CREATE TABLE Auditoria_lecciones(
     operacion VARCHAR2(10) NOT NULL,
     CONSTRAINT pk_Cursos_pr_lec_aud PRIMARY KEY (id_curso_aud, id_profesor_aud, id_leccion_aud)
 );
+
+--Trigger para la tabla de auditoria
+CREATE OR REPLACE TRIGGER trg_audit_lecciones 
+    AFTER INSERT OR UPDATE OR DELETE ON Lecciones FOR EACH ROW 
+    BEGIN 
+        IF INSERTING THEN 
+            INSERT INTO Auditoria_lecciones(
+                id_leccion_aud, 
+                id_curso_aud, 
+                nombre_leccion_aud, 
+                contenido_leccion_aud, 
+                dificultad_leccion_aud, 
+                id_admin_aud, 
+                fecha_de_cambio_aud, 
+                operacion
+            ) VALUES ( 
+                :NEW.id_leccion, 
+                :NEW.id_curso_fk_lec, 
+                :NEW.nombre_lec, 
+                :NEW.contenido_lec, 
+                :NEW.dificultad_lec, 
+                NULL,
+                SYSTIMESTAMP, 
+                'INSERT' 
+            ); 
+        ELSIF UPDATING THEN 
+            INSERT INTO Auditoria_lecciones(
+                id_leccion_aud, 
+                id_curso_aud, 
+                nombre_leccion_aud, 
+                contenido_leccion_aud, 
+                dificultad_leccion_aud, 
+                id_admin_aud, 
+                fecha_de_cambio_aud, 
+                operacion
+            ) VALUES ( 
+                :NEW.id_leccion, 
+                :NEW.id_curso_fk_lec, 
+                :NEW.nombre_lec, 
+                :NEW.contenido_lec, 
+                :NEW.dificultad_lec, 
+                NULL,
+                SYSTIMESTAMP, 
+                'UPDATE'
+            ); 
+        ELSIF DELETING THEN 
+            INSERT INTO Auditoria_lecciones(
+                id_leccion_aud, 
+                id_curso_aud, 
+                nombre_leccion_aud, 
+                contenido_leccion_aud, 
+                dificultad_leccion_aud, 
+                id_admin_aud, 
+                fecha_de_cambio_aud, 
+                operacion 
+            ) VALUES ( 
+                :OLD.id_leccion, 
+                :OLD.id_curso_fk_lec, 
+                :OLD.nombre_lec, 
+                :OLD.contenido_lec, 
+                :OLD.dificultad_lec, 
+                NULL, 
+                SYSTIMESTAMP, 
+                'DELETE'
+            ); 
+        END IF;
+    END;
+/
+
