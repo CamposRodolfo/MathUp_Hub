@@ -8,7 +8,7 @@
     <title>vista_est</title>
 </head>
 <body>
-    <h1>Lista de Cursos</h1>
+    <h1>Lista de Estudiantes</h1>
     <table border="1">
         <tr>
             <th>ID Curso</th>
@@ -37,7 +37,7 @@
                         <td><%= rs.getInt("id_curso") %></td>
                         <td><%= rs.getString("nombre_cur") %></td>
                         <td><%= rs.getString("descripcion_cur") %></td>
-                        <td><a href="ver_perfil.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
+                        <td><a href="ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
                    	</tr>
         <% 
                 }
