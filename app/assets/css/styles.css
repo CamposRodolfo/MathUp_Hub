@@ -432,6 +432,7 @@ header .btn-icon .fa-user{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
 }
 .icono-seleccion-grupo {
     display: flex;
