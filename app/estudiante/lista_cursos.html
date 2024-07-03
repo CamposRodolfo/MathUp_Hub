@@ -1,34 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="../assets/Imagenes/Logo.png">
     <title>MathUP</title>
-    <link rel="stylesheet" href="../styles.css">
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
    
 </head>
 <body class="body">
-    <header class="header">
+    <header>
         <a class="logo" href="home.html"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
-        <div class="social-nav">
-            <ul>
-                <li><a href="https://www.google.com/" target="_blank"><img src="../assets/Imagenes/Busqueda.png" alt="Busqueda-icon" class="social-icon"></a></li>
-                <li><a href="#" target="_blank"><img src="../assets/Imagenes/Instagram.png" alt="Instagram" class="social-icon"></a></li>
-                <li><a href="#" target="_blank"><img src="../assets/Imagenes/Facebook.png" alt="Facebook" class="social-icon"></a></li>
-                <li><a href="#" target="_blank"><img src="../assets/Imagenes/Twitter.png" alt="Twitter" class="social-icon"></a></li>
-            </ul>
-            <a class="button" href="perfil.html"><button>Perfil</button></a>
+        <div class="social-icon">
+            <a href="https://www.google.com/" target="_blank"><i class="fa fa-search"></i></a>
+            <a href="https://www.instagram.com/math_up0/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61561506939201" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://x.com/MathUP0" target="_blank"><i class="fa fa-twitter"></i></a>
         </div>
+        <!-- <a class="btn btn-default" href="#">Iniciar Sesión</a> -->
+        <a class="btn-icon" href="#"><i class="fa fa-user"></i></a>
     </header>
 
-    <nav class="navbar">
-        <ul>
-            <li class="home"><a href="home.html">Inicio</a></li>
-            <li class="home"><a href="cursos.html">Listado de Cursos</a></li>
-            <li class="about"><a href="about.html">Sobre Nosotros</a></li>
-        </ul>
-    </nav>
+    <div class="navbar">
+        <a class="navbar-opcion" href="home.html">Inicio</a>
+        <div class="dropdown">
+            <button class="navbar-opcion dropdwonbtn" href="#"> Usuarios <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="lista_admins.html">Lista de Administradores</a>
+                <a href="lista_profesores.html">Lista de Profesores</a>
+                <a href="lista_estdiantes.html">Lista de Estudiantes</a>
+                <a href="registro_usuario.html">Registrar Usuario</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
+            <div class="navbar-opcion dropdown-content">
+                <a href="lista_cursos.html">Lista de Cursos</a>
+                <a href="registro_curso.html">Registro de Cursos</a>
+                <a href="registro_leccion.html">Registar Lección</a>
+            </div>
+        </div>
+        <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
+    </div> <!-- Fin Navbar -->
 
     <div id="main-home-general" class="main">
         <iframe src="../backend/ver_lista_cursos.jsp" width="100%" height="600px"></iframe>
