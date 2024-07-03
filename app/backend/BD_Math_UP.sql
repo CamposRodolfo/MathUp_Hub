@@ -123,6 +123,10 @@ END;
 
 --------------------FUNCION CALCULAR EDAD FIN------------------------------
 
+
+-------------------------------------------------FUNCIONES PARA BUSCAR SI ALGO EXISTE ------------------------------------------------
+-------------------------------------------------FUNCIONES PARA BUSCAR SI ALGO EXISTE ------------------------------------------------
+
 --------------------FUNCION BUSCAR ADMIN------------------------------
 
 CREATE OR REPLACE FUNCTION buscar_admin(p_id_admin NUMBER) RETURN NUMBER IS
@@ -245,6 +249,33 @@ END;
 
 --------------------FUNCION BUSCAR LECCION FIN------------------------------
 
+--------------------FUNCION BUSCAR LECCION------------------------------
+
+CREATE OR REPLACE FUNCTION buscar_problema(p_id_problema NUMBER) RETURN NUMBER IS
+    p_existir_problema NUMBER := 0; -- Inicializar la variable de existencia
+
+    CURSOR buscar_problema IS
+        SELECT id_problema
+        FROM Problemas
+        WHERE id_problema  = p_id_problema; --filtrar por id
+
+BEGIN
+    FOR buscar_pb IN buscar_problema LOOP
+        IF buscar_pb.id_problema = p_id_problema THEN
+            p_existir_problema := 1; --asignar 1 a la variable para denotar que exise el id
+            EXIT;
+        END IF;
+    END LOOP;
+
+    RETURN p_existir_problema;
+END;
+/
+
+--------------------FUNCION BUSCAR LECCION FIN------------------------------
+
+
+-------------------------------------------------FUNCIONES PARA BUSCAR SI ALGO EXISTE FIN ------------------------------------------------
+-------------------------------------------------FUNCIONES PARA BUSCAR SI ALGO EXISTE FIN ------------------------------------------------
 
 
 ------------------ INSERTAR PROFESORES-------------------
@@ -480,12 +511,12 @@ CREATE OR REPLACE PROCEDURE insertar_problemas(
 BEGIN
     v_leccion_exists := buscar_leccion(p_id_leccion);
 
-    IF v_curso_exists =1 THEN
-        INSERT INTO Problemas (id_problema, opcion1_pb, opcion2_pb, opcion3_pb, solucion_pb, id_leccion)
-        VALUES (sep_problemas.NEXTVAL, p_opcion1_pb, p_opcion2_pb, p_opcion3_pb, p_solucion_pb, p_id_leccion_fk_pb);
+    IF v_leccion_exists =1 THEN
+        INSERT INTO Problemas (id_problema, opcion1_pb, opcion2_pb, opcion3_pb, solucion_pb, id_leccion_fk_pb)
+        VALUES (sep_problemas.NEXTVAL, p_opcion1_pb, p_opcion2_pb, p_opcion3_pb, p_solucion_pb, p_id_leccion);
         COMMIT;
     ELSE
-        DBMS_OUTPUT.PUT_LINE('No existe el Curso');
+        DBMS_OUTPUT.PUT_LINE('No existe la leccion');
     END IF;
 
 EXCEPTION
@@ -493,7 +524,7 @@ EXCEPTION
         ROLLBACK;
         DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
     
-END insertar_lecciones;
+END insertar_problemas;
 /
 
 ------------------INSERTAR PROBLEMAS FIN -------------------------
@@ -502,7 +533,38 @@ END insertar_lecciones;
 
 ------------------INSERTAR PROBLEMAS_UDUARIOS -------------------------
 
+CREATE OR REPLACE PROCEDURE insertar_Usuario_problema(
+    p_id_usuario NUMBER,
+    p_id_problema NUMBER,
+    p_fecha_realizacion DATE,
+    p_puntaje NUMBER
+)AS
+    v_problema_exists NUMBER;
+    v_usuario_exists NUMBER;
 
+BEGIN
+    v_problema_exists := buscar_problema(p_id_problema);
+    v_usuario_exists := buscar_usuario(p_id_usuario);
+
+    IF v_problema_exists =1 THEN
+        IF v_usuario_exists =1 THEN
+            INSERT INTO Usuario_problema (id_usuario_fk_up, id_problema_fk_up, fecha_realizacion_up, puntaje_up)
+            VALUES (p_id_usuario, p_id_problema, p_fecha_realizacion, p_puntaje);
+            COMMIT;
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('No existe el usuario');
+        END IF;
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('No existe la leccion');
+    END IF;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
+    
+END insertar_Usuario_problema;
+/
 
 
 

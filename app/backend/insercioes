@@ -76,21 +76,18 @@ BEGIN
 END;
 /
 
-
 -- Bloque anónimo para llamar al procedimiento insertar_lecciones
 BEGIN
     insertar_lecciones('Leccion 7', 'int Calculo 3', 2, 1);
 END;
 / 
 
-
---estos procedimientos no estan creados
 BEGIN
-    insertar_problema('Opcion A', 'Opcion B', 'Opcion C', 'Opcion A', 1);
-    insertar_problema('Opcion D', 'Opcion E', 'Opcion F', 'Opcion D', 2);
-    insertar_problema('Opcion G', 'Opcion H', 'Opcion I', 'Opcion G', 3);
-    insertar_problema('Opcion J', 'Opcion K', 'Opcion L', 'Opcion J', 4);
-    insertar_problema('Opcion M', 'Opcion N', 'Opcion O', 'Opcion M', 5);
+    insertar_problemas('Opcion A', 'Opcion B', 'Opcion C', 'Opcion A', 1);
+    insertar_problemas('Opcion D', 'Opcion E', 'Opcion F', 'Opcion D', 2);
+    insertar_problemas('Opcion G', 'Opcion H', 'Opcion I', 'Opcion G', 3);
+    insertar_problemas('Opcion J', 'Opcion K', 'Opcion L', 'Opcion J', 4);
+    insertar_problemas('Opcion M', 'Opcion N', 'Opcion O', 'Opcion M', 5);
 END;
 /
 
