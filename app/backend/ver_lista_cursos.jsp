@@ -8,7 +8,7 @@
     <title>vista_est</title>
 </head>
 <body>
-    <h1>Lista de Cursos</h1>
+    <h1>Lista de Estudiantes</h1>
     <table border="1">
         <tr>
             <th>ID Curso</th>
