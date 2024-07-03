@@ -42,11 +42,11 @@
             if(resultados.next()) {
             	
             	if("1".equals(n)){
-                    response.sendRedirect("../estudiante/home.html?Correo=" + correo);
+                    response.sendRedirect("../estudiante/home.jsp?Correo=" + correo);
                 } else if("2".equals(n)){
-                    response.sendRedirect("../profesor/home.html?Correo=" + correo);
+                    response.sendRedirect("../profesor/home.jsp?Correo=" + correo);
                 } else {
-                    response.sendRedirect("../admin/home.html?Correo=" + correo);
+                    response.sendRedirect("../admin/home.jsp?Correo=" + correo);
                 }
             } else {
                 msg = "<h1 style='color: red;'>****ERROR*** <br> USUARIO INCORRECTO</h1>";
