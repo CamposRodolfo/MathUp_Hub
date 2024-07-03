@@ -442,6 +442,57 @@ END insertar_lecciones;
 ------------------INSERTAR LECCIONES FIN -------------------------
 
 
+------------------INSERTAR PROBLEMAS -------------------------
+
+CREATE OR REPLACE PROCEDURE insertar_problemas(
+    p_opcion1_pb VARCHAR2,
+    p_opcion2_pb VARCHAR2,
+    p_opcion3_pb VARCHAR2,
+    p_solucion_pb VARCHAR2,
+    p_id_leccion NUMBER
+)AS
+    v_leccion_exists NUMBER;
+
+BEGIN
+    v_leccion_exists := buscar_leccion(p_id_leccion);
+
+    IF v_curso_exists =1 THEN
+        INSERT INTO Problemas (id_problema, opcion1_pb, opcion2_pb, opcion3_pb, solucion_pb, id_leccion)
+        VALUES (sep_problemas.NEXTVAL, p_opcion1_pb, p_opcion2_pb, p_opcion3_pb, p_solucion_pb, p_id_leccion_fk_pb);
+        COMMIT;
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('No existe el Curso');
+    END IF;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Ha ocurrido un error: ' || SQLERRM);
+    
+END insertar_lecciones;
+/
+
+------------------INSERTAR PROBLEMAS FIN -------------------------
+
+
+
+------------------INSERTAR PROBLEMAS_UDUARIOS -------------------------
+
+
+
+
+
+------------------INSERTAR PROBLEMAS_UDUARIOS FIN -------------------------
+
+
+
+
+
+
+
+
+
+
 ------------------ INSERTAR TABLA DE AUDITORIA -------------------
 --Auditamos la tabla de cursos
 CREATE TABLE Auditoria_lecciones(
