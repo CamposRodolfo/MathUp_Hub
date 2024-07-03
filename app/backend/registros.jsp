@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ page import="java.time.*"%>
+<%@ page import="java.time.format.*"%>
+<%@ page import="java.time.temporal.ChronoUnit"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,104 +17,133 @@
     String contraseña = "12345";
 
     Connection dbconnect = null;
-    CallableStatement callableStatement = null;
 
     try {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contraseña);
+        dbconnect.setAutoCommit(false);
 
-        // Obtener parámetro op_login como string y convertirlo a entero
+        // Obtener parámetros del formulario
+        String nombre = request.getParameter("fname");
+        String apellido = request.getParameter("lname");
+        Date fechaNacimiento = Date.valueOf(request.getParameter("fecha_de_nacimiento"));
+        String correo = request.getParameter("Correo");
+        String contrasena = request.getParameter("Contraseña");
+        int idEsp = Integer.parseInt(request.getParameter("especialidad"));
+        int idAdmin = Integer.parseInt(request.getParameter("id_admin"));
+        int celular = Integer.parseInt(request.getParameter("Celular"));
+        String username = request.getParameter("username");
+
+        
+        LocalDate fechaNacimientoLocal = fechaNacimiento.toLocalDate();
+        LocalDate fechaActual = LocalDate.now();//extraemos la fecha actual del sistema
+        long edad = ChronoUnit.YEARS.between(fechaNacimientoLocal, fechaActual);//con esto calculamos la edad
+        
+        
         int n = Integer.parseInt(request.getParameter("op_login"));
 
-        if (n == 1) {
-            // Llamar al procedimiento almacenado para insertar profesores
-            String sql = "{call insertar_profesores(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
-            callableStatement = dbconnect.prepareCall(sql);
+        if (n==1) {
 
-            // Establecer los parámetros del procedimiento almacenado
-            String nombre = request.getParameter("fname");
-            String apellido = request.getParameter("lname");
-            Date fechaNacimiento = Date.valueOf(request.getParameter("fecha_de_nacimiento")); // Convertir String a java.sql.Date
-            String correo = request.getParameter("Correo");
-            String contraseña_pr = request.getParameter("Contraseña");
-            int idEsp = Integer.parseInt(request.getParameter("especialidad"));
-            int idAdmin = Integer.parseInt(request.getParameter("id_admin"));
-            int celular = Integer.parseInt(request.getParameter("Celular"));
-            int idCurso = Integer.parseInt(request.getParameter("id_curso"));
+            // Consulta SQL para obtener el último valor de id_profesor
+            String queryLastId = "SELECT MAX(id_profesor) AS last_id FROM Profesores";
+            Statement stmt = dbconnect.createStatement();
+            ResultSet rs = stmt.executeQuery(queryLastId);
+            int id_prof = 0;
 
-            callableStatement.setString(1, nombre);
-            callableStatement.setString(2, apellido);
-            callableStatement.setDate(3, fechaNacimiento);
-            callableStatement.setString(4, correo);
-            callableStatement.setString(5, contraseña_pr);
-            callableStatement.setInt(6, idEsp);
-            callableStatement.setInt(7, idAdmin);
-            callableStatement.setInt(8, idCurso);
-            callableStatement.setInt(9, celular);
+            if (rs.next()) {
+                id_prof = rs.getInt("last_id") + 1; //sumamos uno para no repetir la PK
+            } else {
+                id_prof = 1; //si no hay nada lo iniciamos con un 1
+            }
+            rs.close();
+            stmt.close();
 
-            callableStatement.execute();
-        } else if (n == 2) {
-            // Llamar al procedimiento almacenado para insertar admins
-            String sql = "{call insertar_admins(?, ?, ?, ?, ?, ?)}";
-            callableStatement = dbconnect.prepareCall(sql);
+            String insertarsql = "INSERT INTO Profesores (id_profesor, nombre_pr, apellido_pr, fecha_de_nacimiento_pr, edad_pr, correo_pr, contrasena_pr, id_esp_fk_pr, id_admin_fk_pr, celular_pr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = dbconnect.prepareStatement(insertarsql);
+            pstmt.setInt(1, id_prof);
+            pstmt.setString(2, nombre);
+            pstmt.setString(3, apellido);
+            pstmt.setDate(4, fechaNacimiento);
+            pstmt.setLong(5, edad); // Edad calculada
+            pstmt.setString(6, correo);
+            pstmt.setString(7, contrasena);
+            pstmt.setInt(8, idEsp);
+            pstmt.setInt(9, idAdmin);
+            pstmt.setInt(10, celular);
+            pstmt.executeUpdate();
+        } else if (n==2) {
+            
+            // Consulta SQL para obtener el último valor de id_profesor
+            String queryLastId = "SELECT MAX(id_admin) AS last_id FROM Admins";// con esta consulta obtenemos el ultimo valor
+            Statement stmt = dbconnect.createStatement();
+            ResultSet rs = stmt.executeQuery(queryLastId);
+            int id_admin = 0;
 
-            // Establecer los parámetros del procedimiento almacenado
-            String nombre = request.getParameter("fname");
-            String apellido = request.getParameter("lname");
-            String fechaNacimiento = request.getParameter("fecha_de_nacimiento"); // Debe ser String si el procedimiento espera VARCHAR2
-            String correo = request.getParameter("Correo");
-            String contraseña_adm = request.getParameter("Contraseña");
-            String celular = request.getParameter("Celular");
+            if (rs.next()) {
+            	id_admin = rs.getInt("last_id") + 1; //sumamos uno para no repetir la PK
+            } else {
+            	id_admin = 1; //si no hay nada lo iniciamos con un 1
+            }
+            rs.close();
+            stmt.close();
 
-            callableStatement.setString(1, nombre);
-            callableStatement.setString(2, apellido);
-            callableStatement.setString(3, fechaNacimiento);
-            callableStatement.setString(4, correo);
-            callableStatement.setString(5, contraseña_adm);
-            callableStatement.setString(6, celular);
-
-            callableStatement.execute();
+            String insertarsql = "INSERT INTO Admins (id_admin, nombre_adm, apellido_adm, fecha_de_nacimiento_adm, edad_adm, correo_adm, contrasena_adm, celular_adm) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = dbconnect.prepareStatement(insertarsql);
+            pstmt.setInt(1, id_admin);
+            pstmt.setString(2, nombre);
+            pstmt.setString(3, apellido);
+            pstmt.setDate(4, fechaNacimiento);
+            pstmt.setLong(5, edad);
+            pstmt.setString(6, correo);
+            pstmt.setString(7, contrasena);
+            pstmt.setInt(8, celular);
+            pstmt.executeUpdate();
         } else {
-            // Llamar al procedimiento almacenado para insertar usuarios
-            String sql = "{call insertar_usuarios(?, ?, ?, ?, ?, ?)}";
-            callableStatement = dbconnect.prepareCall(sql);
+            // Inserción para usuario regular
+            // Consulta SQL para obtener el último valor de id_profesor
+            String queryLastId = "SELECT MAX(id_usuario_usr) AS last_id FROM Usuarios";// con esta consulta obtenemos el ultimo valor
+            Statement stmt = dbconnect.createStatement();
+            ResultSet rs = stmt.executeQuery(queryLastId);
+            int id_user = 0;
 
-            // Establecer los parámetros del procedimiento almacenado
-            String nombre = request.getParameter("fname");
-            String apellido = request.getParameter("lname");
-            Date fechaNacimiento = Date.valueOf(request.getParameter("fecha_de_nacimiento")); // Convertir String a java.sql.Date
-            String username = request.getParameter("usernameUs");
-            String correo = request.getParameter("Correo");
-            String contraseña_us = request.getParameter("Contraseña");
-            int idCurso = Integer.parseInt(request.getParameter("id_curso"));
+            if (rs.next()) {
+            	id_user = rs.getInt("last_id") + 1; //sumamos uno para no repetir la PK
+            } else {
+            	id_user = 1; //si no hay nada lo iniciamos con un 1
+            }
+            rs.close();
+            stmt.close();
 
-            callableStatement.setString(1, nombre);
-            callableStatement.setString(2, apellido);
-            callableStatement.setDate(3, fechaNacimiento);
-            callableStatement.setString(4, username);
-            callableStatement.setString(5, correo);
-            callableStatement.setString(6, contraseña_us);
-            callableStatement.setInt(7, idCurso);
-
-            callableStatement.execute();
+            String insertarsql = "INSERT INTO Usuarios (id_usuario_usr, nombre_usr, apellido_usr, fecha_nacimiento_usr, edad_usr, username, correo_usr, contrasena_usr) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = dbconnect.prepareStatement(insertarsql);
+            pstmt.setInt(1, id_user);
+            pstmt.setString(2, nombre);
+            pstmt.setString(3, apellido);
+            pstmt.setDate(4, fechaNacimiento);
+            pstmt.setLong(5, edad); // Edad calculada
+            pstmt.setString(6, username);
+            pstmt.setString(7, correo);
+            pstmt.setString(8, contrasena);
+            pstmt.executeUpdate();
         }
 
-        dbconnect.commit(); // Realizar el commit de la transacción
+        dbconnect.commit(); // Confirmar la transacción
 
-        out.println("Procedimiento almacenado ejecutado con éxito.");
-    } catch (ClassNotFoundException e) {
-        out.println("Error al cargar el driver JDBC: " + e.getMessage());
-    } catch (SQLException e) {
-        out.println("Error al ejecutar el procedimiento almacenado: " + e.getMessage());
+        out.println("Registro exitoso.");
+
+    } catch (ClassNotFoundException | SQLException e) {
+        out.println("Error: " + e.getMessage());
         if (dbconnect != null) {
             try {
-                dbconnect.rollback(); // Hacer rollback en caso de error
+                dbconnect.rollback();
             } catch (SQLException ex) {
                 out.println("Error al hacer rollback: " + ex.getMessage());
             }
         }
-    }
+    } 
+
 %>
+
 </body>
 </html>
 
