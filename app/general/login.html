@@ -34,29 +34,29 @@
             <form action="../backend/login.jsp" class="clase-form">
                 <h2>Inicio de Sesión</h2>
                 <label for="Correo">Correo:</label>
-                <input type="text" id="Correo" name="Correo" required><br/><br/>
+                <input class="text-area" type="text" id="Correo" name="Correo" required><br/><br/>
                 
                 <label for="Contraseña">Contraseña:</label>
-                <input type="text" id="Contraseña" name="Contraseña" required>
+                <input class="text-area" type="text" id="Contraseña" name="Contraseña" required>
                 
                 <div class="icono-seleccion">
-                    <div>
+                    <div class="icono-seleccion-grupo">
+                        <label for="Estudiante">Estudiante</label>
                         <input type="radio" id="Estudiante" name="op_login" value="1" required>
-                        <label for="Estudiante">Estudiante</labe>
                     </div>
                     
-                    <div>
-                        <input type="radio" id="Profesor" name="op_login" value="2" required>
+                    <div class="icono-seleccion-grupo">
                         <label for="Profesor">Profesor</label>
+                        <input type="radio" id="Profesor" name="op_login" value="2" required>
                     </div>
                     
-                    <div>
-                        <input type="radio" id="Administrador" name="op_login" value="3" required>
+                    <div class="icono-seleccion-grupo">
                         <label for="Administrador">Administrador</label>
+                        <input type="radio" id="Administrador" name="op_login" value="3" required>
                     </div>
                 </div>
                 
-                <input type="submit" value="Login">Ingresar</input><br>
+                <input class="btn btn-default" type="submit" value="Iniciar Sesión"></input><br>
                 <p>¿Olvidaste tu contraseña?</p><br>
                 <p>Registrarse</p>
 

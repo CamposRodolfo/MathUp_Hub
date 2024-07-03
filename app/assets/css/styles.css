@@ -408,7 +408,7 @@ header .btn-icon .fa-user{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 600px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -418,30 +418,28 @@ header .btn-icon .fa-user{
 .clase-form label {
     display: block;
     margin-bottom: 5px;
+    text-align: left;
 }
-.clase-form input, .clase-form select, .clase-form textarea {
+.clase-form .text-area, .clase-form select, .clase-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-.clase-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.clase-form button:hover {
-    background-color: #555;
+.icono-seleccion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .icono-seleccion-grupo {
-    display: grid;
-    grid-template-columns: auto auto
-    ;
+    display: flex;
+    flex-direction: row;
+    padding-right: 25px;
+}
+.icono-seleccion-grupo label{
+    padding-right: 5px;
 }
 /* Fin Login */
 
