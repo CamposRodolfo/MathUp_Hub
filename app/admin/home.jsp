@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,12 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="shortcut icon" href="../assets/Imagenes/Logo.png">
     <title>MathUP</title>
-
     <link rel="stylesheet" href="../assets/css/styles.css">
-   
 </head>
 <body class="body">
     <header>
@@ -45,19 +45,56 @@
             </div>
         </div>
         <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
-    </div> <!-- Fin Navbar -->
-
-   
-
-
-
-
-    <div id="main-home-general" class="main">
-        <h1>HOME</h1>
-        <img src="../assets/Imagenes/about/rodolfo.jpg" alt="">
     </div>
+     <!-- Fin Navbar -->
+    <table border="1">
+        <tr>
+            <th>ID Curso</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Ver perfil curso</th>
+        </tr>
+        <% 
+            String usuario = "Admin";
+            String contrasena = "12345";
+            String correo = request.getParameter("Correo");
+            
+            try {
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
+                
+                String mostrarsql = "SELECT Cursos.* FROM Cursos JOIN Admins ON Cursos.id_admin_fk_cur = Admins.id_admin WHERE Admins.correo_adm = ?";
+                PreparedStatement preparado = dbconnect.prepareStatement(mostrarsql);
+                preparado.setString(1, correo);
+                ResultSet rs = preparado.executeQuery();
+                boolean hayDatos = false;
 
-    <footer class="footer">
+                while (rs.next()) {
+                    hayDatos = true;
+        %>      
+                    <tr>
+                        <td><%= rs.getInt("id_curso") %></td>
+                        <td><%= rs.getString("nombre_cur") %></td>
+                        <td><%= rs.getString("descripcion_cur") %></td>
+                        <td><a href="../backend/ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
+                    </tr>
+        <% 
+                }
+
+                if (!hayDatos) {
+                    out.println("<tr><td colspan='4'>No se encontraron registros en la tabla Cursos</td></tr>");
+                }
+
+                rs.close();
+                preparado.close();
+                dbconnect.close();
+                
+            } catch (Exception e) {
+                out.println("<tr><td colspan='4'>Error en la conexión o consulta: " + e.getMessage() + "</td></tr>");
+            }
+        %>
+    </table>
+<footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
