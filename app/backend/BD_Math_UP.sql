@@ -583,14 +583,19 @@ CREATE TABLE Auditoria_lecciones(
     dificultad_lec_aud NUMBER(2) NOT NULL,
     id_curso_aud NUMBER(8) NOT NULL,
     fecha_cambio_aud DATE NOT NULL,
-    operacion NUMBER NOT NULL
+    operacion VARCHAR2(2) NOT NULL
 );
+
+------------------ INSERTAR TABLA DE AUDITORIA FIN -------------------
+
 
 --Trigger para la tabla de auditoria
 CREATE OR REPLACE TRIGGER trg_audit_lecciones
-    AFTER INSERT OR UPDATE OR DELETE ON Lecciones
-    FOR EACH ROW 
+    AFTER INSERT OR DELETE OR UPDATE ON Lecciones
+    FOR EACH ROW
+
     BEGIN
+
         IF INSERTING THEN 
             INSERT INTO Auditoria_lecciones(
                 id_aud,
@@ -609,8 +614,9 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 :NEW.dificultad_lec,
                 :NEW.id_curso_fk_lec,
                 SYSTIMESTAMP, 
-                'INSERT' 
+                'IN' 
             ); 
+
         ELSIF UPDATING THEN 
             INSERT INTO Auditoria_lecciones(
                 id_aud,
@@ -629,7 +635,7 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 :NEW.dificultad_lec,
                 :NEW.id_curso_fk_lec,
                 SYSTIMESTAMP, 
-                'UPDATE'
+                'UP'
             ); 
         ELSIF DELETING THEN 
             INSERT INTO Auditoria_lecciones(
@@ -649,9 +655,9 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 :OLD.dificultad_lec,
                 :OLD.id_curso_fk_lec,
                 SYSTIMESTAMP, 
-                'DELETE'
+                'DE'
             ); 
         END IF;
-    END;
-/
 
+    END trg_audit_lecciones;
+/
