@@ -109,6 +109,7 @@ CREATE SEQUENCE sep_lecciones START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sep_cursos START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sep_problemas START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sep_esp START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE seq_id_aud START WITH 1 INCREMENT BY 1;
 
 
 --------------------FUNCION CALCULAR EDAD------------------------------
@@ -566,31 +567,91 @@ EXCEPTION
 END insertar_Usuario_problema;
 /
 
-
-
 ------------------INSERTAR PROBLEMAS_UDUARIOS FIN -------------------------
 
 
 
 
-
-
-
-
-
-
 ------------------ INSERTAR TABLA DE AUDITORIA -------------------
+
 --Auditamos la tabla de cursos
 CREATE TABLE Auditoria_lecciones(
-    id_leccion_aud NUMBER(8),
+    id_aud NUMBER(10) PRIMARY KEY NOT NULL,
+    id_lec_aud NUMBER(8) NOT NULL,
+    nombre_lec_aud VARCHAR2(50) NOT NULL,
+    descripcion_lec_aud VARCHAR2(50) NOT NULL,
+    dificultad_lec_aud NUMBER(2) NOT NULL,
     id_curso_aud NUMBER(8) NOT NULL,
-    nombre_leccion_aud VARCHAR2(50),
-    contenido_leccion_aud VARCHAR2(50),
-    dificultad_leccion_aud NUMBER,
-    id_profesor_aud NUMBER(8),
-    id_usuario_aud NUMBER(8),
-    id_admin_aud NUMBER(8) NOT NULL,
-    fecha_de_cambio_aud TIMESTAMP NOT NULL,
-    operacion VARCHAR2(10) NOT NULL,
-    CONSTRAINT pk_Cursos_pr_lec_aud PRIMARY KEY (id_curso_aud, id_profesor_aud, id_leccion_aud)
+    fecha_cambio_aud DATE NOT NULL,
+    operacion NUMBER NOT NULL
 );
+
+--Trigger para la tabla de auditoria
+CREATE OR REPLACE TRIGGER trg_audit_lecciones
+    AFTER INSERT OR UPDATE OR DELETE ON Lecciones
+    FOR EACH ROW 
+    BEGIN
+        IF INSERTING THEN 
+            INSERT INTO Auditoria_lecciones(
+                id_aud,
+                id_lec_aud,
+                nombre_lec_aud,
+                descripcion_lec_aud,
+                dificultad_lec_aud,
+                id_curso_aud,
+                fecha_cambio_aud,
+                operacion
+            ) VALUES ( 
+                seq_id_aud.NEXTVAL, 
+                :NEW.id_leccion,
+                :NEW.nombre_lec,
+                :NEW.contenido_lec,
+                :NEW.dificultad_lec,
+                :NEW.id_curso_aud,
+                SYSTIMESTAMP, 
+                'INSERT' 
+            ); 
+        ELSIF UPDATING THEN 
+            INSERT INTO Auditoria_lecciones(
+                id_aud,
+                id_lec_aud,
+                nombre_lec_aud,
+                descripcion_lec_aud,
+                dificultad_lec_aud,
+                id_curso_aud,
+                fecha_cambio_aud,
+                operacion
+            ) VALUES ( 
+                seq_id_aud.NEXTVAL, 
+                :NEW.id_leccion,
+                :NEW.nombre_lec,
+                :NEW.contenido_lec,
+                :NEW.dificultad_lec,
+                :NEW.id_curso_aud,
+                SYSTIMESTAMP, 
+                'UPDATE'
+            ); 
+        ELSIF DELETING THEN 
+            INSERT INTO Auditoria_lecciones(
+                id_aud,
+                id_lec_aud,
+                nombre_lec_aud,
+                descripcion_lec_aud,
+                dificultad_lec_aud,
+                id_curso_aud,
+                fecha_cambio_aud,
+                operacion
+            ) VALUES ( 
+                seq_id_aud.NEXTVAL, 
+                :OLD.id_leccion,
+                :OLD.nombre_lec,
+                :OLD.contenido_lec,
+                :OLD.dificultad_lec,
+                :OLD.id_curso_aud,
+                SYSTIMESTAMP, 
+                'DELETE'
+            ); 
+        END IF;
+    END;
+/
+
