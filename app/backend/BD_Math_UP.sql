@@ -582,7 +582,7 @@ CREATE TABLE Auditoria_lecciones(
     nombre_lec_aud VARCHAR2(50) NOT NULL,
     descripcion_lec_aud VARCHAR2(50) NOT NULL,
     fecha_cambio_aud DATE NOT NULL,
-    operacion NUMBER NOT NULL,
+    operacion NUMBER NOT NULL
 );
 
 --Trigger para la tabla de auditoria
