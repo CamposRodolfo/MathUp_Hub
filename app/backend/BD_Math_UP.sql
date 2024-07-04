@@ -573,15 +573,16 @@ END insertar_Usuario_problema;
 
 
 ------------------ INSERTAR TABLA DE AUDITORIA -------------------
+
 --Auditamos la tabla de cursos
 CREATE TABLE Auditoria_lecciones(
     id_aud NUMBER(10) PRIMARY KEY NOT NULL,
-    id_lección_aud NUMBER(8) NOT NULL,
+    id_lec_aud NUMBER(8) NOT NULL,
+    id_curso_aud NUMBER(8) NOT NULL,
     nombre_lec_aud VARCHAR2(50) NOT NULL,
-    contenido_lec_aud VARCHAR2(50) NOT NULL,
-    dificultad_lec_aud NUMBER(2) NOT NULL,
-    
-
+    descripcion_lec_aud VARCHAR2(50) NOT NULL,
+    fecha_cambio_aud DATE NOT NULL,
+    operacion NUMBER NOT NULL,
 );
 
 --Trigger para la tabla de auditoria
@@ -593,9 +594,8 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
             INSERT INTO Auditoria_lecciones(
                 id_aud, 
                 id_leccion_aud, 
-                id_curso_aud, 
                 nombre_lec_aud, 
-                descripcion_lec_aud, 
+                contenido_lec_aud, 
                 fecha_cambio_aud, 
                 operacion
             ) VALUES ( 
