@@ -109,6 +109,7 @@ CREATE SEQUENCE sep_lecciones START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sep_cursos START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sep_problemas START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sep_esp START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE seq_id_aud START WITH 1 INCREMENT BY 1;
 
 
 --------------------FUNCION CALCULAR EDAD------------------------------
@@ -566,15 +567,7 @@ EXCEPTION
 END insertar_Usuario_problema;
 /
 
-
-
 ------------------INSERTAR PROBLEMAS_UDUARIOS FIN -------------------------
-
-
-
-
-
-
 
 
 
@@ -582,37 +575,33 @@ END insertar_Usuario_problema;
 ------------------ INSERTAR TABLA DE AUDITORIA -------------------
 --Auditamos la tabla de cursos
 CREATE TABLE Auditoria_lecciones(
-    id_leccion_aud NUMBER(8),
-    id_curso_aud NUMBER(8) NOT NULL,
-    nombre_leccion_aud VARCHAR2(50),
-    contenido_leccion_aud VARCHAR2(50),
-    dificultad_leccion_aud NUMBER,
-    id_profesor_aud NUMBER(8),
-    id_usuario_aud NUMBER(8),
-    id_admin_aud NUMBER(8) NOT NULL,
-    fecha_de_cambio_aud TIMESTAMP NOT NULL,
-    operacion VARCHAR2(10) NOT NULL,
-    CONSTRAINT pk_Cursos_pr_lec_aud PRIMARY KEY (id_curso_aud, id_profesor_aud, id_leccion_aud)
+    id_aud NUMBER(10) PRIMARY KEY NOT NULL,
+    id_lección_aud NUMBER(8) NOT NULL,
+    nombre_lec_aud VARCHAR2(50) NOT NULL,
+    contenido_lec_aud VARCHAR2(50) NOT NULL,
+    dificultad_lec_aud NUMBER(2) NOT NULL,
+    
+
 );
 
 --Trigger para la tabla de auditoria
-CREATE OR REPLACE TRIGGER trg_audit_lecciones 
-    AFTER INSERT OR UPDATE OR DELETE ON Lecciones FOR EACH ROW 
-    BEGIN 
+CREATE OR REPLACE TRIGGER trg_audit_lecciones
+    AFTER INSERT OR UPDATE OR DELETE ON Lecciones
+    FOR EACH ROW 
+    BEGIN
         IF INSERTING THEN 
             INSERT INTO Auditoria_lecciones(
+                id_aud, 
                 id_leccion_aud, 
                 id_curso_aud, 
-                nombre_leccion_aud, 
-                contenido_leccion_aud, 
-                dificultad_leccion_aud, 
-                id_admin_aud, 
-                fecha_de_cambio_aud, 
+                nombre_lec_aud, 
+                descripcion_lec_aud, 
+                fecha_cambio_aud, 
                 operacion
             ) VALUES ( 
-                :NEW.id_leccion, 
-                :NEW.id_curso_fk_lec, 
-                :NEW.nombre_lec, 
+                seq_id_aud.NEXTVAL, 
+                :NEW.id_leccion_aud,
+                :NEW.id_curso_aud, 
                 :NEW.contenido_lec, 
                 :NEW.dificultad_lec, 
                 NULL,
