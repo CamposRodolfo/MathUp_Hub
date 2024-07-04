@@ -607,7 +607,7 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 :NEW.nombre_lec,
                 :NEW.contenido_lec,
                 :NEW.dificultad_lec,
-                :NEW.id_curso_aud,
+                :NEW.id_curso_fk_lec,
                 SYSTIMESTAMP, 
                 'INSERT' 
             ); 
@@ -627,7 +627,7 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 :NEW.nombre_lec,
                 :NEW.contenido_lec,
                 :NEW.dificultad_lec,
-                :NEW.id_curso_aud,
+                :NEW.id_curso_fk_lec,
                 SYSTIMESTAMP, 
                 'UPDATE'
             ); 
@@ -647,7 +647,7 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 :OLD.nombre_lec,
                 :OLD.contenido_lec,
                 :OLD.dificultad_lec,
-                :OLD.id_curso_aud,
+                :OLD.id_curso_fk_lec,
                 SYSTIMESTAMP, 
                 'DELETE'
             ); 
