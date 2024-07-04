@@ -465,7 +465,6 @@ END insertar_usuarios_curso;
 ------------------ INSERTAR USUARIOS A LOS CURSOS FIN -------------------
 
 
-
 ------------------INSERTAR LECCIONES -------------------------
 
 CREATE OR REPLACE PROCEDURE insertar_lecciones(
@@ -531,7 +530,6 @@ END insertar_problemas;
 ------------------INSERTAR PROBLEMAS FIN -------------------------
 
 
-
 ------------------INSERTAR PROBLEMAS_UDUARIOS -------------------------
 
 CREATE OR REPLACE PROCEDURE insertar_Usuario_problema(
@@ -570,8 +568,6 @@ END insertar_Usuario_problema;
 ------------------INSERTAR PROBLEMAS_UDUARIOS FIN -------------------------
 
 
-
-
 ------------------ INSERTAR TABLA DE AUDITORIA -------------------
 
 --Auditamos la tabla de cursos
@@ -584,6 +580,7 @@ CREATE TABLE Auditoria_lecciones(
     fecha_cambio_aud DATE NOT NULL,
     operacion NUMBER NOT NULL
 );
+
 
 --Trigger para la tabla de auditoria
 CREATE OR REPLACE TRIGGER trg_audit_lecciones
@@ -634,17 +631,16 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 nombre_lec_aud,
                 descripcion_lec_aud,
                 fecha_cambio_aud,
-                operacion NUMBER, 
+                operacion NUMBER,
             ) VALUES ( 
                 seq_id_aud.NEXTVAL,
                 :OLD.id_lec_aud,
                 :OLD.id_curso_aud,
                 :OLD.nombre_lec_aud,
                 NULL,
-                SYSTIMESTAMP, 
+                SYSTIMESTAMP,
                 'DELETE'
             ); 
         END IF;
     END;
 /
-
