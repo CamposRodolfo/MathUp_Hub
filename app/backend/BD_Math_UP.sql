@@ -578,9 +578,10 @@ END insertar_Usuario_problema;
 CREATE TABLE Auditoria_lecciones(
     id_aud NUMBER(10) PRIMARY KEY NOT NULL,
     id_lec_aud NUMBER(8) NOT NULL,
-    id_curso_aud NUMBER(8) NOT NULL,
     nombre_lec_aud VARCHAR2(50) NOT NULL,
     descripcion_lec_aud VARCHAR2(50) NOT NULL,
+    dificultad_lec_aud NUMBER(2) NOT NULL,
+    id_curso_aud NUMBER(8) NOT NULL,
     fecha_cambio_aud DATE NOT NULL,
     operacion NUMBER NOT NULL
 );
@@ -594,17 +595,19 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
             INSERT INTO Auditoria_lecciones(
                 id_aud,
                 id_lec_aud,
-                id_curso_aud,
                 nombre_lec_aud,
                 descripcion_lec_aud,
+                dificultad_lec_aud,
+                id_curso_aud,
                 fecha_cambio_aud,
-                operacion NUMBER
+                operacion
             ) VALUES ( 
                 seq_id_aud.NEXTVAL, 
-                :NEW.id_lec_aud,
-                :NEW.id_curso_aud, 
-                :NEW.nombre_lec_aud,
-                NULL,
+                :NEW.id_leccion,
+                :NEW.nombre_lec,
+                :NEW.contenido_lec,
+                :NEW.dificultad_lec,
+                :NEW.id_curso_aud,
                 SYSTIMESTAMP, 
                 'INSERT' 
             ); 
@@ -612,17 +615,19 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
             INSERT INTO Auditoria_lecciones(
                 id_aud,
                 id_lec_aud,
-                id_curso_aud,
                 nombre_lec_aud,
                 descripcion_lec_aud,
+                dificultad_lec_aud,
+                id_curso_aud,
                 fecha_cambio_aud,
-                operacion NUMBER,
+                operacion
             ) VALUES ( 
                 seq_id_aud.NEXTVAL, 
-                :NEW.id_lec_aud,
-                :NEW.id_curso_aud, 
-                :NEW.nombre_lec_aud,
-                NULL,
+                :NEW.id_leccion,
+                :NEW.nombre_lec,
+                :NEW.contenido_lec,
+                :NEW.dificultad_lec,
+                :NEW.id_curso_aud,
                 SYSTIMESTAMP, 
                 'UPDATE'
             ); 
@@ -630,18 +635,20 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
             INSERT INTO Auditoria_lecciones(
                 id_aud,
                 id_lec_aud,
-                id_curso_aud,
                 nombre_lec_aud,
                 descripcion_lec_aud,
+                dificultad_lec_aud,
+                id_curso_aud,
                 fecha_cambio_aud,
-                operacion NUMBER, 
+                operacion
             ) VALUES ( 
-                seq_id_aud.NEXTVAL,
-                :OLD.id_lec_aud,
+                seq_id_aud.NEXTVAL, 
+                :OLD.id_leccion,
+                :OLD.nombre_lec,
+                :OLD.contenido_lec,
+                :OLD.dificultad_lec,
                 :OLD.id_curso_aud,
-                :OLD.nombre_lec_aud,
-                NULL,
-                SYSTIMESTAMP,
+                SYSTIMESTAMP, 
                 'DELETE'
             ); 
         END IF;
