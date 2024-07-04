@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,15 +31,6 @@
     <div class="navbar">
         <a class="navbar-opcion" href="home.html">Inicio</a>
         <div class="dropdown">
-            <button class="navbar-opcion dropdwonbtn" href="#"> Usuarios <i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-content">
-                <a href="lista_admins.html">Lista de Administradores</a>
-                <a href="lista_profesores.html">Lista de Profesores</a>
-                <a href="lista_estdiantes.html">Lista de Estudiantes</a>
-                <a href="registro_usuario.html">Registrar Usuario</a>
-            </div>
-        </div>
-        <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.html">Lista de Cursos</a>
@@ -48,9 +42,61 @@
     </div> <!-- Fin Navbar -->
 
     <div id="main-home-general" class="main">
-        <h1>HOME</h1>
-        <img src="../assets/Imagenes/about/rodolfo.jpg" alt="">
+    
     </div>
+
+<table border="1">
+        <tr>
+            <th>ID Curso</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Ver perfil curso</th>
+        </tr>
+        
+        <% 
+            String usuario = "Admin";
+            String contrasena = "12345";
+            String correo = request.getParameter("Correo");
+            
+            try {
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
+                
+                String mostrarsql = "SELECT c.id_curso, c.nombre_cur, c.descripcion_cur " +
+                        "FROM Cursos c " +
+                        "JOIN Usuarios_curso cp ON c.id_curso = cp.id_curso_fk_uc " +
+                        "JOIN Usuarios u ON cp.id_usuario_fk_uc = u.id_usuario_usr " +
+                        "WHERE u.correo_usr = ?";
+                PreparedStatement preparado = dbconnect.prepareStatement(mostrarsql);
+                preparado.setString(1, correo);
+                ResultSet rs = preparado.executeQuery();
+                boolean hayDatos = false;
+
+                while (rs.next()) {
+                    hayDatos = true;
+        %>      
+                    <tr>
+                        <td><%= rs.getInt("id_curso") %></td>
+                        <td><%= rs.getString("nombre_cur") %></td>
+                        <td><%= rs.getString("descripcion_cur") %></td>
+                        <td><a href="../backend/ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
+                    </tr>
+        <% 
+                }
+
+                if (!hayDatos) {
+                    out.println("<tr><td colspan='4'>No se encontraron registros en la tabla Cursos</td></tr>");
+                }
+
+                rs.close();
+                preparado.close();
+                dbconnect.close();
+                
+            } catch (Exception e) {
+                out.println("<tr><td colspan='4'>Error en la conexión o consulta: " + e.getMessage() + "</td></tr>");
+            }
+        %>
+        </table>
 
     <footer class="footer">
         <div class="footer_columna">

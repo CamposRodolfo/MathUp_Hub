@@ -8,7 +8,7 @@
     <title>vista_est</title>
 </head>
 <body>
-    <h1>Lista de Cursos</h1>
+    <h1>Lista de Cursos Admin</h1>
     <table border="1">
         <tr>
             <th>ID Curso</th>
@@ -16,16 +16,18 @@
             <th>Descripcion</th>
             <th>Ver perfil curso</th>
         </tr>
+
         <% 
             String usuario = "Admin";
             String contrasena = "12345";
+            String correo = request.getParameter("correo");
             
             try {
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
                 
-                String mostrarsql = "SELECT * FROM Cursos";
+                String mostrarsql = "SELECT * FROM Cursos where correo_adm = correo";
                 ResultSet rs = dbstatement.executeQuery(mostrarsql);
                 boolean hayDatos = false;
 

@@ -8,13 +8,13 @@
     <title>vista_est</title>
 </head>
 <body>
-    <h1>Lista de Cursos</h1>
+    <h1>Lista de Estudiantes</h1>
     <table border="1">
         <tr>
-            <th>ID Curso</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Ver perfil curso</th>
+            <th>ID Estudiante</th>
+            <th>Nombre del Estudiante</th>
+            <th>Apellido del Estudiante</th>
+            <th>Ver perfil del Estudiante</th>
         </tr>
         <% 
             String usuario = "Admin";
@@ -25,7 +25,7 @@
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
                 
-                String mostrarsql = "SELECT * FROM Cursos";
+                String mostrarsql = "SELECT * FROM Usuarios";
                 ResultSet rs = dbstatement.executeQuery(mostrarsql);
                 boolean hayDatos = false;
 
@@ -34,10 +34,10 @@
 
         %>      
                     <tr>
-                        <td><%= rs.getInt("id_curso") %></td>
-                        <td><%= rs.getString("nombre_cur") %></td>
-                        <td><%= rs.getString("descripcion_cur") %></td>
-                        <td><a href="ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
+                        <td><%= rs.getInt("id_usuario_usr") %></td>
+                        <td><%= rs.getString("nombre_usr") %></td>
+                        <td><%= rs.getString("apellido_usr") %></td>
+                        <td><a href="ver_perfil_est.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>" target="_parent">Perfil</a></td>
                    	</tr>
         <% 
                 }
@@ -57,3 +57,4 @@
     </table>
 </body>
 </html>
+

@@ -397,8 +397,51 @@ header .btn-icon .fa-user{
 
 
 /* Login */
-
-
+.main-login-general {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-login {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.clase-form h2 {
+    margin-bottom: 20px;
+}
+.clase-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.clase-form .text-area, .clase-form select, .clase-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.icono-seleccion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.icono-seleccion-grupo {
+    display: flex;
+    flex-direction: row;
+    padding-right: 25px;
+}
+.icono-seleccion-grupo label{
+    padding-right: 5px;
+}
 /* Fin Login */
 
 /* Fin Carpeta General */
@@ -799,267 +842,3 @@ header .btn-icon .fa-user{
 
 
 /* Fin Carpeta Backend */
-
-
-
-
-
-
-
-/* 
-
-
-.social-nav, .social-nav ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 20px;
-}
-
-
-.social-nav img {
-    background-color: #FFFFFF;
-    padding: 2%;
-    border-radius: 25%;
-    height: 50px;
-}
-
-
-
-
-/*body {
-    font-family: "Montserrat", sans-serif; /* Usa la fuente Montserrat o, si no está disponible, una fuente sans-serif 
-    font-size: 1.2rem; /* Establece el tamaño de fuente base en 1.2 rem 
-    min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport 
-    background-color: #FFFFFF; /* Establece el color de fondo del cuerpo 
-
-}
-*/
-
-/* Estilos para elementos hijos directos de '.body' */
-/* .body > *{
-    box-shadow: 10px 6px 37px -13px rgba(51,51,51,0.74); /* Establece una sombra en los elementos 
-    
-    padding: 10px; /* Establece un relleno interno de 10px 
-    text-align: center; /* Centra el texto 
-    font-weight: 500; /* Establece el grosor de la fuente 
-} */
-
-/* .header {
-    font-weight: 500; /* Grosor del texto *
-    font-size: 1.25rem; /* Tamaño del texto *
-    color: #edf0f1; /* Color del texto *
-    
-    /* Estilos para elementos de lista, enlaces y botones dentro del encabezado *
-    li, a, button {
-        font-weight: 500; /* Grosor del texto *
-        font-size: 1.25rem; /* Tamaño del texto *
-        color: #edf0f1; /* Color del texto *
-    }
-} */
-
-
-
-
-
-
-
-
-
-/* Estilos para el pie de página */
-
-/* Estilos para los enlaces del pie de página */
-
-
-
-.noticias {
-    margin-top: 20px;
-    text-align: center; /* Alinear el texto al centro */
-}
-
-.noticias h3 {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.noticias-list {
-    display: flex;
-    flex-wrap: nowrap; /* Evitar que las noticias se envuelvan */
-    justify-content: space-between; /* Espacio entre las noticias */
-    align-items: flex-start; /* Alinear las noticias hacia arriba */
-}
-
-
-.noticias-list {
-    display: flex;
-    flex-wrap: nowrap; /* Evitar que las noticias se envuelvan */
-    justify-content: flex-start; /* Justificar contenido al inicio (izquierda) */
-    align-items: flex-start; /* Alinear las noticias hacia arriba */
-    overflow-x: auto; /* Permitir desplazamiento horizontal si las noticias no caben */
-    gap: 20px; /* Espacio entre las noticias */
-}
-
-.noticia {
-    flex: 0 0 calc(33.33% - 20px); /* Ajustar el ancho de cada noticia (33.33% para tres noticias en una fila) */
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px; /* Aumentar el padding para más espacio */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Alinear texto a la izquierda */
-    margin-bottom: 20px; /* Espacio entre noticias */
-    flex-shrink: 0; /* Evitar que las noticias se reduzcan más allá de su ancho */
-    max-width: 33.33%; /* Establecer el ancho máximo para evitar superposiciones en pantallas pequeñas */
-}
-
-.noticia h4 {
-    font-size: 18px;
-    color: #4A4A4A;
-    margin-top: 0; /* Eliminar el margen superior */
-}
-
-.noticia p {
-    font-size: 14px;
-    color: #7A7A7A;
-    margin: 10px 0; /* Ajustar el margen */
-}
-
-.noticia a {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #FFE699;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.noticia a:hover {
-    background-color: #FFA500;
-}
-
-@media (max-width: 1200px) {
-    .noticias-list {
-        flex-wrap: wrap; /* Envolver noticias cuando no haya suficiente espacio */
-        justify-content: space-between; /* Espacio entre noticias */
-        gap: 20px; /* Espacio entre las noticias */
-        overflow-x: hidden; /* Ocultar desplazamiento horizontal en pantallas más pequeñas */
-    }
-
-    .noticia {
-        flex-basis: calc(50% - 20px); /* Dos noticias por fila en pantallas más pequeñas */
-        max-width: calc(50% - 20px); /* Ancho máximo para evitar superposiciones */
-        margin-bottom: 50px;
-    }
-}
-
-@media (max-width: 768px) {
-    .noticia {
-        flex-basis: calc(100% - 20px); /* Una noticia por fila en dispositivos móviles */
-        max-width: calc(100% - 20px); /* Ancho máximo para evitar superposiciones */
-    }
-}
-
-.noticia a:hover {
-    background-color: #FFA500;
-}
-
-
-
-.imagen-profesores figcaption,
-.imagen-calendario figcaption,
-.imagen-estudiantes figcaption {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.imagen-profesores figcaption a,
-.imagen-calendario figcaption a,
-.imagen-estudiantes figcaption a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #FFD700;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.imagen-profesores figcaption a:hover,
-.imagen-calendario figcaption a:hover,
-.imagen-estudiantes figcaption a:hover {
-    background-color: #FFA500;
-}
-
-
-.soporte_div {
-    flex: 0 0 calc(33.33% - 20px); /* Ajustar el ancho de cada noticia (33.33% para tres noticias en una fila) */
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px; /* Aumentar el padding para más espacio */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Alinear texto a la izquierda */
-    margin-bottom: 20px; /* Espacio entre noticias */
-    flex-shrink: 0; /* Evitar que las noticias se reduzcan más allá de su ancho */
-    /* max-width: 33.33%; */
-     /* Establecer el ancho máximo para evitar superposiciones en pantallas pequeñas */
-}
-
-.soporte_div h4 {
-    font-size: 18px;
-    color: #4A4A4A;
-    margin-top: 0; /* Eliminar el margen superior */
-}
-
-.soporte_div p {
-    font-size: 14px;
-    color: #7A7A7A;
-    margin: 10px 0; /* Ajustar el margen */
-}
-
-.soporte_div a, #soy_profesor {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #FFE699;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.soporte_div a:hover {
-    background-color: #FFA500;
-}
-
-@media (max-width: 1200px) {
-    .noticias-list {
-        flex-wrap: wrap; /* Envolver noticias cuando no haya suficiente espacio */
-        justify-content: space-between; /* Espacio entre noticias */
-        gap: 20px; /* Espacio entre las noticias */
-        overflow-x: hidden; /* Ocultar desplazamiento horizontal en pantallas más pequeñas */
-    }
-
-    .soporte_div {
-        flex-basis: calc(50% - 20px); /* Dos noticias por fila en pantallas más pequeñas */
-        max-width: calc(50% - 20px); /* Ancho máximo para evitar superposiciones */
-        margin-bottom: 50px;
-    }
-}
-
-@media (max-width: 768px) {
-    .soporte_div {
-        flex-basis: calc(100% - 20px); /* Una noticia por fila en dispositivos móviles */
-        max-width: calc(100% - 20px); /* Ancho máximo para evitar superposiciones */
-    }
-}
-
-.soporte_div a:hover {
-    background-color: #FFA500;
-}
-
-.soporte_div img {
-    height: 350px;
-}

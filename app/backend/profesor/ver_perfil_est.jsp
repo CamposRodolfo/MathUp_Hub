@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,36 +29,64 @@
     </header>
 
     <div class="navbar">
-        <a class="navbar-opcion" href="home.html">Inicio</a>
-        <div class="dropdown">
-            <button class="navbar-opcion dropdwonbtn" href="#"> Usuarios <i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-content">
-                <a href="lista_admins.html">Lista de Administradores</a>
-                <a href="lista_profesores.html">Lista de Profesores</a>
-                <a href="lista_estdiantes.html">Lista de Estudiantes</a>
-                <a href="registro_usuario.html">Registrar Usuario</a>
-            </div>
-        </div>
+        <a class="navbar-opcion" href="../admin/home.html">Inicio</a>
         <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
-                <a href="lista_cursos.html">Lista de Cursos</a>
-                <a href="registro_curso.html">Registro de Cursos</a>
-                <a href="registro_leccion.html">Registar Lección</a>
+                <a href="../admin/lista_cursos.html">Lista de Cursos</a>
+                <a href="../admin/registro_curso.html">Registro de Cursos</a>
+                <a href="../admin/registro_leccion.html">Registar Lección</a>
             </div>
         </div>
-        <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
+        <a class="navbar-opcion" href="../admin/about.html">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
+    
+	<div id="main-home-general" class="main">
+    <h1>Perfil del Estudiante</h1>
+    
+    <% 
+        //obtener los parámetros de la URL
+        String idUsuario = request.getParameter("id_usuario_usr");
 
-   
+        if (idUsuario != null) {
+            //convertir idUsuario a un entero para usuarlo en el select
+            int idUsuarioInt = Integer.parseInt(idUsuario);
+            
+            
+            try {
+                String usuario = "Admin";
+                String contrasena = "12345";
 
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
+                Statement dbstatement = dbconnect.createStatement();
 
+                String sql = "SELECT * FROM Usuarios WHERE id_usuario_usr = " + idUsuarioInt;
+                ResultSet rs = dbstatement.executeQuery(sql);
 
+                if (rs.next()) {
+                	%>
+                	<h1>ID Usuario: <%=rs.getString("id_usuario_usr") %><br></h1>
+                    <h1>Nombre: <%=rs.getString("nombre_usr") %><br></h1>
+                    <h1>Apellido:  <%=rs.getString("apellido_usr") %><br></h1>
+                    <h1>Correo: <%=rs.getString("correo_usr") %><br></h1>
+                    <%
+                    
+                } else {
+                    out.println("No se encontró el usuario con ID: " + idUsuarioInt + "<br>");
+                }
 
-    <div id="main-home-general" class="main">
-        <h1>HOME</h1>
-        <img src="../assets/Imagenes/about/rodolfo.jpg" alt="">
-    </div>
+                rs.close();
+                dbstatement.close();
+                dbconnect.close();
+            } catch (Exception e) {
+                out.println("Error en la conexión o consulta: " + e.getMessage());
+            }
+        } else {
+            out.println("Parámetros no válidos.<br>");
+        }
+    %>
+</div>
 
     <footer class="footer">
         <div class="footer_columna">
@@ -86,3 +117,4 @@
     </footer>
 </body>
 </html>
+

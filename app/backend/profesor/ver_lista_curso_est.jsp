@@ -8,13 +8,15 @@
     <title>vista_est</title>
 </head>
 <body>
-    <h1>Lista de Cursos</h1>
+    <h1>Lista de Estudiantes y sus Cursos</h1>
     <table border="1">
         <tr>
             <th>ID Curso</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Ver perfil curso</th>
+            <th>Nombre del curso</th>
+            <th>ID Estudiante</th>
+            <th>Nombre del Estudiante</th>
+            <th>Apellido del Estudiante</th>
+            <th>Ver perfil del Estudiante</th>
         </tr>
         <% 
             String usuario = "Admin";
@@ -25,20 +27,24 @@
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
                 
-                String mostrarsql = "SELECT * FROM Cursos";
+                String mostrarsql = "SELECT c.id_curso, c.nombre_cur, u.id_usuario_usr, u.nombre_usr, u.apellido_usr " +
+                                    "FROM Usuarios u " +
+                                    "JOIN Usuarios_curso uc ON u.id_usuario_usr = uc.id_usuario_fk_uc " +
+                                    "JOIN Cursos c ON uc.id_curso_fk_uc = c.id_curso";
                 ResultSet rs = dbstatement.executeQuery(mostrarsql);
                 boolean hayDatos = false;
 
                 while (rs.next()) {
                     hayDatos = true;
-
         %>      
                     <tr>
                         <td><%= rs.getInt("id_curso") %></td>
                         <td><%= rs.getString("nombre_cur") %></td>
-                        <td><%= rs.getString("descripcion_cur") %></td>
-                        <td><a href="ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
-                   	</tr>
+                        <td><%= rs.getInt("id_usuario_usr") %></td>
+                        <td><%= rs.getString("nombre_usr") %></td>
+                        <td><%= rs.getString("apellido_usr") %></td>
+                        <td><a href="ver_perfil_est.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>" target="_parent">Perfil</a></td>
+                    </tr>
         <% 
                 }
 
