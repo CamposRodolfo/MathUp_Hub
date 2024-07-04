@@ -641,7 +641,7 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 :OLD.id_curso_aud,
                 :OLD.nombre_lec_aud,
                 NULL,
-                SYSTIMESTAMP,
+                SYSTIMESTAMP, 
                 'DELETE'
             ); 
         END IF;
