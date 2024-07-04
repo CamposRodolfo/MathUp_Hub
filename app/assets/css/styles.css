@@ -162,11 +162,18 @@ p:last-child {
 }
 /* Fin Base */
 
+
+
+
+
+
+
+
 /* Maquetado */
 .body {
     display: grid;
     grid-template:
-    "header" 200px
+    "header" 120px
     "navbar" 75px
     "main" auto
     "footer" auto
@@ -175,12 +182,11 @@ p:last-child {
     header {
         grid-area: "header";
         background-color: rgba(11,62,105,1);
-        margin: 0.5% 2% 0% 2%;
+        /* margin: 0% 1% 0% 1%; */
         display: flex;
         justify-content: space-between;
         padding: 0 35px 15px;
-        align-items: end;
-        border-top: 3 solid rgba(51,113,172,1);
+        align-items: center;
     }
     .navbar {
         grid-area: "navbar";
@@ -190,7 +196,7 @@ p:last-child {
     .main {
         grid-area: "main";
         background-color: rgba(254,254,254,1);
-        margin: 0% 2%;
+        margin: 0% 7.5%;
     }
     footer {
         grid-area: "footer";
@@ -207,15 +213,14 @@ p:last-child {
 /* Header */
 /* Estilos para el logotipo */
 .logo {
-    height: 150px;
-    width: 150px;
+    height: 300px;
+    width: 300px;
 }
 .logo img {
     
     cursor: pointer; /* Establece el cursor como un puntero al pasar sobre el logotipo */
-    background-color: #FFF; /* Establece el color de fondo del logotipo */
-    margin:  0 10px; /* Establece un margen exterior de 10px */
-    padding: 25px 0px; /* Establece un relleno interno de 10px */
+    margin: 75px 0; /* Establece un margen exterior de 10px */
+    padding: 0; /* Establece un relleno interno de 10px */
     border-radius: 50%; /* Establece un radio de borde del 50% para que el logotipo sea circular */
 }
 /* Estilos para las redes sociales */
@@ -267,7 +272,7 @@ header .btn-icon .fa-user{
 .navbar {
     overflow: hidden;
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
     align-items: center;
 }
 .navbar a {
@@ -275,7 +280,7 @@ header .btn-icon .fa-user{
     font-size: 20px;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 120px;
     text-decoration: none;
  }
 .navbar button {
@@ -307,17 +312,10 @@ header .btn-icon .fa-user{
     display: grid;
     grid-template-columns: auto;
 }
+#about-navbar {
+    margin-right: 120px;
+}
 /* Fin Navbar */
-
-
-
-
-/* Aside */
-
-
-
-
-/* Fin Aside */
 
 
 
