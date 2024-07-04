@@ -592,60 +592,56 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
     BEGIN
         IF INSERTING THEN 
             INSERT INTO Auditoria_lecciones(
-                id_aud, 
-                id_leccion_aud, 
-                nombre_lec_aud, 
-                contenido_lec_aud, 
-                fecha_cambio_aud, 
-                operacion
+                id_aud,
+                id_lec_aud,
+                id_curso_aud,
+                nombre_lec_aud,
+                descripcion_lec_aud,
+                fecha_cambio_aud,
+                operacion NUMBER,
             ) VALUES ( 
                 seq_id_aud.NEXTVAL, 
-                :NEW.id_leccion_aud,
+                :NEW.id_lec_aud,
                 :NEW.id_curso_aud, 
-                :NEW.contenido_lec, 
-                :NEW.dificultad_lec, 
+                :NEW.nombre_lec_aud,
                 NULL,
                 SYSTIMESTAMP, 
                 'INSERT' 
             ); 
         ELSIF UPDATING THEN 
             INSERT INTO Auditoria_lecciones(
-                id_leccion_aud, 
-                id_curso_aud, 
-                nombre_leccion_aud, 
-                contenido_leccion_aud, 
-                dificultad_leccion_aud, 
-                id_admin_aud, 
-                fecha_de_cambio_aud, 
-                operacion
+                id_aud,
+                id_lec_aud,
+                id_curso_aud,
+                nombre_lec_aud,
+                descripcion_lec_aud,
+                fecha_cambio_aud,
+                operacion NUMBER,
             ) VALUES ( 
-                :NEW.id_leccion, 
-                :NEW.id_curso_fk_lec, 
-                :NEW.nombre_lec, 
-                :NEW.contenido_lec, 
-                :NEW.dificultad_lec, 
+                seq_id_aud.NEXTVAL, 
+                :NEW.id_lec_aud,
+                :NEW.id_curso_aud, 
+                :NEW.nombre_lec_aud,
                 NULL,
                 SYSTIMESTAMP, 
                 'UPDATE'
             ); 
         ELSIF DELETING THEN 
             INSERT INTO Auditoria_lecciones(
-                id_leccion_aud, 
-                id_curso_aud, 
-                nombre_leccion_aud, 
-                contenido_leccion_aud, 
-                dificultad_leccion_aud, 
-                id_admin_aud, 
-                fecha_de_cambio_aud, 
-                operacion 
+                id_aud,
+                id_lec_aud,
+                id_curso_aud,
+                nombre_lec_aud,
+                descripcion_lec_aud,
+                fecha_cambio_aud,
+                operacion NUMBER, 
             ) VALUES ( 
-                :OLD.id_leccion, 
-                :OLD.id_curso_fk_lec, 
-                :OLD.nombre_lec, 
-                :OLD.contenido_lec, 
-                :OLD.dificultad_lec, 
-                NULL, 
-                SYSTIMESTAMP, 
+                seq_id_aud.NEXTVAL,
+                :OLD.id_lec_aud,
+                :OLD.id_curso_aud,
+                :OLD.nombre_lec_aud,
+                NULL,
+                SYSTIMESTAMP,
                 'DELETE'
             ); 
         END IF;
