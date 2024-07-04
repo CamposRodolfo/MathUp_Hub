@@ -598,7 +598,7 @@ CREATE OR REPLACE TRIGGER trg_audit_lecciones
                 nombre_lec_aud,
                 descripcion_lec_aud,
                 fecha_cambio_aud,
-                operacion NUMBER,
+                operacion NUMBER
             ) VALUES ( 
                 seq_id_aud.NEXTVAL, 
                 :NEW.id_lec_aud,
