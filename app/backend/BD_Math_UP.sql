@@ -465,7 +465,6 @@ END insertar_usuarios_curso;
 ------------------ INSERTAR USUARIOS A LOS CURSOS FIN -------------------
 
 
-
 ------------------INSERTAR LECCIONES -------------------------
 
 CREATE OR REPLACE PROCEDURE insertar_lecciones(
@@ -531,7 +530,6 @@ END insertar_problemas;
 ------------------INSERTAR PROBLEMAS FIN -------------------------
 
 
-
 ------------------INSERTAR PROBLEMAS_UDUARIOS -------------------------
 
 CREATE OR REPLACE PROCEDURE insertar_Usuario_problema(
@@ -568,8 +566,6 @@ END insertar_Usuario_problema;
 /
 
 ------------------INSERTAR PROBLEMAS_UDUARIOS FIN -------------------------
-
-
 
 
 ------------------ INSERTAR TABLA DE AUDITORIA -------------------
