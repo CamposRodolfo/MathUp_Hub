@@ -8,47 +8,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="shortcut icon" href="../assets/Imagenes/Logo.png">
     <title>MathUP</title>
-
     <link rel="stylesheet" href="../assets/css/styles.css">
-   
 </head>
 <body class="body">
     <header>
-        <a class="logo" href="home.jsp"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
+        <a class="logo" href="home.jsp?correo=<%= request.getParameter("correo") %>"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
         <div class="social-icon">
             <a href="https://www.google.com/" target="_blank"><i class="fa fa-search"></i></a>
             <a href="https://www.instagram.com/math_up0/" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61561506939201" target="_blank"><i class="fa fa-facebook"></i></a>
             <a href="https://x.com/MathUP0" target="_blank"><i class="fa fa-twitter"></i></a>
         </div>
-        <!-- <a class="btn btn-default" href="#">Iniciar SesiÃ³n</a> -->
+        <!-- <a class="btn btn-default" href="#">Iniciar Sesión</a> -->
         <a class="btn-icon" href="#"><i class="fa fa-user"></i></a>
     </header>
 
     <div class="navbar">
-        <a class="navbar-opcion" href="home.jsp">Inicio</a>
+        <a class="navbar-opcion" href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a>
         <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Usuarios <i class="fa fa-caret-down"></i></button>
             <div class="dropdown-content">
-                <a href="lista_admins.jsp">Lista de Administradores</a>
-                <a href="lista_profesores.jsp">Lista de Profesores</a>
-                <a href="lista_estdiantes.jsp">Lista de Estudiantes</a>
-                <a href="registro_usuario.jsp">Registrar Usuario</a>
+                <a href="lista_admins.jsp?correo=<%= request.getParameter("correo") %>">Lista de Administradores</a>
+                <a href="lista_profesores.jsp?correo=<%= request.getParameter("correo") %>">Lista de Profesores</a>
+                <a href="lista_estdiantes.jsp?correo=<%= request.getParameter("correo") %>">Lista de Estudiantes</a>
+                <a href="registro_usuario.jsp?correo=<%= request.getParameter("correo") %>">Registrar Usuario</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
-                <a href="lista_cursos.jsp">Lista de Cursos</a>
-                <a href="registro_curso.jsp">Registro de Cursos</a>
-                <a href="registro_leccion.jsp">Registar LecciÃ³n</a>
+                <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
+                <a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registro de Cursos</a>
+                <a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a>
             </div>
         </div>
-        <a class="navbar-opcion" href="about.jsp">Sobre Nosotros</a>
-    </div> <!-- Fin Navbar -->
+        <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
+    </div>
+     <!-- Fin Navbar -->
 
     <main class="main-lista-profesores">
         <table border="1">
@@ -105,19 +103,19 @@
     </table>
     </main>
     
-        <footer class="footer">
+<footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
-                <li class="home"><a href="home.jsp">Inicio</a></li>
-                <li><a href="registro_curso.jsp">Registar Curso</a></li>
-                <li><a href="lista_cursos.jsp">Lista de Cursos</a></li>
-                <li><a href="registro_leccion.jsp">Registar LecciÃ³n</a></li>
-                <li><a href="registro_usuario.jsp">Registrar Usuario</a></li>
-                <li><a href="lista_admins.jsp">Lista de Administradores</a></li>
-                <li><a href="lista_profesores.jsp">Lista de Profesores</a></li>
-                <li><a href="lista_estdiantes.jsp">Lista de Estudiantes</a></li>
-                <li><a href="about.jsp">Sobre Nosotros</a></li>
+                <li class="home"><a href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a></li>
+                <li><a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registar Curso</a></li>
+                <li><a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a></li>
+                <li><a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a></li>
+                <li><a href="registro_usuario.jsp?correo=<%= request.getParameter("correo") %>">Registrar Usuario</a></li>
+                <li><a href="lista_admins.jsp?correo=<%= request.getParameter("correo") %>">Lista de Administradores</a></li>
+                <li><a href="lista_profesores.jsp?correo=<%= request.getParameter("correo") %>">Lista de Profesores</a></li>
+                <li><a href="lista_estdiantes.jsp?correo=<%= request.getParameter("correo") %>">Lista de Estudiantes</a></li>
+                <li><a href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a></li>
             </ul>
         </div>
         <div class="footer_columna">
