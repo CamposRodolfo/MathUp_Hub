@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,30 +24,30 @@
             <a href="https://www.facebook.com/profile.php?id=61561506939201" target="_blank"><i class="fa fa-facebook"></i></a>
             <a href="https://x.com/MathUP0" target="_blank"><i class="fa fa-twitter"></i></a>
         </div>
-        <!-- <a class="btn btn-default" href="#">Iniciar Sesión</a> -->
+        <!-- <a class="btn btn-default" href="#">Iniciar SesiÃ³n</a> -->
         <a class="btn-icon" href="#"><i class="fa fa-user"></i></a>
     </header>
 
     <div class="navbar">
-        <a class="navbar-opcion" href="home.html">Inicio</a>
+        <a class="navbar-opcion" href="home.jsp">Inicio</a>
         <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Usuarios <i class="fa fa-caret-down"></i></button>
             <div class="dropdown-content">
-                <a href="lista_admins.html">Lista de Administradores</a>
-                <a href="lista_profesores.html">Lista de Profesores</a>
-                <a href="lista_estdiantes.html">Lista de Estudiantes</a>
-                <a href="registro_usuario.html">Registrar Usuario</a>
+                <a href="lista_admins.jsp">Lista de Administradores</a>
+                <a href="lista_profesores.jsp">Lista de Profesores</a>
+                <a href="lista_estdiantes.jsp">Lista de Estudiantes</a>
+                <a href="registro_usuario.jsp">Registrar Usuario</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
-                <a href="lista_cursos.html">Lista de Cursos</a>
-                <a href="registro_curso.html">Registro de Cursos</a>
-                <a href="registro_leccion.html">Registar Lección</a>
+                <a href="lista_cursos.jsp">Lista de Cursos</a>
+                <a href="registro_curso.jsp">Registro de Cursos</a>
+                <a href="registro_leccion.jsp">Registar LecciÃ³n</a>
             </div>
         </div>
-        <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
+        <a class="navbar-opcion" href="about.jsp">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
 
     <main class="main-login-general">
@@ -79,8 +82,8 @@
 	                    <label for="Correo">Correo:</label>
 	                    <input type="text" id="Correo" name="Correo" required><br/><br/>
                         
-                        <label for="Contraseña">Contraseña:</label>
-	                    <input type="text" id="Contraseña" name="Contraseña" required> 
+                        <label for="ContraseÃ±a">ContraseÃ±a:</label>
+	                    <input type="text" id="ContraseÃ±a" name="ContraseÃ±a" required> 
 
                         <label for="Celular">Celular:</label>
 	                    <input type="text" id="Celular" name="Celular" required><br/><br/>
@@ -117,15 +120,15 @@
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
-                <li class="home"><a href="home.html">Inicio</a></li>
-                <li><a href="registro_curso.html">Registar Curso</a></li>
-                <li><a href="lista_cursos.html">Lista de Cursos</a></li>
-                <li><a href="registro_leccion.html">Registar Lección</a></li>
-                <li><a href="registro_usuario.html">Registrar Usuario</a></li>
-                <li><a href="lista_admins.html">Lista de Administradores</a></li>
-                <li><a href="lista_profesores.html">Lista de Profesores</a></li>
-                <li><a href="lista_estdiantes.html">Lista de Estudiantes</a></li>
-                <li><a href="about.html">Sobre Nosotros</a></li>
+                <li class="home"><a href="home.jsp">Inicio</a></li>
+                <li><a href="registro_curso.jsp">Registar Curso</a></li>
+                <li><a href="lista_cursos.jsp">Lista de Cursos</a></li>
+                <li><a href="registro_leccion.jsp">Registar LecciÃ³n</a></li>
+                <li><a href="registro_usuario.jsp">Registrar Usuario</a></li>
+                <li><a href="lista_admins.jsp">Lista de Administradores</a></li>
+                <li><a href="lista_profesores.jsp">Lista de Profesores</a></li>
+                <li><a href="lista_estdiantes.jsp">Lista de Estudiantes</a></li>
+                <li><a href="about.jsp">Sobre Nosotros</a></li>
             </ul>
         </div>
         <div class="footer_columna">

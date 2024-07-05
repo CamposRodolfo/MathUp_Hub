@@ -8,9 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="shortcut icon" href="../assets/Imagenes/Logo.png">
     <title>MathUP</title>
+
     <link rel="stylesheet" href="../assets/css/styles.css">
+   
 </head>
 <body class="body">
     <header>
@@ -28,45 +31,40 @@
     <div class="navbar">
         <a class="navbar-opcion" href="home.jsp">Inicio</a>
         <div class="dropdown">
-            <button class="navbar-opcion dropdwonbtn" href="#"> Usuarios <i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-content">
-                <a href="lista_admins.jsp">Lista de Administradores</a>
-                <a href="lista_profesores.jsp">Lista de Profesores</a>
-                <a href="lista_estdiantes.jsp">Lista de Estudiantes</a>
-                <a href="registro_usuario.jsp">Registrar Usuario</a>
-            </div>
-        </div>
-        <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp">Lista de Cursos</a>
-                <a href="registro_curso.jsp">Registro de Cursos</a>
                 <a href="registro_leccion.jsp">Registar Lección</a>
             </div>
         </div>
-        <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
-    </div>
-     <!-- Fin Navbar -->
+        <a class="navbar-opcion" href="about.jsp">Sobre Nosotros</a>
+    </div> <!-- Fin Navbar -->
+
+    <main class="main-lista-profesores">
+		<h1>Lista de Estudiantes y sus Cursos</h1>
     <table border="1">
         <tr>
             <th>ID Curso</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Ver perfil curso</th>
+            <th>Nombre del curso</th>
+            <th>ID Estudiante</th>
+            <th>Nombre del Estudiante</th>
+            <th>Apellido del Estudiante</th>
+            <th>Ver perfil del Estudiante</th>
         </tr>
         <% 
             String usuario = "Admin";
             String contrasena = "12345";
-            String correo = request.getParameter("Correo");
             
             try {
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
+                Statement dbstatement = dbconnect.createStatement();
                 
-                String mostrarsql = "SELECT Cursos.* FROM Cursos JOIN Admins ON Cursos.id_admin_fk_cur = Admins.id_admin WHERE Admins.correo_adm = ?";
-                PreparedStatement preparado = dbconnect.prepareStatement(mostrarsql);
-                preparado.setString(1, correo);
-                ResultSet rs = preparado.executeQuery();
+                String mostrarsql = "SELECT c.id_curso, c.nombre_cur, u.id_usuario_usr, u.nombre_usr, u.apellido_usr " +
+                                    "FROM Usuarios u " +
+                                    "JOIN Usuarios_curso uc ON u.id_usuario_usr = uc.id_usuario_fk_uc " +
+                                    "JOIN Cursos c ON uc.id_curso_fk_uc = c.id_curso";
+                ResultSet rs = dbstatement.executeQuery(mostrarsql);
                 boolean hayDatos = false;
 
                 while (rs.next()) {
@@ -75,38 +73,37 @@
                     <tr>
                         <td><%= rs.getInt("id_curso") %></td>
                         <td><%= rs.getString("nombre_cur") %></td>
-                        <td><%= rs.getString("descripcion_cur") %></td>
-                        <td><a href="../backend/ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
+                        <td><%= rs.getInt("id_usuario_usr") %></td>
+                        <td><%= rs.getString("nombre_usr") %></td>
+                        <td><%= rs.getString("apellido_usr") %></td>
+                        <td><a href="../backend/ver_perfil_est.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>" target="_parent">Perfil</a></td>
                     </tr>
         <% 
                 }
 
                 if (!hayDatos) {
-                    out.println("<tr><td colspan='4'>No se encontraron registros en la tabla Cursos</td></tr>");
+                    out.println("No se encontraron registros en la tabla Usuarios<br>");
                 }
 
                 rs.close();
-                preparado.close();
+                dbstatement.close();
                 dbconnect.close();
                 
             } catch (Exception e) {
-                out.println("<tr><td colspan='4'>Error en la conexión o consulta: " + e.getMessage() + "</td></tr>");
+                out.println("Error en la conexión o consulta: " + e.getMessage());
             }
         %>
     </table>
-<footer class="footer">
+    </main>
+    
+    <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
                 <li class="home"><a href="home.jsp">Inicio</a></li>
-                <li><a href="registro_curso.jsp">Registar Curso</a></li>
-                <li><a href="lista_cursos.jsp">Lista de Cursos</a></li>
-                <li><a href="registro_leccion.jsp">Registar Lección</a></li>
-                <li><a href="registro_usuario.jsp">Registrar Usuario</a></li>
-                <li><a href="lista_admins.jsp">Lista de Administradores</a></li>
-                <li><a href="lista_profesores.jsp">Lista de Profesores</a></li>
-                <li><a href="lista_estdiantes.jsp">Lista de Estudiantes</a></li>
-                <li><a href="about.jsp">Sobre Nosotros</a></li>
+                <li class="home"><a href="lista_cursos.jsp">Listado de Cursos</a></li>
+            	<li class="home"><a href="lista_estudiantes_curso.jsp">Listado de Cursos-estudiante</a></li>
+                <li class="about"><a href="about.jsp">Sobre Nosotros</a></li>
             </ul>
         </div>
         <div class="footer_columna">
@@ -117,7 +114,7 @@
             <h4>Perfil</h4>
             <ul>
                 <li><a href="#">Gestionar Perfil</a></li>
-                <li><a href="../general/home.html">Log Out</a></li>
+                <li><a href="../general/login.html">Log Out</a></li>
             </ul>
         </div>
     </footer>

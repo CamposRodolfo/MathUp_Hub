@@ -29,16 +29,16 @@
     </header>
 
     <div class="navbar">
-        <a class="navbar-opcion" href="home.html">Inicio</a>
+        <a class="navbar-opcion" href="home.jsp">Inicio</a>
         <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
-                <a href="lista_cursos.html">Lista de Cursos</a>
-                <a href="registro_curso.html">Registro de Cursos</a>
-                <a href="registro_leccion.html">Registar Lección</a>
+                <a href="lista_cursos.jsp">Lista de Cursos</a>
+                <a href="registro_curso.jsp">Registro de Cursos</a>
+                <a href="registro_leccion.jsp">Registar Lección</a>
             </div>
         </div>
-        <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
+        <a class="navbar-opcion" href="about.jsp">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
 
     <div id="main-home-general" class="main">
@@ -102,9 +102,9 @@
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
-                <li class="home"><a href="home.html">Inicio</a></li>
-                <li class="home"><a href="cursos.html">Listado de Cursos</a></li>
-                <li class="about"><a href="about.html">Sobre Nosotros</a></li>
+                <li class="home"><a href="home.jsp">Inicio</a></li>
+                <li class="home"><a href="cursos.jsp">Listado de Cursos</a></li>
+                <li class="about"><a href="about.jsp">Sobre Nosotros</a></li>
             </ul>
         </div>
         <div class="footer_columna">
