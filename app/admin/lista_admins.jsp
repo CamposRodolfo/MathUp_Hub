@@ -94,7 +94,7 @@
                 out.println("Error en la conexión o consulta: " + e.getMessage());
             }
         %>
-    </table>
+        </table>
 	</div>
 
 

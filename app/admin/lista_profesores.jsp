@@ -49,6 +49,7 @@
      <!-- Fin Navbar -->
 
     <div id="main-home-general" class="main">
+        <h1>Lista de Profesores</h1>
         <table border="1">
         <tr>
             <th>ID Profesor</th>
