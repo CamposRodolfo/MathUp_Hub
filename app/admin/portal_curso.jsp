@@ -47,38 +47,23 @@
      <!-- Fin Navbar -->
 
     <div class="main">
-        <br><h1>Página Usuario</h1><br><br>
-        <div class="protal">
+        <br><h1>Gestion de Cursos</h1>
+        <div class="portal">
             <div class="icon-container">
-                <a href="../admin/lista_admins.jsp">
-                    <img src="../assets/Imagenes/admin.png" alt="Icono 1">
-                    <span>Lista Admins</span>
+                <a href="../admin/lista_cursos.jsp">
+                    <img src="../assets/Imagenes/curso.png" alt="Icono 1">
+                    <span>Lista Curso</span>
                 </a>
-                <a href="../admin/lista_profesores.jsp">
-                    <img src="../assets/Imagenes/profesor.png" alt="Icono 2">
-                    <span>Lista Profesores</span>
-                </a>
-                <a href="../admin/lista_profesor_curso.jsp">
-                    <img src="../assets/Imagenes/profesor.png" alt="Icono 3">
-                    <span>Lisa Profesores por Curso</span>
-                </a>
-            </div>
-            <div class="icon-container">
-                <a href="../admin/lista_estdiantes.jsp">
-                    <img src="../assets/Imagenes/estudiante.png" alt="Icono 4">
-                    <span>Lista Estudiantes</span>
-                </a>
-                <a href="../admin/lista_estudiantes_curso.jsp">
-                    <img src="../assets/Imagenes/estudiante.png" alt="Icono 5">
-                    <span>Lista Estudiantes por Curso</span>
-                </a>
-                <a href="../admin/registro_usuario.jsp">
-                    <img src="../assets/Imagenes/registrar.png" alt="Icono 6">
-                    <span>Registrar Usuarios</span>
-                </a>
+                <!-- <a href="#">
+                    <img src="leccion.png" alt="Icono 2">
+                    <span>Lista Lecciones</span>
+                </a> -->
+                <!-- <a href="#">
+                    <img src="crear.png" alt="Icono 3">
+                    <span>Registrar Curso</span>
+                </a> -->
             </div>
         </div>
-        
     </div>
     
     <footer class="footer">
