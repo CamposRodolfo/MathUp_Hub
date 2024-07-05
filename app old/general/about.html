@@ -13,7 +13,6 @@
    
 </head>
 <body class="body">
-    
     <header>
         <a class="logo" href="home.html"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
         <div class="social-icon">
@@ -30,48 +29,42 @@
         <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
 
-    <main class="main main-login-general">
-        <div class="contenedor-login">
-            <form action="../backend/login.jsp" class="clase-form">
-                <h2>Inicio de Sesión</h2>
-                <label for="Correo">Correo:</label>
-                <input class="text-area" type="text" id="Correo" name="Correo" required><br/><br/>
-                
-                <label for="Contraseña">Contraseña:</label>
-                <input class="text-area" type="text" id="Contraseña" name="Contraseña" required>
-                
-                <div class="icono-seleccion">
-                    <div class="icono-seleccion-grupo">
-                        <label for="Estudiante">Estudiante</label>
-                        <input type="radio" id="Estudiante" name="op_login" value="1" required>
+    <div id="main-about-general" class="main">
+        <div class="opciones-paginas">
+            <section class="noticias">
+                <h3>Noticias de otras universidades:</h3>
+                <div class="noticias-list">
+                    <div class="soporte_div">
+                        <h4>Rodolfo Campos</h4>
+                        <img src="../assets/Imagenes/about/rodolfo.jpg" alt="">
                     </div>
-                    
-                    <div class="icono-seleccion-grupo">
-                        <label for="Profesor">Profesor</label>
-                        <input type="radio" id="Profesor" name="op_login" value="2" required>
+                    <div class="soporte_div">
+                        <h4>Adriana Achurra</h4>
+                        <img src="../assets/Imagenes/about/adriana.jpg" alt="">
                     </div>
-                    
-                    <div class="icono-seleccion-grupo">
-                        <label for="Administrador">Administrador</label>
-                        <input type="radio" id="Administrador" name="op_login" value="3" required>
+                    <div class="soporte_div">
+                        <h4>Alexander Camargo</h4>
+                        <img src="../assets/Imagenes/about/alexander.jpg" alt="">
+                    </div>
+                    <div class="soporte_div">
+                        <h4>Victor Arrocha</h4>
+                        <img src="../assets/Imagenes/about/victor.jpg" alt="">
+                    </div>
+                    <div class="soporte_div">
+                        <h4>Sebastian Ferrer</h4>
+                        <img src="../assets/Imagenes/about/sebas.jpg" alt="">
                     </div>
                 </div>
-                
-                <input class="btn btn-default" type="submit" value="Iniciar Sesión"></input>
-                <br><br>
-                <p style="color: rgba(0, 0, 0, 0.40);">¿Olvidaste tu contraseña?</p>
-                <p style="color: rgba(0, 0, 0, 0.40);">Registrarse</p>
-
-            </form>
+            </section>
         </div>
-    </main>
+    </div>
 
     <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
                 <li><a href="home.html">Inicio</a></li>
-                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
             </ul>
         </div>
         <div class="footer_columna">
@@ -81,7 +74,8 @@
         <div class="footer_columna">
             <h4>Perfil</h4>
             <ul>
-                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="#">Gestionar Perfil</a></li>
+                <li><a href="#">Log Out</a></li>
             </ul>
         </div>
     </footer>

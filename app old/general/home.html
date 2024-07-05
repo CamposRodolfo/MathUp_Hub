@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -8,12 +8,12 @@
 
     <link rel="shortcut icon" href="../assets/Imagenes/Logo.png">
     <title>MathUP</title>
+    <meta name="description" content="">
 
     <link rel="stylesheet" href="../assets/css/styles.css">
    
 </head>
 <body class="body">
-    
     <header>
         <a class="logo" href="home.html"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
         <div class="social-icon">
@@ -27,51 +27,20 @@
 
     <div class="navbar">
         <a class="navbar-opcion" href="home.html">Inicio</a>
-        <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
+        <a id="about-navbar" class="navbar-opcion" href="about.html">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
 
-    <main class="main main-login-general">
-        <div class="contenedor-login">
-            <form action="../backend/login.jsp" class="clase-form">
-                <h2>Inicio de Sesión</h2>
-                <label for="Correo">Correo:</label>
-                <input class="text-area" type="text" id="Correo" name="Correo" required><br/><br/>
-                
-                <label for="Contraseña">Contraseña:</label>
-                <input class="text-area" type="text" id="Contraseña" name="Contraseña" required>
-                
-                <div class="icono-seleccion">
-                    <div class="icono-seleccion-grupo">
-                        <label for="Estudiante">Estudiante</label>
-                        <input type="radio" id="Estudiante" name="op_login" value="1" required>
-                    </div>
-                    
-                    <div class="icono-seleccion-grupo">
-                        <label for="Profesor">Profesor</label>
-                        <input type="radio" id="Profesor" name="op_login" value="2" required>
-                    </div>
-                    
-                    <div class="icono-seleccion-grupo">
-                        <label for="Administrador">Administrador</label>
-                        <input type="radio" id="Administrador" name="op_login" value="3" required>
-                    </div>
-                </div>
-                
-                <input class="btn btn-default" type="submit" value="Iniciar Sesión"></input>
-                <br><br>
-                <p style="color: rgba(0, 0, 0, 0.40);">¿Olvidaste tu contraseña?</p>
-                <p style="color: rgba(0, 0, 0, 0.40);">Registrarse</p>
-
-            </form>
-        </div>
-    </main>
-
+    <div id="main-general-home" class="main">
+        <h1>HOME</h1>
+        <img src="../assets/Imagenes/about/rodolfo.jpg" alt="">
+    </div>
+    
     <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
                 <li><a href="home.html">Inicio</a></li>
-                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
             </ul>
         </div>
         <div class="footer_columna">
@@ -81,7 +50,7 @@
         <div class="footer_columna">
             <h4>Perfil</h4>
             <ul>
-                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="#">Iniciar Sesión</a></li>
             </ul>
         </div>
     </footer>

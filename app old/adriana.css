@@ -1,0 +1,62 @@
+
+
+/* Main table ..................................*/
+.main-lista-profesores {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Ajusta para que la tabla esté más arriba */
+    height: 100vh;
+    padding-top: 50px; /* Ajusta según sea necesario */
+}
+
+.contenedor-tabla-prof {
+    width: 80%; /* Ancho deseado para la tabla */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center; /* Centra el contenido de la tarjeta */
+}
+
+.titulo-tabla {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.prof-tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.prof-tabla th, 
+.prof-tabla td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.prof-tabla .titulo-fila {
+    background-color: #444;
+    color: white;
+}
+
+.prof-tabla tbody tr:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el cursor */
+}
+
+/* Agregar Profesor ------------------------------------------------*/
+.agregar-profesor {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; /* Ajusta según sea necesario */
+    justify-content: start;
+}
+
+.agregar-profesor .agregar-icon {
+    height: 30px; /* Ajusta el tamaño de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.agregar-profesor .agregar-text {
+    font-size: 18px; /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Ajusta el peso del texto */
+}
