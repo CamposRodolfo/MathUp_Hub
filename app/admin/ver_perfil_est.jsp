@@ -40,8 +40,8 @@
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
-                <a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registro de Cursos</a>
-                <a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a>
+                <a href="lista_profesor_curso.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos por Profesor</a>
+                <a href="lista_estudiantes_curso.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos por Estudiante</a>
             </div>
         </div>
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
@@ -100,13 +100,8 @@
             <h4>MathUP</h4>
             <ul>
                 <li class="home"><a href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a></li>
-                <li><a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registar Curso</a></li>
+                <li><a href="portal_usuario.jsp?correo=<%= request.getParameter("correo") %>">Portal Usuarios</a></li>
                 <li><a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a></li>
-                <li><a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a></li>
-                <li><a href="registro_usuario.jsp?correo=<%= request.getParameter("correo") %>">Registrar Usuario</a></li>
-                <li><a href="lista_admins.jsp?correo=<%= request.getParameter("correo") %>">Lista de Administradores</a></li>
-                <li><a href="lista_profesores.jsp?correo=<%= request.getParameter("correo") %>">Lista de Profesores</a></li>
-                <li><a href="lista_estdiantes.jsp?correo=<%= request.getParameter("correo") %>">Lista de Estudiantes</a></li>
                 <li><a href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a></li>
             </ul>
         </div>
