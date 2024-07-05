@@ -39,64 +39,55 @@
         </div>
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
+    
+	<div id="main-home-general" class="main">
+    <h1>Perfil del Estudiante</h1>
+    
+    <% 
+        //obtener los parámetros de la URL
+        String idUsuario = request.getParameter("id_usuario_usr");
 
-    <main class="main-lista-profesores">
-		<h1>Lista de Estudiantes y sus Cursos</h1>
-    <table border="1">
-        <tr>
-            <th>ID Curso</th>
-            <th>Nombre del curso</th>
-            <th>ID Estudiante</th>
-            <th>Nombre del Estudiante</th>
-            <th>Apellido del Estudiante</th>
-            <th>Ver perfil del Estudiante</th>
-        </tr>
-        <% 
-            String usuario = "Admin";
-            String contrasena = "12345";
+        if (idUsuario != null) {
+            //convertir idUsuario a un entero para usuarlo en el select
+            int idUsuarioInt = Integer.parseInt(idUsuario);
+            
             
             try {
+                String usuario = "Admin";
+                String contrasena = "12345";
+
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
-                
-                String mostrarsql = "SELECT c.id_curso, c.nombre_cur, u.id_usuario_usr, u.nombre_usr, u.apellido_usr " +
-                                    "FROM Usuarios u " +
-                                    "JOIN Usuarios_curso uc ON u.id_usuario_usr = uc.id_usuario_fk_uc " +
-                                    "JOIN Cursos c ON uc.id_curso_fk_uc = c.id_curso";
-                ResultSet rs = dbstatement.executeQuery(mostrarsql);
-                boolean hayDatos = false;
 
-                while (rs.next()) {
-                    hayDatos = true;
-        %>      
-                    <tr>
-                        <td><%= rs.getInt("id_curso") %></td>
-                        <td><%= rs.getString("nombre_cur") %></td>
-                        <td><%= rs.getInt("id_usuario_usr") %></td>
-                        <td><%= rs.getString("nombre_usr") %></td>
-                        <td><%= rs.getString("apellido_usr") %></td>
-                        <td><a href="ver_perfil_est.jsp?id_usuario_usr=<%= rs.getInt("id_usuario_usr") %>" target="_parent">Perfil</a></td>
-                    </tr>
-        <% 
-                }
+                String sql = "SELECT * FROM Usuarios WHERE id_usuario_usr = " + idUsuarioInt;
+                ResultSet rs = dbstatement.executeQuery(sql);
 
-                if (!hayDatos) {
-                    out.println("No se encontraron registros en la tabla Usuarios<br>");
+                if (rs.next()) {
+                	%>
+                	<h1>ID Usuario: <%=rs.getString("id_usuario_usr") %><br></h1>
+                    <h1>Nombre: <%=rs.getString("nombre_usr") %><br></h1>
+                    <h1>Apellido:  <%=rs.getString("apellido_usr") %><br></h1>
+                    <h1>Correo: <%=rs.getString("correo_usr") %><br></h1>
+                    <%
+                    
+                } else {
+                    out.println("No se encontró el usuario con ID: " + idUsuarioInt + "<br>");
                 }
 
                 rs.close();
                 dbstatement.close();
                 dbconnect.close();
-                
             } catch (Exception e) {
                 out.println("Error en la conexión o consulta: " + e.getMessage());
             }
-        %>
-    </table>
-    </main>
-    
-    <footer class="footer">
+        } else {
+            out.println("Parámetros no válidos.<br>");
+        }
+    %>
+</div>
+
+     <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
@@ -120,3 +111,4 @@
     </footer>
 </body>
 </html>
+
