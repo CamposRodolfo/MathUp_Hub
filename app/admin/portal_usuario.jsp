@@ -49,30 +49,30 @@
     <div id="main-usuario" class="main">
         <h1>Página Usuario</h1>
         <div class="icon-container">
-            <a href="#">
-                <img src="admin.png" alt="Icono 1">
+            <a href="../admin/lista_admins.jsp">
+                <img src="../assets/Imagenes/admin.png" alt="Icono 1">
                 <span>Lista Admins</span>
             </a>
-            <a href="#">
-                <img src="profesor.png" alt="Icono 2">
+            <a href="../admin/lista_profesores.jsp">
+                <img src="../assets/Imagenes/profesor.png" alt="Icono 2">
                 <span>Lista Profesores</span>
             </a>
-            <a href="#">
-                <img src="profesor.png" alt="Icono 3">
+            <a href="../admin/lista_profesor_curso.jsp">
+                <img src="../assets/Imagenes/profesor.png" alt="Icono 3">
                 <span>Lisa Profesores por Curso</span>
             </a>
         </div>
         <div class="icon-container">
-            <a href="#">
-                <img src="estudiante.png" alt="Icono 4">
+            <a href="../admin/lista_estdiantes.jsp">
+                <img src="../assets/Imagenes/estudiante.png" alt="Icono 4">
                 <span>Lista Estudiantes</span>
             </a>
-            <a href="#">
-                <img src="estudiante.png" alt="Icono 5">
+            <a href="../admin/lista_estudiantes_curso.jsp">
+                <img src="../assets/Imagenes/estudiante.png" alt="Icono 5">
                 <span>Lista Estudiantes por Curso</span>
             </a>
-            <a href="#">
-                <img src="registrar.png" alt="Icono 6">
+            <a href="../admin/registro_usuario.jsp">
+                <img src="../assets/Imagenes/registrar.png" alt="Icono 6">
                 <span>Registrar Usuarios</span>
             </a>
         </div>
