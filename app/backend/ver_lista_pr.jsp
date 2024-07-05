@@ -11,7 +11,7 @@
     <h1>Lista de Profesores</h1>
     <table border="1">
         <tr>
-            <th>ID Usuario</th>
+            <th>ID Profesor</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Ver perfil</th>
@@ -37,13 +37,13 @@
                         <td><%= rs.getInt("id_profesor") %></td>
                         <td><%= rs.getString("nombre_pr") %></td>
                         <td><%= rs.getString("apellido_pr") %></td>
-                        <td><a href="ver_perfil_pr.jsp?id=<%= rs.getInt("id_profesor") %>" target="_parent">Perfil</a></td>
+                        <td><a href="ver_perfil_pr.jsp?id_profesor=<%= rs.getInt("id_profesor") %>" target="_parent">Perfil</a></td>
                     </tr>
         <% 
                 }
 
                 if (!hayDatos) {
-                    out.println("No se encontraron registros en la tabla Usuarios<br>");
+                    out.println("No se encontraron registros en la tabla Profesores<br>");
                 }
 
                 rs.close();
