@@ -512,7 +512,80 @@ tbody tr:hover {
 /* Carpeta General */
 
 /* Home */
+#main-home {
+    display: grid; /* Muestra los elementos como una cuadrícula */
+    grid-template-columns: 1fr; /* Establece una columna */
+    grid-auto-rows: auto; /* Establece el alto de las filas automáticamente */
 
+    /* Estilos para dispositivos con un ancho de pantalla mínimo de 768px */
+    @media(min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr); /* Establece dos columnas */
+    }
+
+    /* Estilos para dispositivos con un ancho de pantalla mínimo de 992px */
+    @media(min-width: 992px) {
+        grid-template-columns: repeat(3, 1fr); /* Establece tres columnas */
+    }
+}
+
+
+.news {
+    width: 500px; /* Establece el ancho de la noticia en 500px */
+    height: 57%; /* Establece la altura de la noticia en el 57% */
+    margin: auto; /* Centra la noticia horizontalmente */
+    padding: 30px; /* Establece un relleno de 30px */
+    background: #fff; /* Establece un fondo blanco para la noticia */
+    border-radius: 3%; /* Establece un radio de borde del 3% */
+    backdrop-filter: blur(5px); /* Aplica un desenfoque de fondo */
+    border-bottom: 3px solid rgba(0,0,0,0.440); /* Establece un borde inferior */
+    border-left: 2px rgba(0,0,0,0.545) outset; /* Establece un borde izquierdo */
+    box-shadow:-40px 50px 30px rgba(0,0,0,0.280); /* Establece una sombra */
+    overflow: hidden; /* Oculta el desbordamiento */
+    transition: 0.4s ease-in-out; /* Establece una transición suave */
+
+    img {
+        width: 400px; /* Establece el ancho de la imagen en 400px */
+    }
+}
+
+.news:hover {
+    height: 98%; /* Aumenta la altura al 98% */
+}
+
+
+.news {
+    display: grid; /* Muestra los elementos como una cuadrícula */
+    place-items: center; /* Centra los elementos horizontal y verticalmente */
+    gap: 20px; /* Establece un espacio entre los elementos de 20px */
+    grid-template: 
+    "heading" 150px /* Establece una fila para el título */
+    "image" 230px /* Establece una fila para la imagen */
+    "body" auto /* Establece una fila automática para el cuerpo */
+    "more" auto /* Establece una fila automática para 'más' */
+    ;
+
+    /* Estilos para el título */
+    .news-heading {
+        grid-area: heading; /* Asigna el área del título */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    /* Estilos para la imagen */
+    .news-image {
+        grid-area: image; /* Asigna el área de la imagen */
+    }
+
+    /* Estilos para el cuerpo */
+    .news-body {
+        grid-area: body; /* Asigna el área del cuerpo */
+        text-align: justify; /* Justifica el texto */
+    }
+
+    /* Estilos para 'más' */
+    .news-more {
+        grid-area: more; /* Asigna el área de 'más' */
+    }
+}
 /* Fin Home */
 
 
