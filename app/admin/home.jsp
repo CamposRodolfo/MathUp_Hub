@@ -40,15 +40,15 @@
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
+                <a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registro de Cursos</a>
+                <a href="perfil.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a>
             </div>
         </div>
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
     </div>
      <!-- Fin Navbar -->
-
-    <div class="main">
-    	<h1>Su Listado de Cursos Creados</h1><br>
-    	<table border="1">
+     
+    <table border="1">
         <tr>
             <th>ID Curso</th>
             <th>Nombre</th>
@@ -95,8 +95,6 @@
             }
         %>
     </table>
-    </div>
-    
 <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
@@ -26,7 +25,7 @@
             Statement dbstatement = dbconnect.createStatement();
             
             //consultas de la base de datos distintas para cada perfil
-            //"preparador" es una varible para cargar la consulta y v*erificar el usuario
+            //"preparador" es una varible para cargar la consulta y verificar el usuario
             if("1".equals(n)){
                 preparado = dbconnect.prepareStatement("SELECT * FROM Usuarios WHERE correo_usr=? AND contrasena_usr=?");
             } else if("2".equals(n)){
@@ -40,13 +39,13 @@
             resultados = preparado.executeQuery();//confirma el perfil
 
             if(resultados.next()) {
-            	
-            	if("1".equals(n)){
-                    response.sendRedirect("../estudiante/home.jsp?Correo=" + correo);
+                
+                if("1".equals(n)){
+                    response.sendRedirect("../estudiante/home.jsp?correo=" + correo);
                 } else if("2".equals(n)){
-                    response.sendRedirect("../profesor/home.jsp?Correo=" + correo);
+                    response.sendRedirect("../profesor/home.jsp?correo=" + correo);
                 } else {
-                    response.sendRedirect("../admin/home.jsp?Correo=" + correo);
+                    response.sendRedirect("../admin/home.jsp?correo=" + correo);
                 }
             } else {
                 msg = "<h1 style='color: red;'>****ERROR*** <br> USUARIO INCORRECTO</h1>";

@@ -36,7 +36,33 @@
     </div> <!-- Fin Navbar -->
 
     <div id="main-about-general" class="main">
-
+		        <div class="opciones-paginas">
+            <section class="noticias">
+                <h3>Noticias de otras universidades:</h3>
+                <div class="noticias-list">
+                    <div class="soporte_div">
+                        <h4>Rodolfo Campos</h4>
+                        <img src="../assets/Imagenes/about/rodolfo.jpg" alt="">
+                    </div>
+                    <div class="soporte_div">
+                        <h4>Adriana Achurra</h4>
+                        <img src="../assets/Imagenes/about/adriana.jpg" alt="">
+                    </div>
+                    <div class="soporte_div">
+                        <h4>Alexander Camargo</h4>
+                        <img src="../assets/Imagenes/about/alexander.jpg" alt="">
+                    </div>
+                    <div class="soporte_div">
+                        <h4>Victor Arrocha</h4>
+                        <img src="../assets/Imagenes/about/victor.jpg" alt="">
+                    </div>
+                    <div class="soporte_div">
+                        <h4>Sebastian Ferrer</h4>
+                        <img src="../assets/Imagenes/about/sebas.jpg" alt="">
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <footer class="footer">
@@ -62,4 +88,3 @@
     </footer>
 </body>
 </html>
-
