@@ -21,7 +21,7 @@
             <a href="https://www.facebook.com/profile.php?id=61561506939201" target="_blank"><i class="fa fa-facebook"></i></a>
             <a href="https://x.com/MathUP0" target="_blank"><i class="fa fa-twitter"></i></a>
         </div>
-        <a class="btn-icon" href="#"><i class="fa fa-user"></i></a>
+        <a class="btn-icon" href="perfil.jsp?correo=<%= request.getParameter("correo") %>"><i class="fa fa-user"></i></a>
     </header>
 
     <div class="navbar">
@@ -30,8 +30,6 @@
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
-                <a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registro de Cursos</a>
-                <a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registrar Lección</a>
             </div>
         </div>
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>

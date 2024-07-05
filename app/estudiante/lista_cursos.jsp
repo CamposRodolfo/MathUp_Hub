@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="../assets/Imagenes/Logo.png">
-    <title>MathUP - Lista de Cursos</title>
+    <title>MathUP</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body class="body">
     <header>
-        <a class="logo" href="../estudiante/home.jsp?correo=<%= request.getParameter("correo") %>"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
+        <a class="logo" href="home.jsp"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
         <div class="social-icon">
             <a href="https://www.google.com/" target="_blank"><i class="fa fa-search"></i></a>
             <a href="https://www.instagram.com/math_up0/" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61561506939201" target="_blank"><i class="fa fa-facebook"></i></a>
             <a href="https://x.com/MathUP0" target="_blank"><i class="fa fa-twitter"></i></a>
         </div>
-        <a class="btn-icon" href="#"><i class="fa fa-user"></i></a>
+        <a class="btn-icon" href="perfil.jsp?correo=<%= request.getParameter("correo") %>"><i class="fa fa-user"></i></a>
     </header>
 
     <div class="navbar">
@@ -30,11 +30,9 @@
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
-                <a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registro de Cursos</a>
-                <a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registrar Lección</a>
             </div>
         </div>
-        <a class="navbar-opcion" href="../estudiante/about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
+        <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
 
     <main class="main main-login-general">

@@ -14,39 +14,26 @@
 </head>
 <body class="body">
     <header>
-        <a class="logo" href="home.jsp?correo=<%= request.getParameter("correo") %>"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
+        <a class="logo" href="home.jsp"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
         <div class="social-icon">
             <a href="https://www.google.com/" target="_blank"><i class="fa fa-search"></i></a>
             <a href="https://www.instagram.com/math_up0/" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61561506939201" target="_blank"><i class="fa fa-facebook"></i></a>
             <a href="https://x.com/MathUP0" target="_blank"><i class="fa fa-twitter"></i></a>
         </div>
-        <!-- <a class="btn btn-default" href="#">Iniciar Sesión</a> -->
-        <a class="btn-icon" href="#"><i class="fa fa-user"></i></a>
+        <a class="btn-icon" href="perfil.jsp?correo=<%= request.getParameter("correo") %>"><i class="fa fa-user"></i></a>
     </header>
 
     <div class="navbar">
         <a class="navbar-opcion" href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a>
         <div class="dropdown">
-            <button class="navbar-opcion dropdwonbtn" href="#"> Usuarios <i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-content">
-                <a href="lista_admins.jsp?correo=<%= request.getParameter("correo") %>">Lista de Administradores</a>
-                <a href="lista_profesores.jsp?correo=<%= request.getParameter("correo") %>">Lista de Profesores</a>
-                <a href="lista_estdiantes.jsp?correo=<%= request.getParameter("correo") %>">Lista de Estudiantes</a>
-                <a href="registro_usuario.jsp?correo=<%= request.getParameter("correo") %>">Registrar Usuario</a>
-            </div>
-        </div>
-        <div class="dropdown">
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
-                <a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registro de Cursos</a>
-                <a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a>
             </div>
         </div>
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
-    </div>
-     <!-- Fin Navbar -->
+    </div> <!-- Fin Navbar -->
     
 	<div id="main-home-general" class="main">
         <% 
