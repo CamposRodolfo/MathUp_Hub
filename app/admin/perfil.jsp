@@ -98,20 +98,16 @@
             <h4>MathUP</h4>
             <ul>
                 <li class="home"><a href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a></li>
-                <li><a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registar Curso</a></li>
+                <li><a href="portal_usuario.jsp?correo=<%= request.getParameter("correo") %>">Portal Usuarios</a></li>
                 <li><a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a></li>
-                <li><a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a></li>
-                <li><a href="registro_usuario.jsp?correo=<%= request.getParameter("correo") %>">Registrar Usuario</a></li>
-                <li><a href="lista_admins.jsp?correo=<%= request.getParameter("correo") %>">Lista de Administradores</a></li>
-                <li><a href="lista_profesores.jsp?correo=<%= request.getParameter("correo") %>">Lista de Profesores</a></li>
-                <li><a href="lista_estdiantes.jsp?correo=<%= request.getParameter("correo") %>">Lista de Estudiantes</a></li>
                 <li><a href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a></li>
             </ul>
         </div>
         <div class="footer_columna">
             <h4>Derechos Reservados</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse magnam quis mollitia temporibus blanditiis, quia aliquid rerum sint exercitationem reiciendis nisi placeat itaque fuga dignissimos ipsam accusantium quasi officiis.</p>
-        </div>
+            <p>Este sitio web y su contenido son propiedad de MathUP. Está prohibida cualquier reproducción total o parcial, distribución, comunicación pública o transformación de cualquier contenido de este sitio sin la autorización previa y por escrito de MathUP. Todas las marcas comerciales y logotipos son propiedad de sus respectivos dueños.</p> 
+
+            <p>Si tienes alguna pregunta o comentario sobre nuestros términos de uso, por favor contacta a nuestro equipo de soporte a través del correo electrónico: <a href="mailto:soporte@mathup.com">soporte@mathup.com</a>.</p>         </div>
         <div class="footer_columna">
             <h4>Perfil</h4>
             <ul>
