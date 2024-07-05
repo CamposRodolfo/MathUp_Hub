@@ -36,7 +36,14 @@
                 <a href="registro_usuario.jsp?correo=<%= request.getParameter("correo") %>">Registrar Usuario</a>
             </div>
         </div>
-        <a class="navbar-opcion" href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
+        <div class="dropdown">
+            <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
+            <div class="navbar-opcion dropdown-content">
+                <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
+                <a href="lista_profesor_curso.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos por Profesor</a>
+                <a href="lista_estudiantes_curso.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos por Estudiante</a>
+            </div>
+        </div>
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
     </div>
      <!-- Fin Navbar -->
