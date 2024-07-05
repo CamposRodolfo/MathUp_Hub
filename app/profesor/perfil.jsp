@@ -30,6 +30,7 @@
             <button class="navbar-opcion dropdwonbtn" href="#"> Cursos <i class="fa fa-caret-down"></i></button>
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a>
+                <a href="lista_estudiantes_curso.jsp?correo=<%= request.getParameter("correo") %>">Listado de Cursos-estudiante</a>
             </div>
         </div>
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>

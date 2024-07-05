@@ -36,32 +36,45 @@
     </div> <!-- Fin Navbar -->
 
     <div id="main-about-general" class="main">
-		        <div class="opciones-paginas">
-            <section class="noticias">
-                <h3>Noticias de otras universidades:</h3>
-                <div class="noticias-list">
-                    <div class="soporte_div">
-                        <h4>Rodolfo Campos</h4>
-                        <img src="../assets/Imagenes/about/rodolfo.jpg" alt="">
-                    </div>
-                    <div class="soporte_div">
-                        <h4>Adriana Achurra</h4>
-                        <img src="../assets/Imagenes/about/adriana.jpg" alt="">
-                    </div>
-                    <div class="soporte_div">
-                        <h4>Alexander Camargo</h4>
-                        <img src="../assets/Imagenes/about/alexander.jpg" alt="">
-                    </div>
-                    <div class="soporte_div">
-                        <h4>Victor Arrocha</h4>
-                        <img src="../assets/Imagenes/about/victor.jpg" alt="">
-                    </div>
-                    <div class="soporte_div">
-                        <h4>Sebastian Ferrer</h4>
-                        <img src="../assets/Imagenes/about/sebas.jpg" alt="">
-                    </div>
-                </div>
-            </section>
+		       		<h1>About Us</h1><br>
+        <div class="perfil-container">
+
+            <a href="#">
+                <img src="../assets/Imagenes/about/rodolfo.jpg" alt="Perfil 1">
+                <span><b>Rodolfo Campos</b></span>
+                <span><b>8-905-2179</b></span>
+                <span><b>Ingenieria de Software</b></span><br>
+                <span class="about-parrafo">Si bien he tenido experiencia antes con la programación web, el poco tiempo y la complejidad del concepto del propio proyecto me ha orillado a pensar de otra manera y aprender cosas nuevas para poder desarrollarlo y terminan a tiempo </span>
+            </a>
+            <a href="#">
+                <img src="../assets/Imagenes/about/adriana.jpg" alt="Perfil 2">
+                <span><b>Adriana Achurra</b></span>
+                <span><b>8-990-123</b></span>
+                <span><b>Ingenieria de Software</b></span><br>
+                <span class="about-parrafo">Durante este proyecto, he desarrollado una mayor capacidad para trabajar bajo presión y adaptarme a cambios inesperados. Mantenerme enfocado y ajustar mis prioridades según las necesidades del proyecto ha sido crucial para avanzar y cumplir con los objetivos establecidos.</span>
+            </a>
+            <a href="#">
+                <img src="../assets/Imagenes/about/victor.jpg" alt="Perfil 3">
+                <span><b>Victor Arrocha</b></span>
+                <span><b>8-996-1219</b></span>
+                <span><b>Ingenieria de Software</b></span><br>
+                <span class="about-parrafo">Este proyecto me ha permitido fortalecer mis habilidades de gestión del tiempo y organización. Manejar múltiples tareas y priorizar actividades ha sido esencial para cumplir con los plazos establecidos, lo cual me ha preparado mejor para futuros proyectos profesionales.</span>
+            </a>
+			<a href="#">
+                <img src="../assets/Imagenes/about/alexander.jpg" alt="Perfil 4">
+                <span><b>Alexander Camargo</b></span>
+                <span><b>8-1002-1756</b></span>
+                <span><b>Ingenieria de Software</b></span><br>
+                <span class="about-parrafo">Puedo decir que este proyecto ha logrado sacar lo mejor de mí, he tenido que esforzarme más de lo que lo he hecho antes y eso me a demostrado a mi mismo que puedo superar mis límites.</span>
+
+            </a>
+            <a href="#">
+                <img src="../assets/Imagenes/about/sebas.jpg" alt="Perfil 5">
+                <span><b>Sebastian Ferrer</b></span>
+                <span><b>E-8-211301</b></span>
+                <span><b>Ingenieria de Software</b></span><br>
+                <span class="about-parrafo">Definitivamente un proyecto robusto que a tomado su tiempo de hacer, me hubiera gustado hacer y poner algunas cosas pero por cuestiones de tiempo y practicidad no pudo ser, no obstante ha sido una grata experiencia de aprendizaje</span>
+            </a>
         </div>
     </div>
 
