@@ -48,7 +48,7 @@
     </div>
      <!-- Fin Navbar -->
 
-    <div class="main">
+    <div id="main-usuario" class="main">
         <h1>Página Usuario</h1>
         <div class="icon-container">
             <a href="#">
