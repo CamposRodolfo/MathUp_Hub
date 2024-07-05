@@ -48,6 +48,8 @@
     </div>
      <!-- Fin Navbar -->
 <div id="main-home-general" class="main">
+    <br><h1>Mis cursos:</h1><br><br>
+
     <table border="1">
         <tr>
             <th>ID Curso</th>

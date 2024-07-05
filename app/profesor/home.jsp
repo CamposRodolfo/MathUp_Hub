@@ -40,6 +40,8 @@
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
     </div> <!-- Fin Navbar -->
 	    
+<div id="main-home-general" class="main">
+        <br><h1>Mis cursos:</h1><br><br>
 	    <table border="1">
         <tr>
             <th>ID Curso</th>
@@ -92,6 +94,7 @@
             }
         %>
         </table>
+</div>
 
      <footer class="footer">
         <div class="footer_columna">
