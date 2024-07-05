@@ -77,7 +77,7 @@
                         <td><%= rs.getInt("id_profesor") %></td>
                         <td><%= rs.getString("nombre_pr") %></td>
                         <td><%= rs.getString("apellido_pr") %></td>
-                        <td><a href="../backend/ver_perfil_pr.jsp?id_profesor=<%= rs.getInt("id_profesor") %>" target="_parent">Perfil</a></td>
+                        <td><a href="ver_perfil_pr.jsp?id_profesor=<%= rs.getInt("id_profesor") %>" target="_parent">Perfil</a></td>
                     </tr>
         <% 
                 }

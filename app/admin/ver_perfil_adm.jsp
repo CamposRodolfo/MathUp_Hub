@@ -47,53 +47,51 @@
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
     </div>
      <!-- Fin Navbar -->
-
-<table border="1">
-        <tr>
-            <th>ID Curso</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Ver perfil curso</th>
-        </tr>
+    
+	<div id="main-home-general" class="main">
         <% 
-            String usuario = "Admin";
-            String contrasena = "12345";
+        //obtener los parámetros de la URL
+        String id_admin = request.getParameter("id_admin");
+
+        if (id_admin != null) {
+            //convertir idUsuario a un entero para usuarlo en el select
+            int idUsuarioInt = Integer.parseInt(id_admin);
+            
             
             try {
+                String usuario = "Admin";
+                String contrasena = "12345";
+
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
                 Statement dbstatement = dbconnect.createStatement();
-                
-                String mostrarsql = "SELECT * FROM Admins";
-                ResultSet rs = dbstatement.executeQuery(mostrarsql);
-                boolean hayDatos = false;
 
-                while (rs.next()) {
-                    hayDatos = true;
+                String sql = "SELECT * FROM Admins WHERE id_admin = " + id_admin;
+                ResultSet rs = dbstatement.executeQuery(sql);
 
-        %>      
-                    <tr>
-                        <td><%= rs.getInt("id_admin") %></td>
-                        <td><%= rs.getString("nombre_adm") %></td>
-                        <td><%= rs.getString("apellido_adm") %></td>
-                        <td><a href="ver_perfil_adm.jsp?id_admin=<%= rs.getInt("id_admin") %>" target="_parent">Perfil del Administrador</a></td>
-                   	</tr>
-        <% 
-                }
-
-                if (!hayDatos) {
-                    out.println("No se encontraron registros en la tabla Usuarios<br>");
+                if (rs.next()) {
+                	%>
+                	<h1>ID Administrador: <%=rs.getString("id_admin") %><br></h1>
+                    <h1>Nombre: <%=rs.getString("nombre_adm") %><br></h1>
+                    <h1>Apellido:  <%=rs.getString("apellido_adm") %><br></h1>
+                    <h1>Correo: <%=rs.getString("correo_adm") %><br></h1>
+                    <%
+                    
+                } else {
+                    out.println("No se encontró el usuario con ID: " + idUsuarioInt + "<br>");
                 }
 
                 rs.close();
                 dbstatement.close();
                 dbconnect.close();
-                
             } catch (Exception e) {
                 out.println("Error en la conexión o consulta: " + e.getMessage());
             }
-        %>
-    </table>
+        } else {
+            out.println("Parámetros no válidos.<br>");
+        }
+    %>
+    </div>
 
 <footer class="footer">
         <div class="footer_columna">

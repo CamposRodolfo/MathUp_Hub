@@ -47,48 +47,53 @@
         <a class="navbar-opcion" href="about.jsp?correo=<%= request.getParameter("correo") %>">Sobre Nosotros</a>
     </div>
      <!-- Fin Navbar -->
+    
+	<div id="main-home-general" class="main">
+    <h1>Perfil del Profesor</h1>
+    
+    <% 
+        //obtener los parámetros de la URL
+        String idProfesor = request.getParameter("id_profesor");
 
-    <main class="main-login-general">
-        <div class="contenedor-login">
-            <form class="clase-form" action="subir_curso.php" method="post">
-                <h2>Registro de Curso</h2>
-                
-                <label for="nom_curso">Nombre del Curso:</label>
-                <input type="text" id="nom_curso" name="nom_curso" required>
-                
-                <label for="nom_Docente">Nombre del Docente:</label>
-                <input type="text" id="nom_Docente" name="nom_Docente" required>
+        if (idProfesor != null) {
+            //convertir idUsuario a un entero para usuarlo en el select
+            int idProfesorInt = Integer.parseInt(idProfesor);
+            
+            
+            try {
+                String usuario = "Admin";
+                String contrasena = "12345";
 
-                <label for="ap_Docente">Apellido del Docente:</label>
-                <input type="text" id="ap_Docente" name="ap_Docente" required>
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                Connection dbconnect = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", usuario, contrasena);
+                Statement dbstatement = dbconnect.createStatement();
 
-                <label for="nivel">Nivel:</label>
-                <select id="nivel" name="nivel" required>
-                    <option value="1">1er Grado</option>
-                    <option value="2">2do Grado</option>
-                    <option value="3">3er Grado</option>
-                    <option value="4">4to Grado</option>
-                    <option value="5">5to Grado</option>
-                    <option value="6">6to Grado</option>
-                    <option value="7">7mo Grado</option>
-                    <option value="8">8vo Grado</option>
-                    <option value="9">9no Grado</option>
-                    <option value="10">10mo Grado</option>
-                    <option value="11">11vo Grado</option>
-                    <option value="12">12vo Grado</option>
-                </select>
-                                
-                <label for="duracion">Duración (horas):</label>
-                <input type="range" id="duracion" name="duracion" min="1" max="64" value="1" oninput="this.nextElementSibling.value = this.value">
-                <output>1</output> horas
+                String sql = "SELECT * FROM Profesores WHERE id_profesor = " + idProfesorInt;
+                ResultSet rs = dbstatement.executeQuery(sql);
 
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-                
-                <button type="submit">Registrar Curso</button>
-            </form>
-        </div>
-    </main>
+                if (rs.next()) {
+                	%>
+                	<h1>ID Usuario: <%=rs.getString("id_profesor") %><br></h1>
+                    <h1>Nombre: <%=rs.getString("nombre_pr") %><br></h1>
+                    <h1>Apellido:  <%=rs.getString("apellido_pr") %><br></h1>
+                    <h1>Correo: <%=rs.getString("correo_pr") %><br></h1>
+                    <%
+                    
+                } else {
+                    out.println("No se encontró a el Profesor con el ID: " + idProfesorInt + "<br>");
+                }
+
+                rs.close();
+                dbstatement.close();
+                dbconnect.close();
+            } catch (Exception e) {
+                out.println("Error en la conexión o consulta: " + e.getMessage());
+            }
+        } else {
+            out.println("Parámetros no válidos.<br>");
+        }
+    %>
+</div>
 
 <footer class="footer">
         <div class="footer_columna">
