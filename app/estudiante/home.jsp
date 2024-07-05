@@ -36,7 +36,7 @@
     </div> <!-- Fin Navbar -->
 
     <div id="main-home-general" class="main">
-    </div>
+    <br><h1>Mis cursos:</h1><br><br>
 
     <table border="1">
         <tr>
@@ -90,6 +90,9 @@
             }
         %>
     </table>
+
+    </div>
+
 
     <footer class="footer">
         <div class="footer_columna">
