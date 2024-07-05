@@ -14,7 +14,7 @@
 </head>
 <body class="body">
     <header>
-        <a class="logo" href="home.jsp?correo=<%= request.getParameter("correo") %>"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
+        <a class="logo" href="home.jsp"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
         <div class="social-icon">
             <a href="https://www.google.com/" target="_blank"><i class="fa fa-search"></i></a>
             <a href="https://www.instagram.com/math_up0/" target="_blank"><i class="fa fa-instagram"></i></a>
@@ -38,14 +38,13 @@
     </div> <!-- Fin Navbar -->
 
     <div id="main-home-general" class="main">
-    
     </div>
 
-<table border="1">
+    <table border="1">
         <tr>
             <th>ID Curso</th>
             <th>Nombre</th>
-            <th>Descripcion</th>
+            <th>Descripción</th>
             <th>Ver perfil curso</th>
         </tr>
         
@@ -75,7 +74,7 @@
                         <td><%= rs.getInt("id_curso") %></td>
                         <td><%= rs.getString("nombre_cur") %></td>
                         <td><%= rs.getString("descripcion_cur") %></td>
-                        <td><a href="../backend/ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>" target="_parent">Perfil del curso</a></td>
+                        <td><a href="ver_perfil_cur.jsp?id_curso=<%= rs.getInt("id_curso") %>&correo=<%= correo %>" target="_parent">Perfil del curso</a></td>
                     </tr>
         <% 
                 }
@@ -92,9 +91,9 @@
                 out.println("<tr><td colspan='4'>Error en la conexión o consulta: " + e.getMessage() + "</td></tr>");
             }
         %>
-        </table>
+    </table>
 
-<footer class="footer">
+    <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>

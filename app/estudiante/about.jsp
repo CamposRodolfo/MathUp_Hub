@@ -38,10 +38,10 @@
     </div> <!-- Fin Navbar -->
 
     <div id="main-about-general" class="main">
-        
+
     </div>
 
-<footer class="footer">
+    <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
@@ -64,3 +64,4 @@
     </footer>
 </body>
 </html>
+
