@@ -175,7 +175,7 @@ p:last-child {
     grid-template:
     "header" 120px
     "navbar" 75px
-    "main" 675px
+    "main" auto
     "footer" auto
     ;
     
@@ -197,6 +197,7 @@ p:last-child {
         grid-area: "main";
         background-color: rgba(254,254,254,1);
         margin: 0% 7.5%;
+        min-height: 675px;
     }
     footer {
         grid-area: "footer";
@@ -321,7 +322,7 @@ header .btn-icon .fa-user{
 
 
 /* Tabla */
-.main {
+.maintabla {
     width: 90%;
     max-width: 1500px;
     height: 30000;
