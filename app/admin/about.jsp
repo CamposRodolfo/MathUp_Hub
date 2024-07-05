@@ -75,7 +75,8 @@
         <div class="footer_columna">
             <h4>MathUP</h4>
             <ul>
-                <li class="home"><a href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a></li>
+                <li><a href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a></li>
+                <li><a href="home.jsp?correo=<%= request.getParameter("correo") %>">Inicio</a></li>
                 <li><a href="registro_curso.jsp?correo=<%= request.getParameter("correo") %>">Registar Curso</a></li>
                 <li><a href="lista_cursos.jsp?correo=<%= request.getParameter("correo") %>">Lista de Cursos</a></li>
                 <li><a href="registro_leccion.jsp?correo=<%= request.getParameter("correo") %>">Registar Lección</a></li>
