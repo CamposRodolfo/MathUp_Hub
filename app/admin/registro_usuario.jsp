@@ -48,68 +48,61 @@
     </div>
      <!-- Fin Navbar -->
 
-    <main class="main-login-general">
-        <div>
-            <form action="/app/backend/registros.jsp" method="post">
-            	<div class="" >
-
-                    <div class="">
-                        <input type="radio" id="Profesor" name="op_login" value="1" required>
-                        <label for="Profesor">Profesor</label>
-                        
-                        <input type="radio" id="Administrador" name="op_login" value="2" required>
-                        <label for="Administrador">Administrador</label>
-
-                        <input type="radio" id="Estudiante" name="op_login" value="3" required>
-                        <label for="Estudiante">Estudiante</label>
+     <main class="main-login-general">
+        <div class="contenedor-login">
+            <form action="/app/backend/registros.jsp" method="post" class="clase-form">
+                <h2>Registro de Usuario</h2>
+                <div class="icono-seleccion">
+                	<div class="icono-seleccion-grupo">
+                		<label for="Estudiante">Estudiante</label>
+                        <input type="radio" id="Estudiante" name="op_login" value="1" required>
                     </div>
-
-	                <div class="">
-	                    <label for="fname">Nombre:</label>
-	                    <input type="text" id="fname" name="fname" required><br/><br/>
-                        
-                        <label for="lname">Apellido:</label>
-	                    <input type="text" id="lname" name="lname" required> 
-                        
-                        <label for="usernameUs">Nombre de usuario:</label>
-	                    <input type="text" id="usernameUs" name="usernameUs" required> 
-                        
-	                </div>
-
-                    <div class="">
-	                    <label for="Correo">Correo:</label>
-	                    <input type="text" id="Correo" name="Correo" required><br/><br/>
-                        
-                        <label for="ContraseÃ±a">ContraseÃ±a:</label>
-	                    <input type="text" id="ContraseÃ±a" name="ContraseÃ±a" required> 
-
-                        <label for="Celular">Celular:</label>
-	                    <input type="text" id="Celular" name="Celular" required><br/><br/>
-	                </div>
-
-                    <div class="">
-	                    <label for="id_admin">Administrador:</label>
-	                    <input type="text" id="id_admin" name="id_admin" required><br/><br/>
-	                </div>
-
-                    <div>
-                        <label for="fecha_de_nacimiento">Fecha de nacimiento:</label>
-	                	<input type="date" value="2024-03-01" min="1924-03-01" max="2004-07-07" id="fecha_de_nacimiento" name="fecha_de_nacimiento" required>
+                    <div class="icono-seleccion-grupo">
+                    	<label for="Profesor">Profesor</label>
+                        <input type="radio" id="Profesor" name="op_login" value="2" required>
                     </div>
-
-                    <div class="">
-                        <select name="especialidad" required>
-	                        <option value="1">Matematicas</option>
-	                        <option value="2">Fisica</option>
-	                        <option value="3">Programacion</option>
-	                    </select>
+                    <div class="icono-seleccion-grupo">
+                    	<label for="Administrador">Administrador</label>
+                        <input type="radio" id="Administrador" name="op_login" value="3" required>                        
                     </div>
+                </div>
 
-            	</div>
+                <div class="clase-form">
+                    <label for="fname">Nombre:</label>
+                    <input type="text" id="fname" name="fname" required><br/><br/>
+                    
+                    <label for="lname">Apellido:</label>
+                    <input type="text" id="lname" name="lname" required><br/><br/>
+                    
+                    <label for="usernameUs">Nombre de usuario:</label>
+                    <input type="text" id="usernameUs" name="usernameUs" required><br/><br/>
+
+                    <label for="Correo">Correo:</label>
+                    <input type="email" id="Correo" name="Correo" required><br/><br/>
+
+                    <label for="Contraseña">Contraseña:</label>
+                    <input type="password" id="Contraseña" name="Contraseña" required><br/><br/>
+
+                    <label for="Celular">Celular:</label>
+                    <input type="tel" id="Celular" name="Celular" required><br/><br/>
+
+                    <label for="id_admin">Administrador:</label>
+                    <input type="text" id="id_admin" name="id_admin" required><br/><br/>
+
+                    <label for="fecha_de_nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fecha_de_nacimiento" name="fecha_de_nacimiento" value="2024-03-01" min="1924-03-01" max="2004-07-07" required><br/><br/>
+
+                    <label for="especialidad">Especialidad:</label>
+                    <select id="especialidad" name="especialidad" required>
+                        <option value="1">Matemáticas</option>
+                        <option value="2">Física</option>
+                        <option value="3">Programación</option>
+                    </select><br/><br/>
+                </div>
 
                 <div class="button-container">
-            		<input type="submit" value="Login">
-        		</div>
+                    <input type="submit" value="Registrarse">
+                </div>
             </form>
         </div>
     </main>
