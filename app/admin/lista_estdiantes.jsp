@@ -50,7 +50,7 @@
 <div id="main-home-general" class="main">
     <main class="main-vistas">
             <div class="contenedor-vistas">  
-                <h1>Lista de Estudiantes Registrados:</h1><br><br>
+                <br><h1>Lista de Estudiantes Registrados:</h1><br><br>
                 
                 <div id="main-home" class="main">
                     <table border="1">

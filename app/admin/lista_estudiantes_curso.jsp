@@ -50,7 +50,7 @@
 
 <div id="main-home-general" class="main">
     <main class="main-lista-profesores">
-        <h1>Lista por curos de Estudiantes Registrados:</h1><br><br>
+        <br><h1>Lista por curos de Estudiantes Registrados:</h1><br><br>
                 <table border="1">
                 <tr>
                     <th>ID Curso</th>
