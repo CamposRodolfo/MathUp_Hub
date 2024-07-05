@@ -69,28 +69,28 @@
 
                 <div class="clase-form">
                     <label for="fname">Nombre:</label>
-                    <input type="text" id="fname" name="fname" required><br/><br/>
+                    <input class="clase-form-input" type="text" id="fname" name="fname" required><br/><br/>
                     
                     <label for="lname">Apellido:</label>
-                    <input type="text" id="lname" name="lname" required><br/><br/>
+                    <input class="clase-form-input" type="text" id="lname" name="lname" required><br/><br/>
                     
                     <label for="usernameUs">Nombre de usuario:</label>
-                    <input type="text" id="usernameUs" name="usernameUs" required><br/><br/>
+                    <input class="clase-form-input" type="text" id="usernameUs" name="usernameUs" required><br/><br/>
 
                     <label for="Correo">Correo:</label>
-                    <input type="email" id="Correo" name="Correo" required><br/><br/>
+                    <input class="clase-form-input" type="email" id="Correo" name="Correo" required><br/><br/>
 
                     <label for="Contraseña">Contraseña:</label>
-                    <input type="password" id="Contraseña" name="Contraseña" required><br/><br/>
+                    <input class="clase-form-input" type="password" id="Contraseña" name="Contraseña" required><br/><br/>
 
                     <label for="Celular">Celular:</label>
-                    <input type="tel" id="Celular" name="Celular" required><br/><br/>
+                    <input class="clase-form-input" type="tel" id="Celular" name="Celular" required><br/><br/>
 
                     <label for="id_admin">Administrador:</label>
-                    <input type="text" id="id_admin" name="id_admin" required><br/><br/>
+                    <input class="clase-form-input" type="text" id="id_admin" name="id_admin" required><br/><br/>
 
                     <label for="fecha_de_nacimiento">Fecha de nacimiento:</label>
-                    <input type="date" id="fecha_de_nacimiento" name="fecha_de_nacimiento" value="2024-03-01" min="1924-03-01" max="2004-07-07" required><br/><br/>
+                    <input class="clase-form-input" type="date" id="fecha_de_nacimiento" name="fecha_de_nacimiento" value="2024-03-01" min="1924-03-01" max="2004-07-07" required><br/><br/>
 
                     <label for="especialidad">Especialidad:</label>
                     <select id="especialidad" name="especialidad" required>
@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="button-container">
-                    <input type="submit" value="Registrarse">
+                    <input class="btn btn-default" type="submit" value="Registrarse">
                 </div>
             </form>
         </div>
