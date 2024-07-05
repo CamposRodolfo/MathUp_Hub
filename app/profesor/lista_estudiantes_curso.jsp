@@ -36,7 +36,7 @@
     </div> <!-- Fin Navbar -->
 
     <main class="main-lista-profesores">
-		<h1>Lista de Estudiantes y sus Cursos</h1>
+		<br><h1>Lista de Estudiantes y sus Cursos</h1><br><br>
     <table border="1">
         <tr>
             <th>ID Curso</th>

@@ -39,7 +39,7 @@
 
     <main class="main main-login-general">
         <div class="contenedor-login">
-            <h2>Lista de Cursos</h2>
+            <br><h2>Lista de Cursos</h2><br><br>
             
             <table border="1">
                 <tr>
