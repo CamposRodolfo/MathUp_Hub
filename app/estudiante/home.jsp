@@ -17,7 +17,7 @@
 </head>
 <body class="body">
     <header>
-        <a class="logo" href="home.html"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
+        <a class="logo" href="home.jsp"><img src="../assets/Imagenes/MathUP.png" alt="logo"></a>
         <div class="social-icon">
             <a href="https://www.google.com/" target="_blank"><i class="fa fa-search"></i></a>
             <a href="https://www.instagram.com/math_up0/" target="_blank"><i class="fa fa-instagram"></i></a>
