@@ -44,7 +44,7 @@
             <div class="navbar-opcion dropdown-content">
                 <a href="lista_cursos.jsp">Lista de Cursos</a>
                 <a href="registro_curso.jsp">Registro de Cursos</a>
-                <a href="registro_leccion.jsp">Registar LecciÃ³n</a>
+                <a href="registro_leccion.jsp">Registar Lección</a>
             </div>
         </div>
         <a class="navbar-opcion" href="about.jsp">Sobre Nosotros</a>

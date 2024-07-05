@@ -47,7 +47,9 @@
         <a class="navbar-opcion" href="about.html">Sobre Nosotros</a>
     </div>
      <!-- Fin Navbar -->
-    <table border="1">
+    <div class="main">
+    	<h1>Su Listado de Cursos Creados</h1><br>
+    	<table border="1">
         <tr>
             <th>ID Curso</th>
             <th>Nombre</th>
@@ -94,6 +96,8 @@
             }
         %>
     </table>
+    </div>
+    
 <footer class="footer">
         <div class="footer_columna">
             <h4>MathUP</h4>
@@ -111,7 +115,9 @@
         </div>
         <div class="footer_columna">
             <h4>Derechos Reservados</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus esse magnam quis mollitia temporibus blanditiis, quia aliquid rerum sint exercitationem reiciendis nisi placeat itaque fuga dignissimos ipsam accusantium quasi officiis.</p>
+            <p>Este sitio web y su contenido son propiedad de MathUP. Está prohibida cualquier reproducción total o parcial, distribución, comunicación pública o transformación de cualquier contenido de este sitio sin la autorización previa y por escrito de MathUP. Todas las marcas comerciales y logotipos son propiedad de sus respectivos dueños.</p>
+
+			<p>Si tienes alguna pregunta o comentario sobre nuestros términos de uso, por favor contacta a nuestro equipo de soporte a través del correo electrónico: <a href="mailto:soporte@mathup.com">soporte@mathup.com</a>.</p>
         </div>
         <div class="footer_columna">
             <h4>Perfil</h4>
