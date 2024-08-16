@@ -371,7 +371,7 @@ tbody tr:hover {
 
 
 
-
+/* Portal */
 .portal {
     display: flex;
     justify-content: center;
@@ -402,7 +402,7 @@ tbody tr:hover {
     display: block;
     margin-top: 5px;
 } 
-
+/* Fin Portal */
 
 
 
